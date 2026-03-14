@@ -759,52 +759,58 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
   <div class="form-box">
     <div class="form-title">Formulário de Qualificação</div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Nome</label>
-        <input type="text" placeholder="Dr. Maria Silva">
+    <form id="lead-form" action="https://formspree.io/f/xgonlvpv" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-nome">Nome</label>
+          <input id="f-nome" name="nome" type="text" placeholder="Dr. Maria Silva" required>
+        </div>
+        <div class="form-group">
+          <label for="f-wa">WhatsApp</label>
+          <input id="f-wa" name="whatsapp" type="tel" placeholder="(48) 99999-9999" required>
+        </div>
       </div>
       <div class="form-group">
-        <label>WhatsApp</label>
-        <input type="tel" placeholder="(48) 99999-9999">
+        <label for="f-clinica">Nome da clínica</label>
+        <input id="f-clinica" name="clinica" type="text" placeholder="Clínica Estética X">
       </div>
-    </div>
-    <div class="form-group">
-      <label>Nome da clínica</label>
-      <input type="text" placeholder="Clínica Estética X">
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Investimento mensal em anúncios</label>
-        <select>
-          <option value="">Selecione</option>
-          <option>Ainda não invisto</option>
-          <option>R$ 1.500 – R$ 3.000</option>
-          <option>R$ 3.000 – R$ 5.000</option>
-          <option>R$ 5.000 – R$ 10.000</option>
-          <option>Acima de R$ 10.000</option>
-        </select>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-invest">Investimento mensal em anúncios</label>
+          <select id="f-invest" name="investimento">
+            <option value="">Selecione</option>
+            <option>Ainda não invisto</option>
+            <option>R$ 1.500 – R$ 3.000</option>
+            <option>R$ 3.000 – R$ 5.000</option>
+            <option>R$ 5.000 – R$ 10.000</option>
+            <option>Acima de R$ 10.000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="f-proc">Principal procedimento</label>
+          <select id="f-proc" name="procedimento">
+            <option value="">Selecione</option>
+            <option>Harmonização facial</option>
+            <option>Botox / Toxina botulínica</option>
+            <option>Skincare / Peelings</option>
+            <option>Bioestimuladores</option>
+            <option>Transplante capilar</option>
+            <option>Lipo HD</option>
+            <option>Cirurgia plástica</option>
+            <option>Outros</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Principal procedimento</label>
-        <select>
-          <option value="">Selecione</option>
-          <option>Harmonização facial</option>
-          <option>Botox / Toxina botulínica</option>
-          <option>Skincare / Peelings</option>
-          <option>Cirurgia plástica</option>
-          <option>Bioestimuladores</option>
-          <option>Outros</option>
-        </select>
-      </div>
-    </div>
-    <button class="form-submit" onclick="submitForm()">Solicitar análise gratuita →</button>
-    <p class="form-note">Seus dados são confidenciais. Retorno em até 24h úteis.</p>
+      <input type="hidden" name="_subject" value="Novo lead — LP Rodrigo Rocha Tráfego Estética">
+      <input type="hidden" name="_next" value="https://rodrigo-rocha-lp.vercel.app/?obrigado=1">
+      <button type="submit" class="form-submit" id="form-btn">Solicitar análise gratuita →</button>
+      <p class="form-note">Seus dados são confidenciais. Retorno em até 24h úteis.</p>
+    </form>
   </div>
 </section>
 
 <footer>
-  <div>© 2025 Rodrigo Rocha · Tráfego Pago para Clínicas de Estética · Florianópolis, SC</div>
+  <div>© 2025 Rodrigo Rocha · Tráfego Pago para Clínicas de Estética · Criciúma, SC</div>
   <div>
     <a href="https://www.instagram.com/rodrigorocha.ads/" target="_blank">@rodrigorocha.ads</a>
     &nbsp;·&nbsp;
@@ -839,23 +845,41 @@ document.querySelectorAll('.metodo-step,.servico-item,.quem-card,.cert-item').fo
   observer.observe(el);
 });
 
-function submitForm() {
-  const inputs = document.querySelectorAll('.form-group input, .form-group select');
-  const nome = inputs[0].value.trim();
-  const wa = inputs[1].value.trim();
-  if (!nome || !wa) {
-    alert('Por favor, preencha pelo menos nome e WhatsApp.');
-    return;
-  }
-  const clinica = inputs[2].value.trim();
-  const invest = inputs[3].value;
-  const proc = inputs[4].value;
-  let msg = `Olá, Rodrigo! Me chamo ${nome}`;
-  if (clinica) msg += `, da ${clinica}`;
-  if (invest) msg += `. Invisto ${invest} em anúncios`;
-  if (proc) msg += `. Meu principal procedimento é: ${proc}`;
-  msg += `. Quero agendar meu diagnóstico gratuito!`;
-  window.open(`https://wa.me/5548999291215?text=${encodeURIComponent(msg)}`, '_blank');
+// Formspree + WhatsApp duplo
+const form = document.getElementById('lead-form');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('form-btn');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    const nome = document.getElementById('f-nome').value.trim();
+    const wa = document.getElementById('f-wa').value.trim();
+    const clinica = document.getElementById('f-clinica').value.trim();
+    const invest = document.getElementById('f-invest').value;
+    const proc = document.getElementById('f-proc').value;
+
+    // Envia para Formspree (chega no seu email)
+    try {
+      await fetch('https://formspree.io/f/xgonlvpv', {
+        method: 'POST',
+        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+        body: JSON.stringify({nome, whatsapp: wa, clinica, investimento: invest, procedimento: proc})
+      });
+    } catch(err) { console.log('Formspree err', err); }
+
+    // Abre WhatsApp com a mensagem
+    let msg = `Olá, Rodrigo! Me chamo ${nome}`;
+    if (clinica) msg += `, da ${clinica}`;
+    if (invest) msg += `. Invisto ${invest} em anúncios`;
+    if (proc) msg += `. Principal procedimento: ${proc}`;
+    msg += `. Quero agendar meu diagnóstico gratuito!`;
+    window.open(`https://wa.me/5548999291215?text=${encodeURIComponent(msg)}`, '_blank');
+
+    btn.textContent = 'Enviado! Abrindo WhatsApp...';
+    setTimeout(() => { btn.textContent = 'Solicitar análise gratuita →'; btn.disabled = false; form.reset(); }, 3000);
+  });
 }
 </script>
 
