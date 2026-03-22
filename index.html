@@ -52,8 +52,10 @@ src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"
   --border:rgba(201,168,76,0.15);
   --border-strong:rgba(201,168,76,0.35);
 }
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--text);line-height:1.7;overflow-x:hidden;}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--text);line-height:1.7;overflow-x:hidden;max-width:100%;position:relative;}
+*{max-width:100%}
+img{max-width:100%;height:auto}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700}
 .serif-italic{font-family:'Playfair Display',serif;font-style:italic;font-weight:400}
 
@@ -93,12 +95,12 @@ nav .nav-logo,nav .nav-cta{pointer-events:auto}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);font-size:14px;text-decoration:none;border-bottom:1px solid var(--border-strong);padding-bottom:2px;transition:all .25s;letter-spacing:.3px;}
 .btn-secondary:hover{color:var(--gold);border-color:var(--gold)}
-.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:48px;border-top:1px solid var(--border);}
+.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:48px;border-top:1px solid var(--border);flex-wrap:wrap;}
 .stat-n{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px;}
 .stat-l{font-size:12px;color:var(--text-muted);letter-spacing:.5px;text-transform:uppercase}
 
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold),var(--gold-dim),transparent);margin:0;opacity:.4;}
-section{padding:100px 60px}
+section{padding:100px 60px;overflow-x:hidden;}
 .section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
 .section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
 .section-title{font-size:clamp(32px,4vw,48px);color:var(--text);line-height:1.15;margin-bottom:16px;}
@@ -116,7 +118,7 @@ section{padding:100px 60px}
 .metodo-step p{font-size:14px;color:var(--text-muted);font-weight:300;line-height:1.75}
 
 /* CQV DIAGRAM */
-.cqv-diagram{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin:40px 0 48px;background:var(--dark2);border:1px solid var(--border);padding:32px 36px;position:relative;overflow:hidden;}
+.cqv-diagram{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin:40px 0 48px;background:var(--dark2);border:1px solid var(--border);padding:32px 36px;position:relative;overflow:hidden;width:100%;box-sizing:border-box;}
 .cqv-diagram::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .cqv-node{display:flex;align-items:center;gap:16px;padding:20px 28px;flex:1;min-width:160px;position:relative;}
 .cqv-letra{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold);opacity:.15;line-height:1;flex-shrink:0;transition:opacity .3s;}
