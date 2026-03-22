@@ -6,7 +6,7 @@
   <title>Rodrigo Rocha | Gestor de Tráfego para Clínicas de Estética</title>
   <meta name="description" content="Método CQV para clínicas de estética médica. Meta Ads e Google Ads com foco em pacientes qualificados, não volume de lead." />
 
-  <!-- Google Analytics GA4 -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,33 +25,31 @@
     fbq('init','921979810687389');
     fbq('track','PageView');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/>
-  </noscript>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0a;
-      --bg2: #111111;
-      --bg3: #161616;
-      --border: rgba(255,255,255,0.07);
-      --text: #f0ece4;
-      --muted: #8a8580;
-      --accent: #c9a96e;
-      --accent2: #e8c98a;
-      --danger: #e05252;
-      --green: #4caf7d;
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --max: 860px;
-      --radius: 10px;
+      --bg:      #080808;
+      --bg2:     #0f0f0f;
+      --bg3:     #141414;
+      --border:  rgba(255,255,255,0.06);
+      --border2: rgba(255,255,255,0.10);
+      --text:    #ede9e0;
+      --muted:   #7a756d;
+      --faint:   #3a3630;
+      --gold:    #b8965a;
+      --gold2:   #d4b07a;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Figtree', system-ui, sans-serif;
+      --max:     820px;
+      --r:       8px;
     }
 
     html { scroll-behavior: smooth; }
@@ -66,506 +64,497 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 32px;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
+      padding: 20px 40px;
+      background: rgba(8,8,8,0.9);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--text);
-      display: flex; flex-direction: column; gap: 1px;
+    .nav-brand {
+      display: flex; flex-direction: column; gap: 2px;
     }
-    .nav-logo span {
-      font-family: var(--sans);
+    .nav-brand strong {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .nav-brand span {
       font-size: 0.68rem;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
-
     .nav-cta {
-      background: var(--accent);
-      color: #0a0a0a;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 9px 20px;
-      border-radius: 6px;
+      letter-spacing: 0.04em;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 9px 22px;
+      border-radius: var(--r);
       transition: background 0.2s;
-      white-space: nowrap;
     }
-    .nav-cta:hover { background: var(--accent2); }
+    .nav-cta:hover { background: var(--gold2); }
 
-    /* ─── HERO ─── */
+    /* HERO */
     .hero {
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 120px 32px 80px;
       max-width: var(--max);
       margin: 0 auto;
+      padding: 140px 40px 100px;
+      display: flex; flex-direction: column; justify-content: center;
     }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,169,110,0.1);
-      border: 1px solid rgba(201,169,110,0.25);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 32px;
-      width: fit-content;
+      color: var(--gold);
+      margin-bottom: 28px;
     }
-
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      line-height: 1.15;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
       color: var(--text);
-      margin-bottom: 24px;
-      max-width: 720px;
+      margin-bottom: 28px;
     }
     .hero h1 em {
       font-style: italic;
-      color: var(--accent);
+      color: var(--gold);
     }
-
     .hero-sub {
-      font-size: 1.05rem;
-      color: #b0ab9f;
-      max-width: 560px;
-      margin-bottom: 40px;
-      line-height: 1.7;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 44px;
     }
-
     .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+      display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
     }
-
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent);
-      color: #0a0a0a;
-      font-size: 0.95rem;
+      display: inline-block;
+      font-size: 0.88rem;
       font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 8px;
+      letter-spacing: 0.02em;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 14px 30px;
+      border-radius: var(--r);
       transition: background 0.2s, transform 0.15s;
     }
-    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
     .btn-ghost {
-      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem;
       color: var(--muted);
-      font-size: 0.9rem;
-      border-bottom: 1px solid transparent;
+      border-bottom: 1px solid var(--faint);
+      padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
     .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
 
-    .hero-stats {
-      display: flex; flex-wrap: wrap; gap: 0;
-      margin-top: 64px;
+    .hero-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       overflow: hidden;
+      margin-top: 72px;
     }
-    .stat {
-      flex: 1; min-width: 140px;
-      padding: 24px 28px;
+    .bar-item {
+      padding: 28px 32px;
       border-right: 1px solid var(--border);
     }
-    .stat:last-child { border-right: none; }
-    .stat-num {
+    .bar-item:last-child { border-right: none; }
+    .bar-num {
       font-family: var(--serif);
-      font-size: 2rem;
-      color: var(--accent);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--gold);
       line-height: 1;
       margin-bottom: 6px;
     }
-    .stat-label { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+    .bar-label { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
-    /* ─── SECTIONS ─── */
-    section { padding: 96px 32px; }
+    /* SECTIONS */
+    section { padding: 100px 40px; }
     .container { max-width: var(--max); margin: 0 auto; }
-
-    .section-tag {
-      font-size: 0.72rem;
+    .section-label {
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-      line-height: 1.2;
-      color: var(--text);
+      color: var(--gold);
       margin-bottom: 20px;
     }
-
-    .lead {
-      font-size: 1.05rem;
-      color: #b0ab9f;
-      max-width: 600px;
-      line-height: 1.75;
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .body-lead {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 580px;
+      line-height: 1.8;
     }
 
-    /* ─── MÉTODO CQV ─── */
+    /* MÉTODO CQV */
     #metodo { background: var(--bg2); }
 
-    .cqv-steps {
+    .cqv-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       overflow: hidden;
-      margin: 48px 0;
+      margin: 52px 0 32px;
     }
-    .cqv-step {
+    .cqv-col {
       background: var(--bg3);
-      padding: 36px 28px;
-      position: relative;
+      padding: 40px 32px;
     }
     .cqv-letter {
       font-family: var(--serif);
-      font-size: 3rem;
-      color: rgba(201,169,110,0.15);
+      font-size: 4rem;
+      font-weight: 400;
+      color: var(--faint);
       line-height: 1;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
-    .cqv-step h3 {
-      font-size: 1rem;
+    .cqv-col h3 {
+      font-size: 0.95rem;
       font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--text);
+      margin-bottom: 12px;
     }
-    .cqv-step p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-    .cqv-accent {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
+    .cqv-col p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
 
-    .cqv-insight {
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      background: rgba(201,169,110,0.04);
-      border-radius: 0 var(--radius) var(--radius) 0;
+    .callout {
+      border-left: 2px solid var(--gold);
       padding: 20px 24px;
-      margin-top: 32px;
+      background: rgba(184,150,90,0.04);
+      border-radius: 0 var(--r) var(--r) 0;
     }
-    .cqv-insight p {
-      font-size: 0.9rem;
-      color: #b0ab9f;
-      line-height: 1.6;
-    }
-    .cqv-insight strong { color: var(--accent); }
+    .callout p { font-size: 0.9rem; color: #a09880; line-height: 1.7; }
+    .callout strong { color: var(--text); font-weight: 500; }
 
-    /* ─── INSIGHTS (substituto de prova social) ─── */
+    /* INSIGHTS */
     #insights { background: var(--bg); }
 
     .insights-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      margin-top: 40px;
-    }
-    .insight-card {
-      background: var(--bg3);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-top: 48px;
     }
-    .insight-card .icon {
-      font-size: 1.4rem;
-      margin-bottom: 14px;
+    .insight-col {
+      background: var(--bg3);
+      padding: 36px 28px;
     }
-    .insight-card h4 {
+    .insight-num {
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .insight-col h4 {
       font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
-    .insight-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .insight-col p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
-    /* ─── QUALIFICAÇÃO ─── */
-    #qualificacao { background: var(--bg2); }
+    /* MID CTA */
+    .mid-cta {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 72px 40px;
+    }
+    .mid-cta .container {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 24px;
+    }
+    .mid-cta h2 { margin-bottom: 0; }
+    .mid-cta .note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* QUALIFICAÇÃO */
+    #qualificacao { background: var(--bg); }
 
     .qual-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .qual-card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-    }
-    .qual-card.sim { border-top: 2px solid var(--green); }
-    .qual-card.nao { border-top: 2px solid rgba(224,82,82,0.4); }
-
-    .qual-card h3 {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .qual-card.sim h3 { color: var(--green); }
-    .qual-card.nao h3 { color: var(--danger); opacity: 0.7; }
-
-    .qual-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .qual-list li {
-      font-size: 0.9rem;
-      color: #b0ab9f;
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .qual-list li::before {
-      position: absolute; left: 0;
-      font-size: 0.85rem;
-    }
-    .sim .qual-list li::before { content: '→'; color: var(--green); }
-    .nao .qual-list li::before { content: '–'; color: var(--danger); opacity: 0.6; }
-
-    /* ─── QUEM SOU ─── */
-    #sobre { background: var(--bg); }
-
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-top: 40px;
-    }
-    .sobre-foto {
-      width: 200px;
-      height: 240px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      filter: grayscale(20%);
-    }
-    .sobre-texto p {
-      font-size: 0.95rem;
-      color: #b0ab9f;
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .sobre-texto strong { color: var(--text); }
-    .sobre-tags {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-top: 24px;
-    }
-    .tag {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--muted);
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      border-radius: 100px;
-    }
-
-    /* ─── COMO FUNCIONA ─── */
-    #como-funciona { background: var(--bg2); }
-
-    .funciona-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       overflow: hidden;
-      margin-top: 40px;
+      margin-top: 48px;
+    }
+    .qual-col {
+      background: var(--bg3);
+      padding: 40px 36px;
+    }
+    .qual-col h3 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .qual-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .qual-list li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 12px;
+    }
+    .qual-list li .mark {
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .qual-col.nao .qual-list li .mark { color: var(--faint); }
+
+    /* SOBRE */
+    #sobre { background: var(--bg2); }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 52px;
+    }
+    .sobre-foto-wrap {
+      position: relative;
+    }
+    .sobre-foto {
+      width: 220px;
+      height: 280px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--r);
+      border: 1px solid var(--border);
+      filter: grayscale(15%) contrast(1.02);
+    }
+    .sobre-texto p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .sobre-texto strong { color: var(--text); font-weight: 500; }
+    .tag-row {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 28px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 100px;
+    }
+    .ig-link {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    /* COMO FUNCIONA */
+    #como-funciona { background: var(--bg); }
+
+    .funciona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-top: 48px;
     }
     .funciona-item {
       background: var(--bg3);
-      padding: 28px 24px;
+      padding: 32px 28px;
     }
     .funciona-item h4 {
-      font-size: 0.85rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 8px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 0.72rem;
+      color: var(--gold);
+      margin-bottom: 12px;
     }
-    .funciona-item p { font-size: 0.88rem; color: #b0ab9f; line-height: 1.55; }
+    .funciona-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
 
-    .vagas-box {
-      margin-top: 32px;
-      background: rgba(201,169,110,0.06);
-      border: 1px solid rgba(201,169,110,0.2);
-      border-radius: var(--radius);
-      padding: 24px 28px;
+    .vagas-strip {
+      margin-top: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 36px;
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
+      flex-wrap: wrap; gap: 20px;
+      background: var(--bg2);
     }
-    .vagas-box p { font-size: 0.9rem; color: #b0ab9f; max-width: 500px; }
-    .vagas-box strong { color: var(--accent); }
+    .vagas-strip p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+    .vagas-strip strong { color: var(--text); font-weight: 500; }
 
-    /* ─── GARANTIA ─── */
-    #garantia { background: var(--bg); }
+    /* GARANTIA */
+    #garantia { background: var(--bg2); }
 
     .garantia-box {
+      margin-top: 48px;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 48px;
-      margin-top: 40px;
+      border-radius: var(--r);
+      padding: 52px;
       position: relative;
       overflow: hidden;
     }
     .garantia-box::before {
       content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(201,169,110,0.05) 0%, transparent 60%);
-      pointer-events: none;
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
-    .garantia-quote {
+    blockquote {
       font-family: var(--serif);
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      color: var(--text);
-      line-height: 1.55;
-      margin-bottom: 20px;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-weight: 400;
       font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 24px;
       max-width: 680px;
     }
-    .garantia-note { font-size: 0.85rem; color: var(--muted); line-height: 1.6; max-width: 580px; }
-
-    /* ─── MID CTA ─── */
-    .mid-cta {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 64px 32px;
+    .garantia-fine {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
     }
-    .mid-cta .container {
-      text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
-    }
-    .mid-cta p { font-size: 0.88rem; color: var(--muted); }
 
-    /* ─── FAQ ─── */
+    /* FAQ */
     #faq { background: var(--bg); }
 
-    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 1px; }
+    .faq-wrap { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
     .faq-item {
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+      border-radius: var(--r);
       background: var(--bg3);
+      overflow: hidden;
     }
-    .faq-item + .faq-item { margin-top: 8px; }
-
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-align: left;
-      padding: 22px 24px;
+    .faq-item + .faq-item { margin-top: 6px; }
+    .faq-btn {
+      width: 100%; background: none; border: none;
+      color: var(--text); font-family: var(--sans);
+      font-size: 0.92rem; font-weight: 400;
+      text-align: left; padding: 22px 28px;
       cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
       transition: color 0.2s;
     }
-    .faq-q:hover { color: var(--accent); }
-    .faq-chevron {
-      font-size: 1rem;
-      transition: transform 0.25s;
-      flex-shrink: 0;
-      color: var(--muted);
+    .faq-btn:hover { color: var(--gold); }
+    .faq-icon {
+      width: 20px; height: 20px; flex-shrink: 0;
+      border: 1px solid var(--faint); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; color: var(--muted);
+      transition: transform 0.25s, border-color 0.2s;
     }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--accent); }
-
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
+    .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); color: var(--gold); }
+    .faq-body {
+      max-height: 0; overflow: hidden;
       transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 24px;
+      padding: 0 28px;
     }
-    .faq-item.open .faq-a {
-      max-height: 400px;
-      padding: 0 24px 22px;
-    }
-    .faq-a p { font-size: 0.9rem; color: #b0ab9f; line-height: 1.7; }
+    .faq-item.open .faq-body { max-height: 360px; padding: 0 28px 22px; }
+    .faq-body p { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
 
-    /* ─── FINAL CTA ─── */
+    /* FINAL CTA */
     #cta-final {
       background: var(--bg2);
       border-top: 1px solid var(--border);
-      padding: 100px 32px;
+      padding: 120px 40px;
+      text-align: center;
     }
-    #cta-final .container { text-align: center; max-width: 640px; }
-    #cta-final h2 { margin-bottom: 16px; }
-    #cta-final .lead { margin: 0 auto 12px; }
-    .cta-note {
-      font-size: 0.82rem;
+    #cta-final .container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    #cta-final .body-lead { text-align: center; margin: 0 auto; }
+    .fine {
+      font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 16px;
+      line-height: 1.6;
     }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
-      padding: 32px;
+      padding: 28px 40px;
       border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
     }
-    footer p { font-size: 0.8rem; color: var(--muted); }
-    footer a { color: var(--muted); transition: color 0.2s; }
+    footer p, footer a { font-size: 0.78rem; color: var(--muted); }
     footer a:hover { color: var(--text); }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      max-width: var(--max);
-      margin: 0 auto;
-      border: none;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 680px) {
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
       nav { padding: 16px 20px; }
-      .hero { padding: 100px 20px 60px; }
+      .hero { padding: 110px 20px 72px; }
       section { padding: 72px 20px; }
-      .cqv-steps { grid-template-columns: 1fr; }
+      .mid-cta { padding: 64px 20px; }
+      #cta-final { padding: 88px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+
+      .hero-bar { grid-template-columns: 1fr; }
+      .bar-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .bar-item:last-child { border-bottom: none; }
+
+      .cqv-grid, .insights-grid, .funciona-grid { grid-template-columns: 1fr; }
       .qual-grid { grid-template-columns: 1fr; }
       .sobre-grid { grid-template-columns: 1fr; }
-      .sobre-foto { width: 100%; height: 260px; }
-      .hero-stats { flex-direction: column; }
-      .stat { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat:last-child { border-bottom: none; }
+      .sobre-foto { width: 100%; height: 300px; object-position: center 15%; }
       .garantia-box { padding: 32px 24px; }
-      footer { flex-direction: column; text-align: center; }
+      .vagas-strip { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -573,43 +562,44 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    Rodrigo Rocha
+  <div class="nav-brand">
+    <strong>Rodrigo Rocha</strong>
     <span>Método CQV · Estética Médica</span>
   </div>
-  <a class="nav-cta" href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20agendar%20a%20análise%20estratégica%20gratuita."
+  <a class="nav-cta"
+     href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20agendar%20a%20análise%20estratégica%20gratuita."
      onclick="fbq('track','Lead'); gtag('event','cta_nav_click');">
-    Análise gratuita →
+    Análise gratuita
   </a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">✦ Método CQV · Estética Médica</div>
+  <p class="eyebrow">Método CQV · Estética Médica</p>
   <h1>Sua recepção está cheia de <em>"vou pensar"</em>. E a agenda, com buracos.</h1>
   <p class="hero-sub">
-    Meta e Google Ads com método que filtra curioso antes de chegar na recepção — para clínicas de médio e alto valor que querem agenda cheia sem depender de indicação.
+    Meta e Google Ads com método que filtra curioso antes de chegar na recepção. Para clínicas de médio e alto valor que querem agenda previsível sem depender de indicação.
   </p>
   <div class="hero-actions">
     <a class="btn-primary"
-       href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20saber%20se%20minha%20clínica%20tem%20perfil."
+       href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Quero%20saber%20se%20minha%20clínica%20tem%20perfil%20para%20o%20Método%20CQV."
        onclick="fbq('track','Lead'); gtag('event','cta_hero_click');">
-      Quero saber se minha clínica tem perfil →
+      Quero saber se minha clínica tem perfil
     </a>
-    <a class="btn-ghost" href="#metodo">Ver o método ↓</a>
+    <a class="btn-ghost" href="#metodo">Ver o método</a>
   </div>
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">8</div>
-      <div class="stat-label">Clínicas atendidas por vez (máx.)</div>
+  <div class="hero-bar">
+    <div class="bar-item">
+      <div class="bar-num">8</div>
+      <div class="bar-label">Clínicas atendidas por vez (máximo)</div>
     </div>
-    <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Dedicação sem terceirização</div>
+    <div class="bar-item">
+      <div class="bar-num">100%</div>
+      <div class="bar-label">Dedicação sem terceirização</div>
     </div>
-    <div class="stat">
-      <div class="stat-num">CQV</div>
-      <div class="stat-label">Método proprietário de captação qualificada</div>
+    <div class="bar-item">
+      <div class="bar-num">CQV</div>
+      <div class="bar-label">Método proprietário de captação qualificada</div>
     </div>
   </div>
 </div>
@@ -617,60 +607,53 @@
 <!-- MÉTODO CQV -->
 <section id="metodo">
   <div class="container">
-    <p class="section-tag">Metodologia</p>
+    <p class="section-label">Metodologia</p>
     <h2>O Método CQV</h2>
-    <p class="lead">
-      Três etapas que eliminam o lead errado antes de chegar na recepção. Na prática: menos curioso, mais paciente pronto para fechar.
-    </p>
-    <div class="cqv-steps">
-      <div class="cqv-step">
+    <p class="body-lead">Três etapas que eliminam o lead errado antes de chegar na recepção. Na prática: menos curioso, mais paciente pronto para fechar.</p>
+    <div class="cqv-grid">
+      <div class="cqv-col">
         <div class="cqv-letter">C</div>
-        <span class="cqv-accent">Captação</span>
-        <h3>Atrair quem pode pagar</h3>
+        <h3>Captação — atrair quem pode pagar</h3>
         <p>Campanhas no Meta e Google Ads voltadas a pacientes com interesse real no procedimento e perfil compatível com a proposta da clínica. Foco em qualidade de contato, não volume.</p>
       </div>
-      <div class="cqv-step">
+      <div class="cqv-col">
         <div class="cqv-letter">Q</div>
-        <span class="cqv-accent">Qualificação</span>
-        <h3>Pacientes que não brigam por preço</h3>
+        <h3>Qualificação — pacientes que não brigam por preço</h3>
         <p>Estrutura que separa rapidamente quem tem perfil de quem ainda não está no momento certo. Sua recepção concentra esforço em conversas com real chance de agendamento.</p>
       </div>
-      <div class="cqv-step">
+      <div class="cqv-col">
         <div class="cqv-letter">V</div>
-        <span class="cqv-accent">Venda</span>
-        <h3>Agenda previsível, todo mês</h3>
+        <h3>Venda — agenda previsível, todo mês</h3>
         <p>Otimização contínua do funil até você ter entrada constante de pacientes qualificados. Relatórios reais, decisões baseadas em número. Sem achismo.</p>
       </div>
     </div>
-    <div class="cqv-insight">
-      <p>✦ &nbsp;<strong>Menos lead errado. Mais procedimento fechado.</strong> O problema da maioria das clínicas não é falta de lead — é excesso de lead desqualificado ocupando tempo da recepção.</p>
+    <div class="callout">
+      <p>O problema da maioria das clínicas não é falta de lead. É <strong>excesso de lead desqualificado ocupando tempo da recepção</strong>. O Método CQV atua exatamente nessa camada.</p>
     </div>
   </div>
 </section>
 
-<!-- INSIGHTS (substituto de prova social) -->
+<!-- INSIGHTS -->
 <section id="insights">
   <div class="container">
-    <p class="section-tag">O que a análise revela</p>
+    <p class="section-label">O que a análise revela</p>
     <h2>O que clínicas costumam descobrir na conversa inicial</h2>
-    <p class="lead">
-      Na análise estratégica gratuita, a maioria das clínicas identifica pelo menos um desses problemas — e muitas vezes não sabem que ele está acontecendo.
-    </p>
+    <p class="body-lead">Na análise estratégica gratuita, a maioria dos gestores identifica pelo menos um desses padrões — muitas vezes sem saber que estava acontecendo.</p>
     <div class="insights-grid">
-      <div class="insight-card">
-        <div class="icon">📉</div>
-        <h4>CPL parece OK. Custo por procedimento, não.</h4>
-        <p>O custo por lead pode parecer razoável, mas o custo por procedimento efetivamente fechado costuma ser 3–5× acima do viável quando o lead é desqualificado.</p>
+      <div class="insight-col">
+        <p class="insight-num">01</p>
+        <h4>CPL parece razoável. Custo por procedimento, não.</h4>
+        <p>Quando o lead é desqualificado, o custo por procedimento efetivamente fechado costuma ser três a cinco vezes acima do viável. O número que importa raramente está no painel.</p>
       </div>
-      <div class="insight-card">
-        <div class="icon">⏱️</div>
-        <h4>Velocidade de resposta mata a conversão</h4>
-        <p>Lead respondido fora da janela ideal (primeiros 15 min) tem taxa de conversão drasticamente menor. Muitas clínicas perdem 40–60% dos contatos por atraso no atendimento.</p>
+      <div class="insight-col">
+        <p class="insight-num">02</p>
+        <h4>Velocidade de resposta é o maior gargalo de conversão.</h4>
+        <p>Lead respondido fora da janela ideal perde interesse rapidamente. Muitas clínicas perdem boa parte dos contatos simplesmente pelo tempo de retorno — não pela oferta.</p>
       </div>
-      <div class="insight-card">
-        <div class="icon">🎯</div>
-        <h4>O criativo que gera clique não é o que gera agenda</h4>
-        <p>Anúncio com alto CTR nem sempre atrai o perfil certo. Otimizar só por clique é um dos erros mais comuns — e mais caros — em campanhas para estética.</p>
+      <div class="insight-col">
+        <p class="insight-num">03</p>
+        <h4>O criativo que gera clique não é o que gera agenda.</h4>
+        <p>Otimizar por CTR atrai perfil errado. Um dos erros mais caros em campanhas para estética é confundir engajamento com intenção de procedimento.</p>
       </div>
     </div>
   </div>
@@ -679,62 +662,62 @@
 <!-- MID CTA -->
 <div class="mid-cta">
   <div class="container">
-    <h2 style="font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2rem);">
-      20 minutos. Diagnóstico real do seu funil atual. Sem enrolação.
-    </h2>
+    <h2>20 minutos. Diagnóstico real do seu funil. Sem enrolação.</h2>
     <a class="btn-primary"
        href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20agendar%20a%20análise%20estratégica%20gratuita."
        onclick="fbq('track','Lead'); gtag('event','cta_mid_click');">
-      Verificar se tenho vaga disponível →
+      Verificar se tenho vaga disponível
     </a>
-    <p>Análise gratuita · Sem compromisso · Sem pitch de vendas no meio</p>
+    <p class="note">Análise gratuita · Sem compromisso · Sem pitch de vendas</p>
   </div>
 </div>
 
 <!-- QUALIFICAÇÃO -->
 <section id="qualificacao">
   <div class="container">
-    <p class="section-tag">Qualificação</p>
+    <p class="section-label">Qualificação</p>
     <h2>Este serviço não é para todos</h2>
-    <p class="lead">Tráfego pago é investimento, não gasto. Antes de qualquer conversa, deixo claro quem realmente se beneficia do método.</p>
+    <p class="body-lead">Tráfego pago é investimento, não gasto. Antes de qualquer conversa, deixo claro quem realmente se beneficia do método.</p>
     <div class="qual-grid">
-      <div class="qual-card sim">
-        <h3>✓ Para você se</h3>
+      <div class="qual-col sim">
+        <h3>Para você se</h3>
         <ul class="qual-list">
-          <li>Trabalha com procedimentos de médio ou alto valor e quer atrair pacientes com real potencial de fechamento</li>
-          <li>Quer crescer com previsibilidade, sem depender só de indicação</li>
-          <li>Tem estrutura para atender mais pacientes imediatamente</li>
-          <li>Está disposto a investir em tráfego pago de forma séria</li>
-          <li>Quer resultados reais, não promessas de guru</li>
+          <li><span class="mark">+</span><span>Trabalha com procedimentos de médio ou alto valor e quer atrair pacientes com real potencial de fechamento</span></li>
+          <li><span class="mark">+</span><span>Quer crescer com previsibilidade, sem depender só de indicação</span></li>
+          <li><span class="mark">+</span><span>Tem estrutura para atender mais pacientes imediatamente</span></li>
+          <li><span class="mark">+</span><span>Está disposto a investir em tráfego pago de forma séria</span></li>
+          <li><span class="mark">+</span><span>Quer resultados reais, não promessas de guru</span></li>
         </ul>
       </div>
-      <div class="qual-card nao">
-        <h3>✕ Não é para você se</h3>
+      <div class="qual-col nao">
+        <h3>Não é para você se</h3>
         <ul class="qual-list">
-          <li>Quer "testar com R$ 200–300/mês" em anúncios</li>
-          <li>Não tem tempo para responder leads no mesmo dia</li>
-          <li>Espera resultado em 3 dias</li>
-          <li>Procura curso, consultoria ou mentoria</li>
-          <li>Quer desconto em procedimentos para atrair mais clientes</li>
+          <li><span class="mark">·</span><span>Quer testar com R$ 200–300 por mês em anúncios</span></li>
+          <li><span class="mark">·</span><span>Não tem tempo para responder leads no mesmo dia</span></li>
+          <li><span class="mark">·</span><span>Espera resultado em três dias</span></li>
+          <li><span class="mark">·</span><span>Procura curso, consultoria ou mentoria</span></li>
+          <li><span class="mark">·</span><span>Quer desconto em procedimentos para atrair mais clientes</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QUEM SOU -->
+<!-- SOBRE -->
 <section id="sobre">
   <div class="container">
-    <p class="section-tag">Quem está por trás</p>
+    <p class="section-label">Quem está por trás</p>
     <h2>Sou Rodrigo Rocha. Gestor de tráfego especializado em estética médica.</h2>
     <div class="sobre-grid">
-      <img class="sobre-foto" src="foto.jpeg" alt="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Estética" />
+      <div class="sobre-foto-wrap">
+        <img class="sobre-foto" src="foto.jpeg" alt="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Estética" />
+      </div>
       <div class="sobre-texto">
         <p>Desenvolvi o Método CQV depois de perceber que o problema das clínicas não era falta de lead. Era <strong>excesso de lead errado</strong>.</p>
         <p>Recepcionista perdendo tempo com curioso, agenda cheia de "vou pensar" e investimento em tráfego que não se converte em procedimento.</p>
         <p>Minha especialização é exclusiva em <strong>clínicas de estética e cirurgia plástica</strong>. Não atendo e-commerce, infoproduto ou restaurante. Conheço o ciclo de decisão do paciente, a sazonalidade dos procedimentos e as regras do CFM para anúncios na área da saúde.</p>
-        <p><strong>Atendo no máximo 8 clínicas por vez</strong> para garantir dedicação real a cada cliente. Não terceirizo campanhas. Não tenho equipe escondida. Sou eu quem analisa, otimiza e reporta. Toda semana.</p>
-        <div class="sobre-tags">
+        <p><strong>Atendo no máximo 8 clínicas por vez</strong> para garantir dedicação real a cada cliente. Não terceirizo campanhas. Sou eu quem analisa, otimiza e reporta. Toda semana.</p>
+        <div class="tag-row">
           <span class="tag">Estética Médica</span>
           <span class="tag">Meta Ads</span>
           <span class="tag">Google Ads</span>
@@ -742,9 +725,7 @@
           <span class="tag">CFM-Compliance</span>
           <span class="tag">Método CQV</span>
         </div>
-        <p style="margin-top: 20px; font-size: 0.85rem;">
-          <a href="https://instagram.com/rodrigorocha.ads" style="color: var(--accent);" target="_blank" rel="noopener">@rodrigorocha.ads</a>
-        </p>
+        <a class="ig-link" href="https://instagram.com/rodrigorocha.ads" target="_blank" rel="noopener">@rodrigorocha.ads</a>
       </div>
     </div>
   </div>
@@ -753,7 +734,7 @@
 <!-- COMO FUNCIONA -->
 <section id="como-funciona">
   <div class="container">
-    <p class="section-tag">Estrutura de trabalho</p>
+    <p class="section-label">Estrutura de trabalho</p>
     <h2>Como funciona na prática</h2>
     <div class="funciona-grid">
       <div class="funciona-item">
@@ -766,27 +747,27 @@
       </div>
       <div class="funciona-item">
         <h4>Sem intermediário</h4>
-        <p>Você fala direto com quem tocou na campanha. Sem terceirização, sem explicar duas vezes. Sou eu quem analisa, otimiza e reporta. Toda semana.</p>
+        <p>Você fala direto com quem tocou na campanha. Sem terceirização, sem explicar duas vezes. Toda semana.</p>
       </div>
       <div class="funciona-item">
         <h4>Contrato de 3 meses</h4>
-        <p>O resultado real começa no terceiro mês. Sair antes seria desperdiçar os dois primeiros — quando os dados já estão maduros.</p>
+        <p>O resultado real começa no terceiro mês. Sair antes é desperdiçar os dois primeiros — quando os dados já estão maduros.</p>
       </div>
       <div class="funciona-item">
         <h4>CFM-Compliance</h4>
-        <p>Campanhas dentro das regras do CFM — sem risco de conta bloqueada por anúncio proibido na área da saúde.</p>
+        <p>Campanhas dentro das regras do CFM. Sem risco de conta bloqueada por anúncio proibido na área da saúde.</p>
       </div>
       <div class="funciona-item">
         <h4>Limite de 8 clínicas</h4>
-        <p>Máximo 8 clínicas simultâneas. Quando fechar, encerro inscrições. Sem data de retorno.</p>
+        <p>Quando fechar as vagas, encerro inscrições sem data de retorno. Quem entra agora tem atenção 100% focada.</p>
       </div>
     </div>
-    <div class="vagas-box">
-      <p>Quando fechar as 8 vagas, encerro inscrições sem data de retorno. <strong>Quem entra agora tem acesso a condição de fundador: minha atenção 100% focada.</strong></p>
+    <div class="vagas-strip">
+      <p>Quando fechar as 8 vagas, encerro inscrições sem data de retorno. <strong>Quem entra agora tem condição de fundador: atenção integral e preço que não vai se repetir.</strong></p>
       <a class="btn-primary"
          href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20garantir%20minha%20vaga."
          onclick="fbq('track','Lead'); gtag('event','cta_vagas_click');">
-        Garantir minha vaga →
+        Garantir minha vaga
       </a>
     </div>
   </div>
@@ -795,14 +776,14 @@
 <!-- GARANTIA -->
 <section id="garantia">
   <div class="container">
-    <p class="section-tag">✦ Garantia de processo</p>
+    <p class="section-label">Garantia de processo</p>
     <h2>Prometo processo, não milagre</h2>
-    <p class="lead">Resultado em tráfego pago depende de variáveis reais: verba de mídia, oferta da clínica, velocidade de atendimento. O que eu controlo — e me comprometo a entregar — é processo rigoroso, transparência total e dados reais.</p>
+    <p class="body-lead">Resultado em tráfego pago depende de variáveis reais: verba de mídia, oferta da clínica, velocidade de atendimento. O que eu controlo — e me comprometo a entregar — é processo rigoroso, transparência total e dados reais.</p>
     <div class="garantia-box">
-      <p class="garantia-quote">
+      <blockquote>
         "Se em 60 dias de trabalho ativo você não enxergar dados reais de progresso — CPL, taxa de conversão, qualidade de lead — o contrato encerra sem multa e sem enrolação."
-      </p>
-      <p class="garantia-note">
+      </blockquote>
+      <p class="garantia-fine">
         Transparência e dados reais estão sob meu controle. O resto construímos juntos. Isso não é promessa de resultado — é compromisso com processo.
       </p>
     </div>
@@ -812,57 +793,57 @@
 <!-- FAQ -->
 <section id="faq">
   <div class="container">
-    <p class="section-tag">Perguntas frequentes</p>
+    <p class="section-label">Perguntas frequentes</p>
     <h2>Dúvidas comuns</h2>
-    <div class="faq-list">
+    <div class="faq-wrap">
 
       <div class="faq-item">
-        <button class="faq-q">
+        <button class="faq-btn">
           Qual o investimento mínimo em mídia?
-          <span class="faq-chevron">▾</span>
+          <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">
-          <p>Não trabalho com menos de R$ 1.500/mês em verba de mídia. Abaixo disso os dados não são suficientes para otimização real e o resultado fica comprometido. O valor exato depende do porte da clínica, ticket médio dos procedimentos e objetivos. Definimos juntos na análise estratégica.</p>
+        <div class="faq-body">
+          <p>Não trabalho com menos de R$ 1.500 por mês em verba de mídia. Abaixo disso os dados não são suficientes para otimização real e o resultado fica comprometido. O valor exato depende do porte da clínica, ticket médio dos procedimentos e objetivos. Definimos juntos na análise estratégica.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q">
+        <button class="faq-btn">
           Por que contrato de 3 meses?
-          <span class="faq-chevron">▾</span>
+          <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-body">
           <p>Tráfego pago tem curva de aprendizado. O primeiro mês é de estruturação e coleta de dados. O segundo é de otimização com base em dados reais. O terceiro é onde você começa a ver previsibilidade. Contrato menor que isso significa sair exatamente quando o trabalho começaria a dar retorno.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q">
+        <button class="faq-btn">
           Você trabalha com qual tipo de procedimento?
-          <span class="faq-chevron">▾</span>
+          <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-body">
           <p>Qualquer procedimento de médio ou alto valor em clínicas de estética e cirurgia plástica, desde que a clínica tenha estrutura para fechar e atender o volume de agenda que vamos gerar. Não trabalho com clínicas que competem exclusivamente por preço baixo.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q">
+        <button class="faq-btn">
           Como funciona a análise estratégica gratuita?
-          <span class="faq-chevron">▾</span>
+          <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-body">
           <p>É uma conversa de 20 minutos via WhatsApp ou videochamada. Você me conta sobre a clínica: faturamento atual, procedimentos, estrutura de atendimento. Eu analiso e te digo com honestidade se faz sentido trabalharmos juntos e, se sim, qual seria o caminho. Sem pitch de vendas no meio.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q">
-          Você está começando a carteira — por que eu deveria ser seu primeiro cliente?
-          <span class="faq-chevron">▾</span>
+        <button class="faq-btn">
+          Você está começando a carteira. Por que eu deveria ser seu primeiro cliente?
+          <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">
-          <p>Pergunta direta, resposta direta: quem entra agora tem algo que clientes futuros não terão — minha atenção 100% focada, sem a distração de uma carteira grande, e um preço que vai subir conforme o histórico cresce. Se você quer entrar quando já tiver fila de espera, pode aguardar. Se quer entrar com condição de fundador, esse é o momento.</p>
+        <div class="faq-body">
+          <p>Pergunta direta, resposta direta: quem entra agora tem algo que clientes futuros não terão. Atenção 100% focada, sem a distração de uma carteira grande, e um preço que vai subir conforme o histórico cresce. Se você quer entrar quando já tiver fila de espera, pode aguardar. Se quer entrar com condição de fundador, esse é o momento.</p>
         </div>
       </div>
 
@@ -873,16 +854,15 @@
 <!-- FINAL CTA -->
 <section id="cta-final">
   <div class="container">
-    <p class="section-tag">Vagas limitadas · Máximo 8 clínicas por vez</p>
+    <p class="section-label">Vagas limitadas · Máximo 8 clínicas por vez</p>
     <h2>Sua clínica merece uma agenda previsível.</h2>
-    <p class="lead">20 minutos de conversa. Diagnóstico real. Sem enrolação.</p>
+    <p class="body-lead">20 minutos de conversa. Diagnóstico real. Sem enrolação.</p>
     <a class="btn-primary"
-       style="margin-top: 8px;"
        href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20garantir%20minha%20vaga%20na%20análise%20gratuita."
        onclick="fbq('track','Lead'); gtag('event','cta_final_click');">
-      Garantir minha vaga — análise gratuita →
+      Garantir minha vaga — análise gratuita
     </a>
-    <p class="cta-note">Sem risco: se em 60 dias você não tiver dados reais para decidir, o contrato encerra sem multa.</p>
+    <p class="fine">Sem risco: se em 60 dias você não tiver dados reais para decidir, o contrato encerra sem multa.</p>
   </div>
 </section>
 
@@ -893,8 +873,7 @@
 </footer>
 
 <script>
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(btn => {
+  document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
