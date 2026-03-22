@@ -36,16 +36,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #080808;
-      --bg2:     #0f0f0f;
-      --bg3:     #141414;
-      --border:  rgba(255,255,255,0.06);
-      --border2: rgba(255,255,255,0.10);
-      --text:    #ede9e0;
-      --muted:   #7a756d;
-      --faint:   #3a3630;
-      --gold:    #b8965a;
-      --gold2:   #d4b07a;
+      --bg:      #0A0A0A;
+      --bg2:     #111111;
+      --bg3:     #181818;
+      --bg4:     #222222;
+      --border:  rgba(201,168,76,0.15);
+      --border2: rgba(201,168,76,0.35);
+      --text:    #E8E4DC;
+      --muted:   #9A9590;
+      --faint:   #5A5650;
+      --gold:    #C9A84C;
+      --gold2:   #E8C97A;
+      --gold-dim:#7A6230;
       --serif:   'Cormorant Garamond', Georgia, serif;
       --sans:    'Figtree', system-ui, sans-serif;
       --max:     820px;
@@ -177,11 +179,11 @@
     .bar-item:last-child { border-right: none; }
     .bar-num {
       font-family: var(--serif);
-      font-size: 2.2rem;
-      font-weight: 400;
+      font-size: 3.2rem;
+      font-weight: 500;
       color: var(--gold);
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .bar-label { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
@@ -232,7 +234,7 @@
       font-family: var(--serif);
       font-size: 4rem;
       font-weight: 400;
-      color: var(--faint);
+      color: var(--gold-dim);
       line-height: 1;
       margin-bottom: 20px;
     }
@@ -271,9 +273,10 @@
     }
     .insight-num {
       font-family: var(--serif);
-      font-size: 0.8rem;
+      font-size: 3rem;
+      font-weight: 500;
       color: var(--gold);
-      letter-spacing: 0.1em;
+      line-height: 1;
       margin-bottom: 16px;
     }
     .insight-col h4 {
@@ -579,7 +582,7 @@
   <p class="eyebrow">Método CQV · Estética Médica</p>
   <h1>Sua recepção está cheia de <em>"vou pensar"</em>. E a agenda, com buracos.</h1>
   <p class="hero-sub">
-    Meta e Google Ads com método que filtra curioso antes de chegar na recepção. Para clínicas de médio e alto valor que querem agenda previsível sem depender de indicação.
+    Gestão de Meta e Google Ads com dedicação exclusiva a clínicas de estética médica e cirurgia plástica. Método próprio para filtrar o perfil errado antes de chegar na recepção — não depois.
   </p>
   <div class="hero-actions">
     <a class="btn-primary"
@@ -592,15 +595,15 @@
   <div class="hero-bar">
     <div class="bar-item">
       <div class="bar-num">8</div>
-      <div class="bar-label">Clínicas atendidas por vez (máximo)</div>
+      <div class="bar-label">Clínicas por vez, no máximo. Para que sua conta não divida atenção com outras 30.</div>
     </div>
     <div class="bar-item">
       <div class="bar-num">100%</div>
-      <div class="bar-label">Dedicação sem terceirização</div>
+      <div class="bar-label">Sem terceirização. Sou eu quem analisa, otimiza e reporta — toda semana.</div>
     </div>
     <div class="bar-item">
       <div class="bar-num">CQV</div>
-      <div class="bar-label">Método proprietário de captação qualificada</div>
+      <div class="bar-label">Método próprio: Captação, Qualificação e Venda. Criado para estética médica, não adaptado.</div>
     </div>
   </div>
 </div>
@@ -637,9 +640,9 @@
 <!-- INSIGHTS -->
 <section id="insights">
   <div class="container">
-    <p class="section-label">O que a análise revela</p>
-    <h2>O que clínicas costumam descobrir na conversa inicial</h2>
-    <p class="body-lead">Na análise estratégica gratuita, a maioria dos gestores identifica pelo menos um desses padrões — muitas vezes sem saber que estava acontecendo.</p>
+    <p class="section-label">Diagnóstico</p>
+    <h2>Três erros que estão custando procedimentos à sua clínica agora</h2>
+    <p class="body-lead">Na análise estratégica, a maioria das clínicas identifica pelo menos um desses padrões. Nenhum deles aparece sozinho no painel de anúncios.</p>
     <div class="insights-grid">
       <div class="insight-col">
         <p class="insight-num">01</p>
@@ -714,6 +717,7 @@
         <img class="sobre-foto" src="foto.jpeg" alt="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Estética" />
       </div>
       <div class="sobre-texto">
+        <p style="font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Dedicação exclusiva a clínicas de estética médica e cirurgia plástica. Nenhum outro nicho.</p>
         <p>Desenvolvi o Método CQV depois de perceber que o problema das clínicas não era falta de lead. Era <strong>excesso de lead errado</strong>.</p>
         <p>Recepcionista perdendo tempo com curioso, agenda cheia de "vou pensar" e investimento em tráfego que não se converte em procedimento.</p>
         <p>Minha especialização é exclusiva em <strong>clínicas de estética e cirurgia plástica</strong>. Não atendo e-commerce, infoproduto ou restaurante. Conheço o ciclo de decisão do paciente, a sazonalidade dos procedimentos e as regras do CFM para anúncios na área da saúde.</p>
@@ -782,10 +786,13 @@
     <p class="body-lead">Resultado em tráfego pago depende de variáveis reais: verba de mídia, oferta da clínica, velocidade de atendimento. O que eu controlo — e me comprometo a entregar — é processo rigoroso, transparência total e dados reais.</p>
     <div class="garantia-box">
       <blockquote>
-        "Se em 60 dias de trabalho ativo você não enxergar dados reais de progresso — CPL, taxa de conversão, qualidade de lead — o contrato encerra sem multa e sem enrolação."
+        "Se em 60 dias de trabalho ativo você não enxergar dados reais de progresso, o contrato encerra sem multa e sem enrolação."
       </blockquote>
+      <p class="garantia-fine" style="margin-bottom:20px;">
+        Dados reais significa: relatório semanal de campanha, CPL por fonte, taxa de conversão de lead para agendamento e qualidade de lead por criativo. Não um print de painel — uma análise com contexto e próximos passos.
+      </p>
       <p class="garantia-fine">
-        Transparência e dados reais estão sob meu controle. O resto construímos juntos. Isso não é promessa de resultado — é compromisso com processo.
+        Isso não é promessa de resultado. É compromisso com processo. O que está sob meu controle, entrego com rigor. O resto construímos juntos.
       </p>
     </div>
   </div>
