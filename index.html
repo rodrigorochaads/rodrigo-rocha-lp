@@ -6,7 +6,7 @@
   <title>Rodrigo Rocha | Gestor de Tráfego para Clínicas de Estética</title>
   <meta name="description" content="Método CQV para clínicas de estética médica. Meta Ads e Google Ads com foco em pacientes qualificados, não volume de lead." />
 
-  <!-- GA4 -->
+  <!-- GA4 — async, não bloqueia render -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,22 +15,18 @@
     gtag('config', 'G-6JZ4C1X5NQ');
   </script>
 
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','921979810687389');
-    fbq('track','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
-
+  <!-- FONTES: preconnect + preload não-bloqueante -->
+  <!-- FIX 1: era <link rel="stylesheet"> síncrono → bloqueava render em ~1.900ms -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap"
+        as="style"
+        onload="this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" />
+  </noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -77,113 +73,68 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-brand {
-      display: flex; flex-direction: column; gap: 2px;
-    }
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; }
     .nav-brand strong {
       font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      font-size: 1.05rem; font-weight: 500; letter-spacing: 0.02em;
     }
     .nav-brand span {
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 0.68rem; color: var(--muted);
+      letter-spacing: 0.12em; text-transform: uppercase;
     }
     .nav-cta {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--bg);
-      background: var(--gold);
-      padding: 9px 22px;
-      border-radius: var(--r);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--bg); background: var(--gold);
+      padding: 9px 22px; border-radius: var(--r);
       transition: background 0.2s;
     }
     .nav-cta:hover { background: var(--gold2); }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 140px 40px 100px;
+      min-height: 100vh; max-width: var(--max);
+      margin: 0 auto; padding: 140px 40px 100px;
       display: flex; flex-direction: column; justify-content: center;
     }
     .eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
     }
     .hero h1 {
       font-family: var(--serif);
       font-size: clamp(2.4rem, 5.5vw, 4rem);
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 28px;
+      font-weight: 500; line-height: 1.1; color: var(--text); margin-bottom: 28px;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
     .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 44px;
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      max-width: 520px; line-height: 1.8; margin-bottom: 44px;
     }
-    .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
     .btn-primary {
-      display: inline-block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--bg);
-      background: var(--gold);
-      padding: 14px 30px;
-      border-radius: var(--r);
+      display: inline-block; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--bg); background: var(--gold);
+      padding: 14px 30px; border-radius: var(--r);
       transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
     .btn-ghost {
-      font-size: 0.85rem;
-      color: var(--muted);
-      border-bottom: 1px solid var(--faint);
-      padding-bottom: 2px;
+      font-size: 0.85rem; color: var(--muted);
+      border-bottom: 1px solid var(--faint); padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
     .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
 
     .hero-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin-top: 72px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden; margin-top: 72px;
     }
-    .bar-item {
-      padding: 28px 32px;
-      border-right: 1px solid var(--border);
-    }
+    .bar-item { padding: 28px 32px; border-right: 1px solid var(--border); }
     .bar-item:last-child { border-right: none; }
     .bar-num {
-      font-family: var(--serif);
-      font-size: 3.2rem;
-      font-weight: 500;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 8px;
+      font-family: var(--serif); font-size: 3.2rem; font-weight: 500;
+      color: var(--gold); line-height: 1; margin-bottom: 8px;
     }
     .bar-label { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
@@ -191,65 +142,40 @@
     section { padding: 100px 40px; }
     .container { max-width: var(--max); margin: 0 auto; }
     .section-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
     }
     h2 {
       font-family: var(--serif);
       font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 500;
-      line-height: 1.15;
-      margin-bottom: 20px;
+      font-weight: 500; line-height: 1.15; margin-bottom: 20px;
     }
     .body-lead {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 580px;
-      line-height: 1.8;
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      max-width: 580px; line-height: 1.8;
     }
 
     /* MÉTODO CQV */
     #metodo { background: var(--bg2); }
 
     .cqv-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin: 52px 0 32px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden; margin: 52px 0 32px;
     }
-    .cqv-col {
-      background: var(--bg3);
-      padding: 40px 32px;
-    }
+    .cqv-col { background: var(--bg3); padding: 40px 32px; }
     .cqv-letter {
-      font-family: var(--serif);
-      font-size: 4rem;
-      font-weight: 400;
-      color: var(--gold-dim);
-      line-height: 1;
-      margin-bottom: 20px;
+      font-family: var(--serif); font-size: 4rem; font-weight: 400;
+      color: var(--gold-dim); line-height: 1; margin-bottom: 20px;
     }
-    .cqv-col h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
+    /* FIX 5: h3 era usado corretamente aqui — mantido */
+    .cqv-col h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; }
     .cqv-col p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
 
     .callout {
-      border-left: 2px solid var(--gold);
-      padding: 20px 24px;
-      background: rgba(184,150,90,0.04);
-      border-radius: 0 var(--r) var(--r) 0;
+      border-left: 2px solid var(--gold); padding: 20px 24px;
+      background: rgba(184,150,90,0.04); border-radius: 0 var(--r) var(--r) 0;
     }
     .callout p { font-size: 0.9rem; color: #a09880; line-height: 1.7; }
     .callout strong { color: var(--text); font-weight: 500; }
@@ -258,223 +184,134 @@
     #insights { background: var(--bg); }
 
     .insights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin-top: 48px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden; margin-top: 48px;
     }
-    .insight-col {
-      background: var(--bg3);
-      padding: 36px 28px;
-    }
+    .insight-col { background: var(--bg3); padding: 36px 28px; }
     .insight-num {
-      font-family: var(--serif);
-      font-size: 3rem;
-      font-weight: 500;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 16px;
+      font-family: var(--serif); font-size: 3rem; font-weight: 500;
+      color: var(--gold); line-height: 1; margin-bottom: 16px;
     }
-    .insight-col h4 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 12px;
-      line-height: 1.4;
+    /* FIX 4: era <h4> logo após <h2> (pulava h3) → corrigido para h3 */
+    .insight-col h3 {
+      font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; line-height: 1.4;
     }
     .insight-col p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
     /* MID CTA */
     .mid-cta {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      padding: 72px 40px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--bg2); padding: 72px 40px;
     }
     .mid-cta .container {
       display: flex; flex-direction: column; align-items: center;
       text-align: center; gap: 24px;
     }
     .mid-cta h2 { margin-bottom: 0; }
-    .mid-cta .note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
+    .mid-cta .note { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; }
 
     /* QUALIFICAÇÃO */
     #qualificacao { background: var(--bg); }
 
     .qual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin-top: 48px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden; margin-top: 48px;
     }
-    .qual-col {
-      background: var(--bg3);
-      padding: 40px 36px;
-    }
+    .qual-col { background: var(--bg3); padding: 40px 36px; }
     .qual-col h3 {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 28px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
     }
     .qual-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
     .qual-list li {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.55;
-      display: grid;
-      grid-template-columns: 14px 1fr;
-      gap: 12px;
+      font-size: 0.88rem; color: var(--muted); line-height: 1.55;
+      display: grid; grid-template-columns: 14px 1fr; gap: 12px;
     }
-    .qual-list li .mark {
-      font-size: 0.75rem;
-      color: var(--gold);
-      margin-top: 2px;
-    }
+    .qual-list li .mark { font-size: 0.75rem; color: var(--gold); margin-top: 2px; }
     .qual-col.nao .qual-list li .mark { color: var(--faint); }
 
     /* SOBRE */
     #sobre { background: var(--bg2); }
 
     .sobre-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 56px;
-      align-items: start;
-      margin-top: 52px;
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 56px; align-items: start; margin-top: 52px;
     }
-    .sobre-foto-wrap {
-      position: relative;
-    }
+    .sobre-foto-wrap { position: relative; }
     .sobre-foto {
-      width: 220px;
-      height: 280px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: var(--r);
-      border: 1px solid var(--border);
+      width: 220px; height: 280px;
+      object-fit: cover; object-position: center top;
+      border-radius: var(--r); border: 1px solid var(--border);
       filter: grayscale(15%) contrast(1.02);
     }
     .sobre-texto p {
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 18px;
+      font-size: 0.92rem; font-weight: 300; color: var(--muted);
+      line-height: 1.8; margin-bottom: 18px;
     }
     .sobre-texto strong { color: var(--text); font-weight: 500; }
-    .tag-row {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-top: 28px;
-    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
     .tag {
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 5px 14px;
-      border-radius: 100px;
+      font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted);
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 5px 14px; border-radius: 100px;
     }
     .ig-link {
-      display: inline-block;
-      margin-top: 24px;
-      font-size: 0.82rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
+      display: inline-block; margin-top: 24px;
+      font-size: 0.82rem; color: var(--gold); letter-spacing: 0.04em;
     }
 
     /* COMO FUNCIONA */
     #como-funciona { background: var(--bg); }
 
     .funciona-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin-top: 48px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden; margin-top: 48px;
     }
-    .funciona-item {
-      background: var(--bg3);
-      padding: 32px 28px;
-    }
-    .funciona-item h4 {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
+    .funciona-item { background: var(--bg3); padding: 32px 28px; }
+    /* FIX 4: era <h4> logo após <h2> (pulava h3) → corrigido para h3 */
+    .funciona-item h3 {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
     }
     .funciona-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
 
     .vagas-strip {
-      margin-top: 28px;
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 28px 36px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 20px;
+      margin-top: 28px; border: 1px solid var(--border); border-radius: var(--r);
+      padding: 28px 36px; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 20px;
       background: var(--bg2);
     }
-    .vagas-strip p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      max-width: 480px;
-      line-height: 1.65;
-    }
+    .vagas-strip p { font-size: 0.88rem; color: var(--muted); max-width: 480px; line-height: 1.65; }
     .vagas-strip strong { color: var(--text); font-weight: 500; }
 
     /* GARANTIA */
     #garantia { background: var(--bg2); }
 
     .garantia-box {
-      margin-top: 48px;
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 52px;
-      position: relative;
-      overflow: hidden;
+      margin-top: 48px; border: 1px solid var(--border);
+      border-radius: var(--r); padding: 52px;
+      position: relative; overflow: hidden;
     }
     .garantia-box::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
     blockquote {
       font-family: var(--serif);
       font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 24px;
-      max-width: 680px;
+      font-weight: 400; font-style: italic; color: var(--text);
+      line-height: 1.6; margin-bottom: 24px; max-width: 680px;
     }
     .garantia-fine {
-      font-size: 0.83rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 560px;
+      font-size: 0.83rem; font-weight: 300; color: var(--muted);
+      line-height: 1.7; max-width: 560px;
     }
 
     /* FAQ */
@@ -482,18 +319,14 @@
 
     .faq-wrap { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
     .faq-item {
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      background: var(--bg3);
-      overflow: hidden;
+      border: 1px solid var(--border); border-radius: var(--r);
+      background: var(--bg3); overflow: hidden;
     }
     .faq-item + .faq-item { margin-top: 6px; }
     .faq-btn {
-      width: 100%; background: none; border: none;
-      color: var(--text); font-family: var(--sans);
-      font-size: 0.92rem; font-weight: 400;
-      text-align: left; padding: 22px 28px;
-      cursor: pointer;
+      width: 100%; background: none; border: none; color: var(--text);
+      font-family: var(--sans); font-size: 0.92rem; font-weight: 400;
+      text-align: left; padding: 22px 28px; cursor: pointer;
       display: flex; justify-content: space-between; align-items: center; gap: 20px;
       transition: color 0.2s;
     }
@@ -516,23 +349,16 @@
 
     /* FINAL CTA */
     #cta-final {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 120px 40px;
-      text-align: center;
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 120px 40px; text-align: center;
     }
     #cta-final .container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
     #cta-final .body-lead { text-align: center; margin: 0 auto; }
-    .fine {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .fine { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
 
     /* FOOTER */
     footer {
-      padding: 28px 40px;
-      border-top: 1px solid var(--border);
+      padding: 28px 40px; border-top: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 12px;
     }
@@ -548,11 +374,9 @@
       .mid-cta { padding: 64px 20px; }
       #cta-final { padding: 88px 20px; }
       footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
-
       .hero-bar { grid-template-columns: 1fr; }
       .bar-item { border-right: none; border-bottom: 1px solid var(--border); }
       .bar-item:last-child { border-bottom: none; }
-
       .cqv-grid, .insights-grid, .funciona-grid { grid-template-columns: 1fr; }
       .qual-grid { grid-template-columns: 1fr; }
       .sobre-grid { grid-template-columns: 1fr; }
@@ -576,6 +400,9 @@
     Análise gratuita
   </a>
 </nav>
+
+<!-- FIX 3: <main> adicionado — era ausente, causava falha de acessibilidade -->
+<main>
 
 <!-- HERO -->
 <div class="hero">
@@ -645,18 +472,20 @@
     <p class="body-lead">Na análise estratégica, a maioria das clínicas identifica pelo menos um desses padrões. Nenhum deles aparece sozinho no painel de anúncios.</p>
     <div class="insights-grid">
       <div class="insight-col">
-        <p class="insight-num" style="font-size:3rem!important;font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:500;color:#C9A84C;line-height:1;margin-bottom:16px;">01</p>
-        <h4>CPL parece razoável. Custo por procedimento, não.</h4>
+        <!-- FIX 5: era <p class="insight-num" style="...!important"> → limpo para classe CSS -->
+        <p class="insight-num">01</p>
+        <!-- FIX 4: era <h4> após <h2> (pulava h3) → corrigido para h3 -->
+        <h3>CPL parece razoável. Custo por procedimento, não.</h3>
         <p>Quando o lead é desqualificado, o custo por procedimento efetivamente fechado costuma ser três a cinco vezes acima do viável. O número que importa raramente está no painel.</p>
       </div>
       <div class="insight-col">
-        <p class="insight-num" style="font-size:3rem!important;font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:500;color:#C9A84C;line-height:1;margin-bottom:16px;">02</p>
-        <h4>Velocidade de resposta é o maior gargalo de conversão.</h4>
+        <p class="insight-num">02</p>
+        <h3>Velocidade de resposta é o maior gargalo de conversão.</h3>
         <p>Lead respondido fora da janela ideal perde interesse rapidamente. Muitas clínicas perdem boa parte dos contatos simplesmente pelo tempo de retorno — não pela oferta.</p>
       </div>
       <div class="insight-col">
-        <p class="insight-num" style="font-size:3rem!important;font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:500;color:#C9A84C;line-height:1;margin-bottom:16px;">03</p>
-        <h4>O criativo que gera clique não é o que gera agenda.</h4>
+        <p class="insight-num">03</p>
+        <h3>O criativo que gera clique não é o que gera agenda.</h3>
         <p>Otimizar por CTR atrai perfil errado. Um dos erros mais caros em campanhas para estética é confundir engajamento com intenção de procedimento.</p>
       </div>
     </div>
@@ -714,7 +543,15 @@
     <h2>Sou Rodrigo Rocha. Gestor de tráfego especializado em estética médica.</h2>
     <div class="sobre-grid">
       <div class="sobre-foto-wrap">
-        <img class="sobre-foto" src="foto.jpeg" alt="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Estética" />
+        <!-- FIX 2: adicionado width, height, loading=lazy e decoding=async -->
+        <!-- width/height evita CLS (Cumulative Layout Shift) -->
+        <img class="sobre-foto"
+             src="foto.jpeg"
+             alt="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Estética"
+             width="220"
+             height="280"
+             loading="lazy"
+             decoding="async" />
       </div>
       <div class="sobre-texto">
         <p style="font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Dedicação exclusiva a clínicas de estética médica e cirurgia plástica. Nenhum outro nicho.</p>
@@ -743,27 +580,28 @@
     <h2>Como funciona na prática</h2>
     <div class="funciona-grid">
       <div class="funciona-item">
-        <h4>Nicho exclusivo</h4>
+        <!-- FIX 4: era <h4> → corrigido para h3 -->
+        <h3>Nicho exclusivo</h3>
         <p>Apenas clínicas de estética médica e cirurgia plástica. Conheço o ciclo de decisão do paciente — nenhum gestor generalista conhece.</p>
       </div>
       <div class="funciona-item">
-        <h4>Plataformas</h4>
+        <h3>Plataformas</h3>
         <p>Meta Ads, Google Ads e Google Meu Negócio. As três frentes onde seu paciente toma decisão antes de entrar em contato.</p>
       </div>
       <div class="funciona-item">
-        <h4>Sem intermediário</h4>
+        <h3>Sem intermediário</h3>
         <p>Você fala direto com quem tocou na campanha. Sem terceirização, sem explicar duas vezes. Toda semana.</p>
       </div>
       <div class="funciona-item">
-        <h4>Contrato de 3 meses</h4>
+        <h3>Contrato de 3 meses</h3>
         <p>O resultado real começa no terceiro mês. Sair antes é desperdiçar os dois primeiros — quando os dados já estão maduros.</p>
       </div>
       <div class="funciona-item">
-        <h4>CFM-Compliance</h4>
+        <h3>CFM-Compliance</h3>
         <p>Campanhas dentro das regras do CFM. Sem risco de conta bloqueada por anúncio proibido na área da saúde.</p>
       </div>
       <div class="funciona-item">
-        <h4>Limite de 8 clínicas</h4>
+        <h3>Limite de 8 clínicas</h3>
         <p>Quando fechar as vagas, encerro inscrições sem data de retorno. Quem entra agora tem atenção 100% focada.</p>
       </div>
     </div>
@@ -804,57 +642,51 @@
     <p class="section-label">Perguntas frequentes</p>
     <h2>Dúvidas comuns</h2>
     <div class="faq-wrap">
-
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           Qual o investimento mínimo em mídia?
-          <span class="faq-icon">+</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
           <p>Não trabalho com menos de R$ 1.500 por mês em verba de mídia. Abaixo disso os dados não são suficientes para otimização real e o resultado fica comprometido. O valor exato depende do porte da clínica, ticket médio dos procedimentos e objetivos. Definimos juntos na análise estratégica.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           Por que contrato de 3 meses?
-          <span class="faq-icon">+</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
           <p>Tráfego pago tem curva de aprendizado. O primeiro mês é de estruturação e coleta de dados. O segundo é de otimização com base em dados reais. O terceiro é onde você começa a ver previsibilidade. Contrato menor que isso significa sair exatamente quando o trabalho começaria a dar retorno.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           Você trabalha com qual tipo de procedimento?
-          <span class="faq-icon">+</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
           <p>Qualquer procedimento de médio ou alto valor em clínicas de estética e cirurgia plástica, desde que a clínica tenha estrutura para fechar e atender o volume de agenda que vamos gerar. Não trabalho com clínicas que competem exclusivamente por preço baixo.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           Como funciona a análise estratégica gratuita?
-          <span class="faq-icon">+</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
           <p>É uma conversa de 20 minutos via WhatsApp ou videochamada. Você me conta sobre a clínica: faturamento atual, procedimentos, estrutura de atendimento. Eu analiso e te digo com honestidade se faz sentido trabalharmos juntos e, se sim, qual seria o caminho. Sem pitch de vendas no meio.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           Você está começando a carteira. Por que eu deveria ser seu primeiro cliente?
-          <span class="faq-icon">+</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
           <p>Pergunta direta, resposta direta: quem entra agora tem algo que clientes futuros não terão. Atenção 100% focada, sem a distração de uma carteira grande, e um preço que vai subir conforme o histórico cresce. Se você quer entrar quando já tiver fila de espera, pode aguardar. Se quer entrar com condição de fundador, esse é o momento.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -874,19 +706,41 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Rodrigo Rocha · Gestor de Tráfego Pago · Método CQV</p>
   <a href="https://instagram.com/rodrigorocha.ads" target="_blank" rel="noopener">@rodrigorocha.ads</a>
 </footer>
 
+<!-- FIX 6: Meta Pixel movido para o final do <body> -->
+<!-- Era carregado no <head> de forma bloqueante, atrasando render e inflando TBT -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','921979810687389');
+  fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
+
 <script>
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 </script>
