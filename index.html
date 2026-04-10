@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rodrigo Rocha | Gestor de Tráfego para Clínicas de Estética</title>
-  <meta name="description" content="Método CQV para clínicas de estética médica. Meta Ads e Google Ads com foco em pacientes qualificados, não volume de lead." />
+  <title>Rodrigo Rocha | Gestor de Tráfego para Alto Ticket em Estética e Saúde</title>
+  <meta name="description" content="Método CQV para clínicas de alto ticket. Meta Ads e Google Ads com foco em pacientes qualificados, não volume de lead." />
 
-  <!-- GA4 — async, não bloqueia render -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,8 +15,6 @@
     gtag('config', 'G-6JZ4C1X5NQ');
   </script>
 
-  <!-- FONTES: preconnect + preload não-bloqueante -->
-  <!-- FIX 1: era <link rel="stylesheet"> síncrono → bloqueava render em ~1.900ms -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload"
@@ -119,12 +117,13 @@
     }
     .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
     .btn-ghost {
-      font-size: 0.85rem; color: var(--muted);
-      border-bottom: 1px solid var(--faint); padding-bottom: 2px;
+      font-size: 0.85rem; color: var(--faint);
+      border-bottom: 1px solid transparent; padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+    .btn-ghost:hover { color: var(--muted); border-color: var(--faint); }
 
+    /* HERO BAR — atualizado para mostrar vagas reais */
     .hero-bar {
       display: grid; grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--border); border-radius: var(--r);
@@ -136,7 +135,12 @@
       font-family: var(--serif); font-size: 3.2rem; font-weight: 500;
       color: var(--gold); line-height: 1; margin-bottom: 8px;
     }
+    .bar-num sub {
+      font-size: 1.4rem; color: var(--muted); font-family: var(--sans);
+      font-weight: 300; vertical-align: baseline; margin-left: 2px;
+    }
     .bar-label { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .bar-item.vagas-live { background: rgba(201,168,76,0.04); }
 
     /* SECTIONS */
     section { padding: 100px 40px; }
@@ -169,7 +173,6 @@
       font-family: var(--serif); font-size: 4rem; font-weight: 400;
       color: var(--gold-dim); line-height: 1; margin-bottom: 20px;
     }
-    /* FIX 5: h3 era usado corretamente aqui — mantido */
     .cqv-col h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; }
     .cqv-col p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
 
@@ -194,7 +197,6 @@
       font-family: var(--serif); font-size: 3rem; font-weight: 500;
       color: var(--gold); line-height: 1; margin-bottom: 16px;
     }
-    /* FIX 4: era <h4> logo após <h2> (pulava h3) → corrigido para h3 */
     .insight-col h3 {
       font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; line-height: 1.4;
     }
@@ -210,6 +212,7 @@
       text-align: center; gap: 24px;
     }
     .mid-cta h2 { margin-bottom: 0; }
+    /* ATUALIZADO: removido "Sem compromisso" — enfraquecia o posicionamento */
     .mid-cta .note { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; }
 
     /* QUALIFICAÇÃO */
@@ -249,6 +252,7 @@
       border-radius: var(--r); border: 1px solid var(--border);
       filter: grayscale(15%) contrast(1.02);
     }
+    /* ATUALIZADO: Sobre Rodrigo reescrito — 2 blocos com personalidade, sem repetição */
     .sobre-texto p {
       font-size: 0.92rem; font-weight: 300; color: var(--muted);
       line-height: 1.8; margin-bottom: 18px;
@@ -265,8 +269,9 @@
       font-size: 0.82rem; color: var(--gold); letter-spacing: 0.04em;
     }
 
+
     /* COMO FUNCIONA */
-    #como-funciona { background: var(--bg); }
+    #como-funciona { background: var(--bg2); }
 
     .funciona-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -275,7 +280,6 @@
       overflow: hidden; margin-top: 48px;
     }
     .funciona-item { background: var(--bg3); padding: 32px 28px; }
-    /* FIX 4: era <h4> logo após <h2> (pulava h3) → corrigido para h3 */
     .funciona-item h3 {
       font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
@@ -283,16 +287,23 @@
     .funciona-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
 
     .vagas-strip {
-      margin-top: 28px; border: 1px solid var(--border); border-radius: var(--r);
+      margin-top: 28px; border: 1px solid var(--border2); border-radius: var(--r);
       padding: 28px 36px; display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 20px;
-      background: var(--bg2);
+      background: rgba(201,168,76,0.04);
     }
-    .vagas-strip p { font-size: 0.88rem; color: var(--muted); max-width: 480px; line-height: 1.65; }
-    .vagas-strip strong { color: var(--text); font-weight: 500; }
+    .vagas-strip-texto {}
+    .vagas-strip-texto .vagas-count {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 500;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .vagas-strip-texto p {
+      font-size: 0.87rem; color: var(--muted); max-width: 460px; line-height: 1.65;
+    }
+    .vagas-strip-texto strong { color: var(--text); font-weight: 500; }
 
     /* GARANTIA */
-    #garantia { background: var(--bg2); }
+    #garantia { background: var(--bg); }
 
     .garantia-box {
       margin-top: 48px; border: 1px solid var(--border);
@@ -309,13 +320,16 @@
       font-weight: 400; font-style: italic; color: var(--text);
       line-height: 1.6; margin-bottom: 24px; max-width: 680px;
     }
+    /* ATUALIZADO: garantia reescrita com termos específicos */
     .garantia-fine {
       font-size: 0.83rem; font-weight: 300; color: var(--muted);
-      line-height: 1.7; max-width: 560px;
+      line-height: 1.7; max-width: 580px;
     }
+    .garantia-fine + .garantia-fine { margin-top: 16px; }
+    .garantia-fine strong { color: var(--text); font-weight: 500; }
 
     /* FAQ */
-    #faq { background: var(--bg); }
+    #faq { background: var(--bg2); }
 
     .faq-wrap { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
     .faq-item {
@@ -344,17 +358,23 @@
       transition: max-height 0.3s ease, padding 0.3s ease;
       padding: 0 28px;
     }
-    .faq-item.open .faq-body { max-height: 360px; padding: 0 28px 22px; }
+    .faq-item.open .faq-body { max-height: 400px; padding: 0 28px 22px; }
     .faq-body p { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
+    .faq-body p + p { margin-top: 12px; }
 
     /* FINAL CTA */
     #cta-final {
-      background: var(--bg2); border-top: 1px solid var(--border);
+      background: var(--bg); border-top: 1px solid var(--border);
       padding: 120px 40px; text-align: center;
     }
     #cta-final .container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
     #cta-final .body-lead { text-align: center; margin: 0 auto; }
     .fine { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+    /* NOVO: linha de resposta rápida — reduz atrito antes do clique final */
+    .resposta-rapida {
+      font-size: 0.8rem; color: var(--faint);
+      letter-spacing: 0.04em;
+    }
 
     /* FOOTER */
     footer {
@@ -378,7 +398,7 @@
       .bar-item { border-right: none; border-bottom: 1px solid var(--border); }
       .bar-item:last-child { border-bottom: none; }
       .cqv-grid, .insights-grid, .funciona-grid { grid-template-columns: 1fr; }
-      .qual-grid { grid-template-columns: 1fr; }
+      .qual-grid, .status-grid { grid-template-columns: 1fr; }
       .sobre-grid { grid-template-columns: 1fr; }
       .sobre-foto { width: 100%; height: 420px; object-position: center 10%; }
       .garantia-box { padding: 32px 24px; }
@@ -396,12 +416,11 @@
   </div>
   <a class="nav-cta"
      href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20agendar%20a%20análise%20estratégica%20gratuita."
-     onclick="fbq('track','Contact'); gtag('event','cta_nav_click');">
+     onclick="gtag('event','cta_nav_click');">
     Análise gratuita
   </a>
 </nav>
 
-<!-- FIX 3: <main> adicionado — era ausente, causava falha de acessibilidade -->
 <main>
 
 <!-- HERO -->
@@ -409,20 +428,24 @@
   <p class="eyebrow">Método CQV · Estética Médica</p>
   <h1>Sua recepção está cheia de <em>"vou pensar"</em>. E a agenda, com buracos.</h1>
   <p class="hero-sub">
-    Gestão de Meta e Google Ads com dedicação exclusiva a clínicas de estética médica e cirurgia plástica. Método próprio para filtrar o perfil errado antes de chegar na recepção — não depois.
+    Método próprio para filtrar o perfil errado antes de chegar na recepção — não depois. Meta Ads e Google Ads com dedicação exclusiva a clínicas de estética médica.
   </p>
+
+  <!-- CTA: apenas um primário. "Ver o método" como link secundário discreto -->
   <div class="hero-actions">
     <a class="btn-primary"
        href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Quero%20saber%20se%20minha%20clínica%20tem%20perfil%20para%20o%20Método%20CQV."
-       onclick="fbq('track','Contact'); gtag('event','cta_hero_click');">
+       onclick="gtag('event','cta_hero_click');">
       Quero saber se minha clínica tem perfil
     </a>
-    <a class="btn-ghost" href="#metodo">Ver o método</a>
+    <a class="btn-ghost" href="#metodo">ou entender o método antes</a>
   </div>
+
+  <!-- HERO BAR: vagas reais em destaque -->
   <div class="hero-bar">
-    <div class="bar-item">
-      <div class="bar-num">8</div>
-      <div class="bar-label">Clínicas por vez, no máximo. Para que sua conta não divida atenção com outras 30.</div>
+    <div class="bar-item vagas-live">
+      <div class="bar-num">6<sub>/8</sub></div>
+      <div class="bar-label">Vagas restantes. Quando fechar, encerro sem data de retorno — sem exceção.</div>
     </div>
     <div class="bar-item">
       <div class="bar-num">100%</div>
@@ -472,9 +495,7 @@
     <p class="body-lead">Na análise estratégica, a maioria das clínicas identifica pelo menos um desses padrões. Nenhum deles aparece sozinho no painel de anúncios.</p>
     <div class="insights-grid">
       <div class="insight-col">
-        <!-- FIX 5: era <p class="insight-num" style="...!important"> → limpo para classe CSS -->
         <p class="insight-num">01</p>
-        <!-- FIX 4: era <h4> após <h2> (pulava h3) → corrigido para h3 -->
         <h3>CPL parece razoável. Custo por procedimento, não.</h3>
         <p>Quando o lead é desqualificado, o custo por procedimento efetivamente fechado costuma ser três a cinco vezes acima do viável. O número que importa raramente está no painel.</p>
       </div>
@@ -493,15 +514,16 @@
 </section>
 
 <!-- MID CTA -->
+<!-- ATUALIZADO: subtexto reescrito — removido "Sem compromisso" -->
 <div class="mid-cta">
   <div class="container">
     <h2>20 minutos. Diagnóstico real do seu funil. Sem enrolação.</h2>
     <a class="btn-primary"
        href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20agendar%20a%20análise%20estratégica%20gratuita."
-       onclick="fbq('track','Contact'); gtag('event','cta_mid_click');">
+       onclick="gtag('event','cta_mid_click');">
       Verificar se tenho vaga disponível
     </a>
-    <p class="note">Análise gratuita · Sem compromisso · Sem pitch de vendas</p>
+    <p class="note">Análise gratuita · 20 minutos · Diagnóstico do seu funil, não apresentação do meu serviço</p>
   </div>
 </div>
 
@@ -518,7 +540,7 @@
           <li><span class="mark">+</span><span>Trabalha com procedimentos de médio ou alto valor e quer atrair pacientes com real potencial de fechamento</span></li>
           <li><span class="mark">+</span><span>Quer crescer com previsibilidade, sem depender só de indicação</span></li>
           <li><span class="mark">+</span><span>Tem estrutura para atender mais pacientes imediatamente</span></li>
-          <li><span class="mark">+</span><span>Está disposto a investir em tráfego pago de forma séria</span></li>
+          <li><span class="mark">+</span><span>Está disposto a investir em tráfego pago de forma séria — mínimo R$ 1.500/mês em mídia</span></li>
           <li><span class="mark">+</span><span>Quer resultados reais, não promessas de guru</span></li>
         </ul>
       </div>
@@ -529,7 +551,7 @@
           <li><span class="mark">·</span><span>Não tem tempo para responder leads no mesmo dia</span></li>
           <li><span class="mark">·</span><span>Espera resultado em três dias</span></li>
           <li><span class="mark">·</span><span>Procura curso, consultoria ou mentoria</span></li>
-          <li><span class="mark">·</span><span>Quer desconto em procedimentos para atrair mais clientes</span></li>
+          <li><span class="mark">·</span><span>Quer competir por preço baixo para atrair mais volume</span></li>
         </ul>
       </div>
     </div>
@@ -537,14 +559,13 @@
 </section>
 
 <!-- SOBRE -->
+<!-- ATUALIZADO: seção reescrita — 2 blocos com personalidade, sem repetição de "nicho exclusivo" -->
 <section id="sobre">
   <div class="container">
     <p class="section-label">Quem está por trás</p>
-    <h2>Sou Rodrigo Rocha. Gestor de tráfego especializado em estética médica.</h2>
+    <h2>Sou Rodrigo Rocha. Gestor de tráfego especializado em procedimentos de alto ticket.</h2>
     <div class="sobre-grid">
       <div class="sobre-foto-wrap">
-        <!-- FIX 2: adicionado width, height, loading=lazy e decoding=async -->
-        <!-- width/height evita CLS (Cumulative Layout Shift) -->
         <img class="sobre-foto"
              src="foto.jpeg"
              alt="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Estética"
@@ -554,11 +575,10 @@
              decoding="async" />
       </div>
       <div class="sobre-texto">
-        <p style="font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Dedicação exclusiva a clínicas de estética médica e cirurgia plástica. Nenhum outro nicho.</p>
-        <p>Desenvolvi o Método CQV depois de perceber que o problema das clínicas não era falta de lead. Era <strong>excesso de lead errado</strong>.</p>
-        <p>Recepcionista perdendo tempo com curioso, agenda cheia de "vou pensar" e investimento em tráfego que não se converte em procedimento.</p>
-        <p>Minha especialização é exclusiva em <strong>clínicas de estética e cirurgia plástica</strong>. Não atendo e-commerce, infoproduto ou restaurante. Conheço o ciclo de decisão do paciente, a sazonalidade dos procedimentos e as regras do CFM para anúncios na área da saúde.</p>
-        <p><strong>Atendo no máximo 8 clínicas por vez</strong> para garantir dedicação real a cada cliente. Não terceirizo campanhas. Sou eu quem analisa, otimiza e reporta. Toda semana.</p>
+        <p>Procedimento de alto ticket não é produto de prateleira. Lead barato não vira paciente de R$ 8 mil. Gestor generalista não entende isso — e você paga o preço na recepção.</p>
+        <p>Trabalho com clínicas de estética médica, cirurgia plástica e procedimentos odontológicos de alto valor — como facetas e reabilitação oral completa. <strong>O critério não é o nicho exato. É o ticket.</strong> Conheço o ciclo de decisão de quem compra procedimento caro e o que precisa acontecer antes de essa pessoa entrar em contato com sua equipe.</p>
+        <p>Depois de analisar funis de clínicas que tinham volume de leads e ainda assim tinham agendas com buracos, cheguei a uma conclusão incômoda: o problema não era falta de lead. Era excesso de lead errado.</p>
+        <p>Desenvolvi o Método CQV para resolver isso antes da recepção, não depois. <strong>Atendo no máximo 8 clínicas ao mesmo tempo.</strong> Não é posicionamento. É o limite real para fazer o trabalho com a atenção que ele exige. Não terceirizo. Sou eu quem analisa, otimiza e reporta toda semana.</p>
         <div class="tag-row">
           <span class="tag">Estética Médica</span>
           <span class="tag">Meta Ads</span>
@@ -580,9 +600,8 @@
     <h2>Como funciona na prática</h2>
     <div class="funciona-grid">
       <div class="funciona-item">
-        <!-- FIX 4: era <h4> → corrigido para h3 -->
         <h3>Nicho exclusivo</h3>
-        <p>Apenas clínicas de estética médica e cirurgia plástica. Conheço o ciclo de decisão do paciente — nenhum gestor generalista conhece.</p>
+        <p>Apenas clínicas de estética médica e cirurgia plástica. Conheço o ciclo de decisão do paciente, a sazonalidade dos procedimentos e as regras do CFM para anúncios na saúde.</p>
       </div>
       <div class="funciona-item">
         <h3>Plataformas</h3>
@@ -590,26 +609,31 @@
       </div>
       <div class="funciona-item">
         <h3>Sem intermediário</h3>
-        <p>Você fala direto com quem tocou na campanha. Sem terceirização, sem explicar duas vezes. Toda semana.</p>
+        <p>Você fala direto com quem tocou na campanha. Sem terceirização, sem explicar duas vezes. Relatório semanal com contexto real — não print de painel.</p>
       </div>
       <div class="funciona-item">
         <h3>Contrato de 3 meses</h3>
-        <p>O resultado real começa no terceiro mês. Sair antes é desperdiçar os dois primeiros — quando os dados já estão maduros.</p>
+        <p>Mês 1: estrutura. Mês 2: otimização com dados reais. Mês 3: previsibilidade. Sair antes significa abandonar exatamente quando o trabalho começa a dar retorno.</p>
       </div>
       <div class="funciona-item">
         <h3>CFM-Compliance</h3>
-        <p>Campanhas dentro das regras do CFM. Sem risco de conta bloqueada por anúncio proibido na área da saúde.</p>
+        <p>Campanhas estruturadas dentro das diretrizes do CFM — reduzindo exposição a bloqueios por conteúdo irregular na área da saúde.</p>
       </div>
       <div class="funciona-item">
-        <h3>Limite de 8 clínicas</h3>
-        <p>Quando fechar as vagas, encerro inscrições sem data de retorno. Quem entra agora tem atenção 100% focada.</p>
+        <h3>Limite real de vagas</h3>
+        <p>Quando fechar as 8 vagas, encerro inscrições sem data de retorno. Não é argumento de vendas. É o número real em que consigo fazer trabalho sério.</p>
       </div>
     </div>
+
+    <!-- VAGAS STRIP ATUALIZADA: número real em destaque -->
     <div class="vagas-strip">
-      <p>Quando fechar as 8 vagas, encerro inscrições sem data de retorno. <strong>Quem entra agora tem condição de fundador: atenção integral e preço que não vai se repetir.</strong></p>
+      <div class="vagas-strip-texto">
+        <div class="vagas-count">Restam 6 vagas</div>
+        <p>Limite hard: máximo 8 clínicas ao mesmo tempo. <strong>Quando fechar, a lista fecha sem data de retorno definida.</strong> Quem entra agora tem condição que não vai se repetir.</p>
+      </div>
       <a class="btn-primary"
          href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20garantir%20minha%20vaga."
-         onclick="fbq('track','Contact'); gtag('event','cta_vagas_click');">
+         onclick="gtag('event','cta_vagas_click');">
         Garantir minha vaga
       </a>
     </div>
@@ -617,31 +641,34 @@
 </section>
 
 <!-- GARANTIA -->
+<!-- ATUALIZADO: termos específicos — o ICP analítico precisa saber exatamente o que está garantido -->
 <section id="garantia">
   <div class="container">
     <p class="section-label">Garantia de processo</p>
     <h2>Prometo processo, não milagre</h2>
-    <p class="body-lead">Resultado em tráfego pago depende de variáveis reais: verba de mídia, oferta da clínica, velocidade de atendimento. O que eu controlo — e me comprometo a entregar — é processo rigoroso, transparência total e dados reais.</p>
+    <p class="body-lead">Resultado em tráfego pago depende de variáveis reais: verba de mídia, oferta da clínica, velocidade de atendimento. O que eu controlo — e me comprometo a entregar — é processo rigoroso, transparência total e dados reais toda semana.</p>
     <div class="garantia-box">
       <blockquote>
-        "Se em 60 dias de trabalho ativo você não enxergar dados reais de progresso, o contrato encerra sem multa e sem enrolação."
+        "Se em 60 dias de trabalho ativo eu não tiver entregado o básico que prometi — campanhas no ar, relatório semanal e acompanhamento contínuo — o contrato encerra sem multa e sem cobrança de rescisão."
       </blockquote>
-      <p class="garantia-fine" style="margin-bottom:20px;">
-        Dados reais significa: relatório semanal de campanha, CPL por fonte, taxa de conversão de lead para agendamento e qualidade de lead por criativo. Não um print de painel — uma análise com contexto e próximos passos.
+      <p class="garantia-fine">
+        <strong>O que estou me comprometendo a entregar:</strong> campanhas ativas no Meta e/ou Google Ads, relatório semanal com análise real (não print de painel), reunião mensal de revisão e otimização contínua. Esse é o processo. É isso que está sob meu controle.
       </p>
       <p class="garantia-fine">
-        Isso não é promessa de resultado. É compromisso com processo. O que está sob meu controle, entrego com rigor. O resto construímos juntos.
+        Resultado final depende de variáveis que não controlo sozinho: verba de mídia, velocidade de resposta da recepção, oferta da clínica. O que eu controlo, entrego. O restante construímos juntos com dados reais — sem achismo.
       </p>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
+<!-- ATUALIZADO: FAQ "por que ser primeiro" reescrito + nova pergunta sobre "já tenho gestor" -->
 <section id="faq">
   <div class="container">
     <p class="section-label">Perguntas frequentes</p>
     <h2>Dúvidas comuns</h2>
     <div class="faq-wrap">
+
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false">
           Qual o investimento mínimo em mídia?
@@ -651,58 +678,86 @@
           <p>Não trabalho com menos de R$ 1.500 por mês em verba de mídia. Abaixo disso os dados não são suficientes para otimização real e o resultado fica comprometido. O valor exato depende do porte da clínica, ticket médio dos procedimentos e objetivos. Definimos juntos na análise estratégica.</p>
         </div>
       </div>
+
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false">
           Por que contrato de 3 meses?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
-          <p>Tráfego pago tem curva de aprendizado. O primeiro mês é de estruturação e coleta de dados. O segundo é de otimização com base em dados reais. O terceiro é onde você começa a ver previsibilidade. Contrato menor que isso significa sair exatamente quando o trabalho começaria a dar retorno.</p>
+          <p>Tráfego pago tem curva de aprendizado. O primeiro mês é de estruturação e coleta de dados. O segundo é de otimização com base em dados reais. O terceiro é onde você começa a ver previsibilidade.</p>
+          <p>Contrato menor que isso significa sair exatamente quando o trabalho começaria a dar retorno. Não é cláusula de lock-in — é o tempo mínimo para o método funcionar de verdade.</p>
         </div>
       </div>
+
+      <!-- NOVA PERGUNTA: objeção mais comum do mercado tratada diretamente -->
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          Já tenho um gestor de tráfego. Por que isso seria diferente?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Gestor generalista não conhece o ciclo de decisão do paciente de estética médica. Não entende por que lead de harmonização facial tem comportamento diferente de lead de implante capilar. Não sabe estruturar copy dentro das regras do CFM sem risco de bloqueio de conta.</p>
+          <p>A especialização não é diferencial de posicionamento — é o que determina se o método funciona ou não no seu nicho. Quem atende e-commerce, restaurante e clínica ao mesmo tempo não conhece nenhum dos três de verdade.</p>
+          <p>Se seu gestor atual está gerando agenda previsível com pacientes de alto ticket, não há razão para mudar. Se há buracos na agenda, leads sem qualidade ou relatório que não faz sentido para você — aí vale a conversa.</p>
+        </div>
+      </div>
+
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false">
           Você trabalha com qual tipo de procedimento?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
-          <p>Qualquer procedimento de médio ou alto valor em clínicas de estética e cirurgia plástica, desde que a clínica tenha estrutura para fechar e atender o volume de agenda que vamos gerar. Não trabalho com clínicas que competem exclusivamente por preço baixo.</p>
+          <p>Qualquer procedimento de médio ou alto valor em clínicas de estética e cirurgia plástica — harmonização facial, bioestimuladores, Lipo HD, transplante capilar, cirurgia plástica. Desde que a clínica tenha estrutura para fechar e atender o volume de agenda que vamos gerar.</p>
+          <p>Não trabalho com clínicas que competem exclusivamente por preço baixo ou que não têm tempo para responder leads no mesmo dia.</p>
         </div>
       </div>
+
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false">
           Como funciona a análise estratégica gratuita?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
-          <p>É uma conversa de 20 minutos via WhatsApp ou videochamada. Você me conta sobre a clínica: faturamento atual, procedimentos, estrutura de atendimento. Eu analiso e te digo com honestidade se faz sentido trabalharmos juntos e, se sim, qual seria o caminho. Sem pitch de vendas no meio.</p>
+          <p>20 minutos via WhatsApp ou videochamada. Você me conta sobre a clínica: faturamento atual, procedimentos, estrutura de atendimento, o que já tentou em tráfego. Eu analiso e digo com honestidade se faz sentido trabalharmos juntos.</p>
+          <p>Não é apresentação do meu serviço. É diagnóstico do seu funil. Você sai com clareza sobre onde está o gargalo — mesmo que a gente não feche.</p>
         </div>
       </div>
+
+      <!-- FAQ REESCRITO: sem sinalizar inexperiência, foco no benefício real para o cliente -->
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false">
-          Você está começando a carteira. Por que eu deveria ser seu primeiro cliente?
+          Você não tem cases documentados. Por que eu deveria entrar agora?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-body">
-          <p>Pergunta direta, resposta direta: quem entra agora tem algo que clientes futuros não terão. Atenção 100% focada, sem a distração de uma carteira grande, e um preço que vai subir conforme o histórico cresce. Se você quer entrar quando já tiver fila de espera, pode aguardar. Se quer entrar com condição de fundador, esse é o momento.</p>
+          <p>Pergunta justa. Resposta direta.</p>
+          <p>Método CQV está estruturado e rodando. O que não existe ainda é um histórico documentado com número, nome de clínica e mês — e não vou inventar um.</p>
+          <p>O que você tem ao entrar agora: atenção integral sem concorrência de carteira cheia, acesso direto a cada decisão do processo, e condição comercial que muda quando o histórico chegar.</p>
+          <p>Se você precisa de case aprovado antes de decidir — sem problema. Não é o perfil de quem entra agora. Posso manter seu contato. Se você avalia pelo método e pela lógica do processo, a conversa pode acontecer essa semana. Restam 6 vagas.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
+<!-- ATUALIZADO: linha de resposta rápida adicionada antes do botão -->
 <section id="cta-final">
   <div class="container">
-    <p class="section-label">Vagas limitadas · Máximo 8 clínicas por vez</p>
+    <p class="section-label">Vagas limitadas · Restam 6 de 8</p>
     <h2>Sua clínica merece uma agenda previsível.</h2>
-    <p class="body-lead">20 minutos de conversa. Diagnóstico real. Sem enrolação.</p>
+    <p class="body-lead">20 minutos de conversa. Diagnóstico real do seu funil. Sem enrolação.</p>
     <a class="btn-primary"
        href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Vi%20sua%20LP%20e%20quero%20garantir%20minha%20vaga%20na%20análise%20gratuita."
-       onclick="fbq('track','Contact'); gtag('event','cta_final_click');">
+       onclick="gtag('event','cta_final_click');">
       Garantir minha vaga — análise gratuita
     </a>
-    <p class="fine">Sem risco: se em 60 dias você não tiver dados reais para decidir, o contrato encerra sem multa.</p>
+    <!-- NOVO: linha de resposta rápida — reduz atrito do primeiro passo -->
+    <p class="resposta-rapida">Respondo pessoalmente em até 2 horas em dias úteis.</p>
+    <p class="fine">Sem risco: se em 60 dias você não tiver campanhas ativas e dados reais de progresso, o contrato encerra sem multa e sem cobrança de rescisão.</p>
   </div>
 </section>
 
@@ -714,8 +769,7 @@
   <a href="https://instagram.com/rodrigorocha.ads" target="_blank" rel="noopener">@rodrigorocha.ads</a>
 </footer>
 
-<!-- FIX 6: Meta Pixel movido para o final do <body> -->
-<!-- Era carregado no <head> de forma bloqueante, atrasando render e inflando TBT -->
+<!-- Meta Pixel no final do body — não bloqueia render -->
 <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -728,6 +782,7 @@
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
 
+<!-- FAQ accordion -->
 <script>
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
