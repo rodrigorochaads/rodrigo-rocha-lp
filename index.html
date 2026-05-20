@@ -6,6 +6,26 @@
   <title>Rodrigo Rocha | Gestor de Tráfego para Alto Ticket em Estética e Saúde</title>
   <meta name="description" content="Método CQV para clínicas de alto ticket. Meta Ads e Google Ads com foco em pacientes qualificados, não volume de lead." />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.svg" />
+
+  <!-- Open Graph / WhatsApp / LinkedIn -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.rodrigorochaads.com.br/" />
+  <meta property="og:title"       content="Rodrigo Rocha | Gestor de Tráfego para Clínicas de Alto Ticket" />
+  <meta property="og:description" content="Método CQV — filtro de lead errado antes da recepção. Meta Ads e Google Ads exclusivos para estética médica e cirurgia plástica." />
+  <meta property="og:image"       content="https://www.rodrigorochaads.com.br/foto.jpeg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:alt"   content="Rodrigo Rocha — Gestor de Tráfego para Clínicas de Alto Ticket" />
+  <meta property="og:locale"      content="pt_BR" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Rodrigo Rocha | Gestor de Tráfego para Clínicas de Alto Ticket" />
+  <meta name="twitter:description" content="Método CQV — filtro de lead errado antes da recepção. Meta Ads e Google Ads exclusivos para estética médica." />
+  <meta name="twitter:image"       content="https://www.rodrigorochaads.com.br/foto.jpeg" />
+
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
@@ -447,7 +467,7 @@
   <!-- HERO BAR: vagas reais em destaque -->
   <div class="hero-bar">
     <div class="bar-item vagas-live">
-      <div class="bar-num">6<sub>/8</sub></div>
+      <div class="bar-num"><span data-vagas="n">6</span><sub>/8</sub></div>
       <div class="bar-label">Vagas restantes. Quando fechar, encerro sem data de retorno — sem exceção.</div>
     </div>
     <div class="bar-item">
@@ -526,7 +546,7 @@
        onclick="gtag('event','cta_mid_click');">
       Quero saber se minha clínica tem perfil
     </a>
-    <p class="note">Restam 6 de 8 vagas — quando fechar, encerro sem data de retorno.</p>
+    <p class="note">Restam <span data-vagas="n">6</span> de 8 vagas — quando fechar, encerro sem data de retorno.</p>
   </div>
 </div>
 
@@ -631,7 +651,7 @@
     <!-- VAGAS STRIP ATUALIZADA: número real em destaque -->
     <div class="vagas-strip">
       <div class="vagas-strip-texto">
-        <div class="vagas-count">Restam 6 vagas</div>
+        <div class="vagas-count">Restam <span data-vagas="n">6</span> vagas</div>
         <p>Limite hard: máximo 8 clínicas ao mesmo tempo. <strong>Quando fechar, a lista fecha sem data de retorno definida.</strong> Quem entra agora tem condição que não vai se repetir.</p>
       </div>
       <a class="btn-primary"
@@ -738,7 +758,7 @@
           <p>Pergunta justa. Resposta direta.</p>
           <p>Método CQV está estruturado e rodando. O que não existe ainda é um histórico documentado com número, nome de clínica e mês — e não vou inventar um.</p>
           <p>O que você tem ao entrar agora: atenção integral sem concorrência de carteira cheia, acesso direto a cada decisão do processo, e condição comercial que muda quando o histórico chegar.</p>
-          <p>Se você precisa de case aprovado antes de decidir — sem problema. Não é o perfil de quem entra agora. Posso manter seu contato. Se você avalia pelo método e pela lógica do processo, a conversa pode acontecer essa semana. Restam 6 vagas.</p>
+          <p>Se você precisa de case aprovado antes de decidir — sem problema. Não é o perfil de quem entra agora. Posso manter seu contato. Se você avalia pelo método e pela lógica do processo, a conversa pode acontecer essa semana. Restam <span data-vagas="n">6</span> vagas.</p>
         </div>
       </div>
 
@@ -750,7 +770,7 @@
 <!-- ATUALIZADO: linha de resposta rápida adicionada antes do botão -->
 <section id="cta-final">
   <div class="container">
-    <p class="section-label">Vagas limitadas · Restam 6 de 8</p>
+    <p class="section-label">Vagas limitadas · Restam <span data-vagas="n">6</span> de 8</p>
     <h2>Sua clínica merece uma agenda previsível.</h2>
     <p class="body-lead">20 minutos de conversa. Diagnóstico real do seu funil. Sem enrolação.</p>
     <a class="btn-primary"
@@ -784,6 +804,42 @@
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
+
+<!-- ══════════════════════════════════════════════════
+     VAGAS — altere APENAS este número quando fechar uma vaga
+     ══════════════════════════════════════════════════ -->
+<script>
+  const VAGAS = 6; // ← ALTERE AQUI
+
+  document.querySelectorAll('[data-vagas="n"]').forEach(el => {
+    el.textContent = VAGAS;
+  });
+</script>
+
+<!-- Botão flutuante WhatsApp (mobile) -->
+<a class="wpp-float"
+   href="https://wa.me/554899291215?text=Olá%2C%20Rodrigo!%20Quero%20saber%20se%20minha%20clínica%20tem%20perfil%20para%20o%20Método%20CQV."
+   aria-label="Falar no WhatsApp"
+   onclick="gtag('event','cta_float_click');">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.847L.057 23.882l6.198-1.448A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 01-5.032-1.388l-.36-.214-3.733.872.938-3.452-.235-.375A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<style>
+  .wpp-float {
+    display: none;
+    position: fixed; bottom: 24px; right: 24px; z-index: 200;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #C9A84C; color: #0A0A0A;
+    align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wpp-float:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(201,168,76,0.5); }
+  @media (max-width: 700px) { .wpp-float { display: flex; } }
+</style>
 
 <!-- FAQ accordion -->
 <script>
