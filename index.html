@@ -225,18 +225,21 @@
       overflow: hidden; margin-top: 48px;
     }
     .qual-col { background: var(--bg3); padding: 40px 36px; }
+    .qual-col.nao { background: var(--bg2); }
     .qual-col h3 {
       font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--muted); margin-bottom: 28px;
       padding-bottom: 16px; border-bottom: 1px solid var(--border);
     }
+    .qual-col.nao h3 { color: var(--faint); border-bottom-color: rgba(90,86,80,0.2); }
     .qual-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
     .qual-list li {
       font-size: 0.88rem; color: var(--muted); line-height: 1.55;
       display: grid; grid-template-columns: 14px 1fr; gap: 12px;
     }
+    .qual-col.nao .qual-list li { color: var(--faint); }
     .qual-list li .mark { font-size: 0.75rem; color: var(--gold); margin-top: 2px; }
-    .qual-col.nao .qual-list li .mark { color: var(--faint); }
+    .qual-col.nao .qual-list li .mark { color: var(--faint); font-size: 0.9rem; line-height: 1.2; }
 
     /* SOBRE */
     #sobre { background: var(--bg2); }
@@ -523,7 +526,7 @@
        onclick="gtag('event','cta_mid_click');">
       Quero saber se minha clínica tem perfil
     </a>
-    <p class="note">20 minutos. Diagnóstico do funil da clínica, não apresentação comercial.</p>
+    <p class="note">Restam 6 de 8 vagas — quando fechar, encerro sem data de retorno.</p>
   </div>
 </div>
 
@@ -547,11 +550,11 @@
       <div class="qual-col nao">
         <h3>Não é para você se</h3>
         <ul class="qual-list">
-          <li><span class="mark">·</span><span>Quer testar com R$ 200–300 por mês em anúncios</span></li>
-          <li><span class="mark">·</span><span>Não tem tempo para responder leads no mesmo dia</span></li>
-          <li><span class="mark">·</span><span>Espera resultado em três dias</span></li>
-          <li><span class="mark">·</span><span>Procura curso, consultoria ou mentoria</span></li>
-          <li><span class="mark">·</span><span>Quer competir por preço baixo para atrair mais volume</span></li>
+          <li><span class="mark">—</span><span>Quer testar com R$ 200–300 por mês em anúncios</span></li>
+          <li><span class="mark">—</span><span>Não tem tempo para responder leads no mesmo dia</span></li>
+          <li><span class="mark">—</span><span>Espera resultado em três dias</span></li>
+          <li><span class="mark">—</span><span>Procura curso, consultoria ou mentoria</span></li>
+          <li><span class="mark">—</span><span>Quer competir por preço baixo para atrair mais volume</span></li>
         </ul>
       </div>
     </div>
