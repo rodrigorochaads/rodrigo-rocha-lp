@@ -351,6 +351,8 @@
     }
     .nav-links a:hover { color: var(--c-text); }
     .nav-cta .btn { height: 40px; font-size: 12px; padding: 0 var(--s-6); }
+    .nav-links a.btn--primary,
+    .nav-links a.btn--primary:hover { color: #111; }
 
     .nav-mobile-toggle {
       display: none;
@@ -524,17 +526,15 @@
 
     .hero-dashboard {
       position: absolute;
-      bottom: -var(--s-8);
-      right: -var(--s-8);
-      background: rgba(14,14,14,0.92);
+      bottom: var(--s-5);
+      right: var(--s-5);
+      background: rgba(14,14,14,0.94);
       backdrop-filter: blur(12px);
       border: 1px solid var(--c-gold-line);
       border-radius: var(--r-lg);
       padding: var(--s-5) var(--s-6);
       min-width: 220px;
       box-shadow: var(--sh-card), var(--sh-gold);
-      bottom: var(--s-8);
-      right: calc(-1 * var(--s-10));
     }
     .dashboard-title {
       font-size: 11px;
@@ -894,12 +894,16 @@
       padding: var(--section-py) 0;
       background: var(--c-bg-alt);
     }
+    .table-scroll {
+      margin-top: var(--s-12);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: var(--r-lg);
+    }
     .comparison-table {
       width: 100%;
-      margin-top: var(--s-12);
+      min-width: 560px;
       border-collapse: collapse;
-      border-radius: var(--r-lg);
-      overflow: hidden;
     }
     .comparison-table th,
     .comparison-table td {
@@ -1708,7 +1712,7 @@
         <h2>Especialização importa<br>mais que experiência genérica</h2>
         <p>Um gestor generalista aprende sobre sua clínica enquanto gasta seu dinheiro. Eu já sei o que funciona antes de criar o primeiro anúncio.</p>
       </div>
-      <div class="fade-up">
+      <div class="fade-up table-scroll">
         <table class="comparison-table">
           <thead>
             <tr>
