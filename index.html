@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Rodrigo Rocha — Especialista em tráfego pago para clínicas de estética de alto ticket. Método CQV: Captação, Qualificação e Venda.">
   <title>Rodrigo Rocha | Tráfego Pago para Clínicas de Estética</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / compartilhamento -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rodrigorochaads.com.br/">
+  <meta property="og:title" content="Rodrigo Rocha | Tráfego Pago para Clínicas de Estética">
+  <meta property="og:description" content="Pare de pagar por curiosos. Atraia pacientes de alto ticket com o método CQV — exclusivo para clínicas de estética.">
+  <meta property="og:image" content="https://www.rodrigorochaads.com.br/foto.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rodrigo Rocha | Tráfego Pago para Clínicas de Estética">
+  <meta name="twitter:description" content="Pare de pagar por curiosos. Atraia pacientes de alto ticket com o método CQV — exclusivo para clínicas de estética.">
+  <meta name="twitter:image" content="https://www.rodrigorochaads.com.br/foto.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
@@ -17,6 +29,21 @@
     gtag('js', new Date());
     gtag('config', 'G-6JZ4C1X5NQ');
   </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '921979810687389');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
 
   <style>
     /* ================================
@@ -2062,6 +2089,9 @@
             'cta_location': location,
             'cta_text': link.textContent.trim().substring(0, 60)
           });
+        }
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact');
         }
       });
     });
