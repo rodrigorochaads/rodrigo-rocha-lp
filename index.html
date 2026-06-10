@@ -141,7 +141,7 @@
        RESET
     ================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body {
       font-family: var(--f-body);
       font-size: var(--t-body);
@@ -275,6 +275,19 @@
       width: 20px;
       height: 20px;
       flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .btn {
+        white-space: normal;
+        height: auto;
+        min-height: 52px;
+        padding: 14px var(--s-6);
+        line-height: 1.35;
+        justify-content: center;
+        text-align: center;
+        max-width: 100%;
+      }
     }
 
     /* ================================
