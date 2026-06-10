@@ -1871,7 +1871,8 @@
         </div>
       </div>
       <div class="qual-cue fade-up">
-        <strong>Se nenhum ponto negativo se aplicou à sua clínica</strong>, você provavelmente é exatamente o perfil que faz sentido. Trabalho com no máximo <strong>8 clínicas simultâneas</strong> para garantir qualidade de atenção. Vagas limitadas todo mês.
+        <strong>Se nenhum ponto negativo se aplicou à sua clínica</strong>, você provavelmente é exatamente o perfil que faz sentido. Trabalho com no máximo <strong>8 clínicas simultâneas</strong> para garantir qualidade de atenção.
+        <span id="vagasNote" style="display:none;color:var(--c-gold);font-weight:600;"></span>
       </div>
     </div>
   </section>
@@ -2084,6 +2085,17 @@
       stickyCta.classList.toggle('visible', !entries[0].isIntersecting);
     }, { threshold: 0 });
     heroObserver.observe(heroEl);
+
+    // VAGAS — escassez real. Defina o número de vagas restantes quando
+    // houver 3 ou menos; deixe null para não exibir nada.
+    const VAGAS_RESTANTES = null; // ex.: 2
+    if (VAGAS_RESTANTES !== null && VAGAS_RESTANTES <= 3) {
+      const note = document.getElementById('vagasNote');
+      note.textContent = ' Neste momento, ' + (VAGAS_RESTANTES === 1
+        ? 'resta apenas 1 vaga.'
+        : 'restam apenas ' + VAGAS_RESTANTES + ' vagas.');
+      note.style.display = 'inline';
+    }
 
     // TRACKING — clique no WhatsApp (conversão principal)
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
