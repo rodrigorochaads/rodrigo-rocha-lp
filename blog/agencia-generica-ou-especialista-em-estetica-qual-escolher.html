@@ -176,6 +176,9 @@
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', { 'cta_location': 'blog_artigo', 'cta_text': link.textContent.trim().substring(0, 60) });
         }
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact');
+        }
       });
     });
   </script>

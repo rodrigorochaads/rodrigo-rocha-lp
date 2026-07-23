@@ -139,6 +139,16 @@
   <script>
     const nav = document.getElementById('nav');
     document.querySelectorAll('.fade-up, .divider').forEach(el => el.classList.add('visible'));
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', { 'cta_location': 'blog_index', 'cta_text': link.textContent.trim().substring(0, 60) });
+        }
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact');
+        }
+      });
+    });
   </script>
 </body>
 </html>
