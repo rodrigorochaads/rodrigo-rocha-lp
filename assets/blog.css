@@ -295,6 +295,36 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .article-back:hover { color: var(--c-gold); }
 
+/* LEIA TAMBEM — internal linking entre artigos do blog */
+.related-posts {
+  margin-top: var(--s-12);
+  padding-top: var(--s-8);
+  border-top: 1px solid var(--c-gold-line);
+}
+.related-posts-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: var(--s-5);
+  display: block;
+}
+.related-posts ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+.related-posts a {
+  font-family: var(--f-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--c-text);
+  line-height: 1.4;
+}
+.related-posts a:hover { color: var(--c-gold); }
+
 /* CAIXA DE AUTOR — reforca E-E-A-T (quem escreveu, credencial) */
 .author-box {
   display: flex;
