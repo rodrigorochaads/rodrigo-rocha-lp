@@ -276,6 +276,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--c-gold);
 }
 .article-body strong { color: var(--c-text); }
+.article-body a {
+  color: var(--c-gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(201,168,76,0.4);
+  text-underline-offset: 3px;
+}
+.article-body a:hover { text-decoration-color: var(--c-gold); }
 .article-cta {
   margin-top: var(--s-12);
   padding-top: var(--s-8);
