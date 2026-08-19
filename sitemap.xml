@@ -35,4 +35,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.rodrigorochaads.com.br/blog/como-saber-se-o-gestor-de-trafego-esta-entregando-resultado.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
