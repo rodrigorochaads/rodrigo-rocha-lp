@@ -25,18 +25,6 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
-    const nav = document.getElementById('nav');
-    const menuToggle = document.getElementById('menuToggle');
-    menuToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('menu-open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -216,6 +204,18 @@
   </footer>
 
   <script>
+    const nav = document.getElementById('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
     document.querySelectorAll('.fade-up, .divider').forEach(el => el.classList.add('visible'));
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
       link.addEventListener('click', () => {
