@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
   <meta name="description" content="Rodrigo Rocha: especialista em tráfego pago para clínicas de estética de alto ticket. Método CQV: Captação, Qualificação e Venda.">
   <title>Rodrigo Rocha | Tráfego Pago para Clínicas de Estética</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -88,6 +89,7 @@
        TOKENS — DESIGN SYSTEM
     ================================ */
     :root {
+      color-scheme: dark;
       /* Colors — Dark */
       --c-bg:          #0A0A0A;
       --c-bg-alt:      #111111;
@@ -579,7 +581,8 @@
       max-width: 100%;
       cursor: pointer;
     }
-    .hero-qualify select:focus { outline: none; border-bottom-color: var(--c-gold); }
+    .hero-qualify select:focus { border-bottom-color: var(--c-gold); }
+    .hero-qualify select:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 4px; }
     .hero-qualify select option { background: #1a1a1a; color: var(--c-text); }
 
     .hero-trust {
@@ -1273,12 +1276,15 @@
       transform: rotate(45deg);
     }
     .faq-answer {
-      max-height: 0;
+      display: grid;
+      grid-template-rows: 0fr;
       overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
     .faq-answer-inner {
+      min-height: 0;
+      overflow: hidden;
       padding: 0 0 var(--s-6);
       max-width: 620px;
       font-size: 14px;
@@ -1490,7 +1496,7 @@
           </a>
         </div>
       </div>
-      <button class="nav-mobile-toggle" id="menuToggle" aria-label="Menu">
+      <button class="nav-mobile-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1995,74 +2001,74 @@
       </div>
       <div class="faq-list fade-up">
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
             Quanto tempo até ver resultado?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-1">
             <div class="faq-answer-inner">Honestamente: entre 30 e 60 dias para a campanha calibrar e ter dados suficientes para otimização real. Previsibilidade de resultado vem com 90 dias de trabalho. Quem promete resultado em uma semana está mentindo, ou vai gerar volume de leads que não convertem.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
             Por que o mínimo de R$1.500/mês em mídia?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-2">
             <div class="faq-answer-inner">Abaixo desse valor, o algoritmo das plataformas não tem dados suficientes para otimizar. A campanha fica em modo de aprendizado constante e nunca performa. Não é regra minha. É como Meta e Google funcionam. Investir menos é queimar verba.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
             Por que contrato de 3 meses?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-3">
             <div class="faq-answer-inner">Porque esse é o tempo real que o método CQV precisa para funcionar. Mês 1: estruturação e calibração. Mês 2: otimização com dados reais. Mês 3: escala e previsibilidade. Encerrar antes é exatamente quando o investimento começa a dar retorno.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
             Os criativos respeitam as normas do CFM?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-4">
             <div class="faq-answer-inner">Sim. Todo material criativo passa por checklist de compliance com as resoluções do Conselho Federal de Medicina. Isso inclui restrições sobre antes/depois, garantias de resultado, linguagem e uso de imagens. Sua clínica nunca vai receber advertência por causa de anúncio mal feito.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
             Posso ver resultados de outros clientes?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-5">
             <div class="faq-answer-inner">Sob NDA, em conversa 1:1. Protejo a privacidade de quem confia em mim. Não exponho dados dos meus clientes publicamente. Se você precisa de referência, posso facilitar contato direto com um cliente atual que aceite conversar.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
             Atendem clínicas fora da minha cidade?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-6">
             <div class="faq-answer-inner">Sim. 100% remoto. Atendemos clínicas em todo o Brasil. Gestão de tráfego digital não tem limitação geográfica. Nossa comunicação é direta via WhatsApp e reuniões online.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
             E se eu não gostar dos resultados?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-7">
             <div class="faq-answer-inner">Se após 90 dias a qualidade dos leads não for visivelmente superior ao que você tinha (menos curiosos, mais pacientes com perfil de compra), encerramos o contrato sem multa e sem discussão. Não prometo CPL milagroso. Prometo clareza: você vai saber exatamente para onde cada real foi e o que gerou.</div>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
             Como funciona a análise gratuita?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-8">
             <div class="faq-answer-inner">É uma conversa de 30 minutos via WhatsApp ou chamada. Você me conta sobre sua clínica, seus procedimentos e o que você já tentou em tráfego. Eu analiso e te dou um diagnóstico honesto, incluindo se o perfil da sua clínica faz sentido com o meu método. Sem compromisso, sem pitch agressivo.</div>
           </div>
         </div>
@@ -2157,10 +2163,14 @@
     // NAV — mobile menu
     const menuToggle = document.getElementById('menuToggle');
     menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('menu-open');
+      const isOpen = nav.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => nav.classList.remove('menu-open'));
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
     });
 
     // FADE-UP — intersection observer
@@ -2180,8 +2190,14 @@
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
     });
 

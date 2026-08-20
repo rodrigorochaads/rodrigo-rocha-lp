@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
   <meta name="description" content="Meta mudou a regra de antes/depois em julho de 2026. Entenda o que passou a ser permitido e o que ainda derruba seu anúncio de estética.">
   <title>Meta e a regra de antes/depois: o que mudou | Rodrigo Rocha</title>
   <link rel="canonical" href="https://www.rodrigorochaads.com.br/blog/meta-afrouxou-regra-de-antes-e-depois-mas-texto-do-anuncio-ainda-derruba.html">
@@ -24,6 +25,18 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
+    const nav = document.getElementById('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -100,6 +113,9 @@
           <a href="https://wa.me/554899291215?text=Oi%20Rodrigo!%20Vim%20pelo%20blog%20e%20quero%20a%20an%C3%A1lise%20gratuita%20da%20minha%20cl%C3%ADnica." class="btn btn--primary" target="_blank">Falar comigo</a>
         </div>
       </div>
+      <button class="nav-mobile-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 

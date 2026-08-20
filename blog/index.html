@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
   <meta name="description" content="Artigos sobre tráfego pago, Meta Ads, Google Ads e compliance CFM para clínicas de estética de alto ticket, por Rodrigo Rocha.">
   <title>Blog de Tráfego Pago para Clínicas | Rodrigo Rocha</title>
   <link rel="canonical" href="https://www.rodrigorochaads.com.br/blog/">
@@ -24,6 +25,18 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
   <script>
+    const nav = document.getElementById('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -87,6 +100,9 @@
           <a href="https://wa.me/554899291215?text=Oi%20Rodrigo!%20Vim%20pelo%20blog%20e%20quero%20a%20an%C3%A1lise%20gratuita%20da%20minha%20cl%C3%ADnica." class="btn btn--primary" target="_blank">Falar comigo</a>
         </div>
       </div>
+      <button class="nav-mobile-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -176,7 +192,6 @@
   </footer>
 
   <script>
-    const nav = document.getElementById('nav');
     document.querySelectorAll('.fade-up, .divider').forEach(el => el.classList.add('visible'));
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
       link.addEventListener('click', () => {

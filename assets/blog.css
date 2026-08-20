@@ -2,6 +2,7 @@
    TOKENS — DESIGN SYSTEM (compartilhado com a LP)
 ================================ */
 :root {
+  color-scheme: dark;
   --c-bg:          #0A0A0A;
   --c-bg-alt:      #111111;
   --c-surface:     #161616;
