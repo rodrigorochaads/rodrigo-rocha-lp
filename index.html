@@ -1281,15 +1281,12 @@
       transform: rotate(45deg);
     }
     .faq-answer {
-      display: grid;
-      grid-template-rows: 0fr;
+      max-height: 0;
       overflow: hidden;
-      transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+    .faq-item.open .faq-answer { max-height: 300px; }
     .faq-answer-inner {
-      min-height: 0;
-      overflow: hidden;
       padding: 0 0 var(--s-6);
       max-width: 620px;
       font-size: 14px;
