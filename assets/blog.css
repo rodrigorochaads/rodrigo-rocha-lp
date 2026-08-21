@@ -20,8 +20,8 @@
 
   --c-text:        #F0EDE8;
   --c-text-2:      #B8B0A4;
-  --c-text-3:      #6B6560;
-  --c-text-4:      #3D3A38;
+  --c-text-3:      #9A9284;
+  --c-text-4:      #857E6E;
   --c-footer-text: #8C8680;
 
   --f-display: 'Playfair Display', Georgia, serif;
@@ -287,6 +287,31 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-underline-offset: 3px;
 }
 .article-body a:hover { text-decoration-color: var(--c-gold); }
+.diag-promo {
+  margin-top: var(--s-10);
+  padding: var(--s-6);
+  border: 1px solid var(--c-gold-line);
+  border-radius: 4px;
+  background: var(--c-gold-subtle);
+  text-align: center;
+}
+.diag-promo p {
+  font-size: 14.5px;
+  color: var(--c-text-2);
+  margin-bottom: var(--s-3);
+  line-height: 1.6;
+}
+.diag-promo p strong { color: var(--c-text); }
+.diag-promo a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(201,168,76,0.4);
+  text-underline-offset: 3px;
+}
+.diag-promo a:hover { text-decoration-color: var(--c-gold); }
+
 .article-cta {
   margin-top: var(--s-12);
   padding-top: var(--s-8);

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="description" content="Diagnóstico gratuito de 5 perguntas: descubra se o anúncio da sua clínica de estética tem risco real de infração ética (CFM) ou de LGPD.">
+  <title>Diagnóstico de Compliance | Rodrigo Rocha</title>
+  <link rel="canonical" href="https://www.rodrigorochaads.com.br/diagnostico-compliance/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rodrigorochaads.com.br/diagnostico-compliance/">
+  <meta property="og:title" content="Diagnóstico de Compliance para Anúncio de Estética">
+  <meta property="og:description" content="5 perguntas rápidas pra saber se o anúncio da sua clínica tem risco real de infração ética ou de LGPD.">
+  <meta property="og:image" content="https://www.rodrigorochaads.com.br/foto.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../assets/blog.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6JZ4C1X5NQ');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,"script",
+    "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "921979810687389");
+    fbq("track", "PageView");
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=921979810687389&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xxmuyafj16");
+  </script>
+
+  <style>
+    .diag-hero {
+      padding: calc(70px + var(--s-16)) 0 var(--s-10);
+      text-align: center;
+    }
+    .diag-hero p {
+      max-width: 560px;
+      margin: var(--s-5) auto 0;
+      color: var(--c-text-2);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .diag-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 0 var(--s-16);
+    }
+    .diag-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: var(--s-8);
+    }
+    .diag-progress-dot {
+      flex: 1;
+      height: 3px;
+      background: var(--c-border-md);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .diag-progress-dot span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--c-gold);
+      transition: width 0.3s ease;
+    }
+    .diag-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 4px;
+      padding: var(--s-8) clamp(var(--s-5), 5vw, var(--s-10));
+    }
+    .diag-question {
+      display: none;
+    }
+    .diag-question.active { display: block; }
+    .diag-q-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      display: block;
+      margin-bottom: var(--s-4);
+    }
+    .diag-q-text {
+      font-family: var(--f-display);
+      font-size: clamp(20px, 3vw, 24px);
+      font-weight: 600;
+      color: var(--c-text);
+      line-height: 1.4;
+      margin: 0 0 var(--s-8);
+    }
+    .diag-answers {
+      display: flex;
+      gap: var(--s-4);
+    }
+    .diag-answer-btn {
+      flex: 1;
+      padding: var(--s-5) var(--s-4);
+      background: transparent;
+      border: 1px solid var(--c-border-md);
+      border-radius: 4px;
+      color: var(--c-text-2);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    }
+    .diag-answer-btn:hover { border-color: var(--c-gold-dim, var(--c-gold)); color: var(--c-text); }
+    .diag-answer-btn:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 2px; }
+    .diag-answer-btn.selected {
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+      background: rgba(201,168,76,0.08);
+    }
+    .diag-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--s-8);
+    }
+    .diag-back {
+      font-size: 14px;
+      color: var(--c-text-3);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: var(--s-2);
+      visibility: hidden;
+    }
+    .diag-back.visible { visibility: visible; }
+    .diag-back:hover { color: var(--c-text-2); }
+
+    /* RESULTADO */
+    .diag-result { display: none; }
+    .diag-result.active { display: block; }
+    .diag-result-score {
+      text-align: center;
+      margin-bottom: var(--s-8);
+    }
+    .diag-result-number {
+      font-family: var(--f-display);
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--c-gold);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .diag-result-label {
+      font-size: 13px;
+      color: var(--c-text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: var(--s-2);
+    }
+    .diag-result-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-3);
+      margin-bottom: var(--s-8);
+    }
+    .diag-result-item {
+      display: flex;
+      gap: var(--s-3);
+      align-items: flex-start;
+      padding: var(--s-4);
+      border-radius: 4px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .diag-result-item.risk { background: rgba(192,131,111,0.1); border: 1px solid rgba(192,131,111,0.25); color: var(--c-text-2); }
+    .diag-result-item.ok { background: rgba(143,175,135,0.08); border: 1px solid rgba(143,175,135,0.2); color: var(--c-text-3); }
+    .diag-result-item strong { color: var(--c-text); }
+    .diag-result-item a { color: var(--c-gold); text-decoration: underline; text-decoration-color: rgba(201,168,76,0.4); text-underline-offset: 2px; }
+    .diag-result-icon { flex-shrink: 0; font-size: 15px; line-height: 1.6; }
+    .diag-result-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--s-3);
+    }
+    .diag-restart {
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: var(--c-text-3);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      margin: var(--s-6) auto 0;
+      text-decoration: underline;
+      text-decoration-color: var(--c-border-md);
+    }
+    .diag-restart:hover { color: var(--c-text-2); }
+
+    .diag-disclaimer {
+      max-width: 640px;
+      margin: var(--s-10) auto 0;
+      font-size: 13px;
+      color: var(--c-text-4);
+      text-align: center;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="seal-ring-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" fill="none"/>
+      <symbol id="seal-rr" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="0.75"/>
+        <text font-size="7.4" font-weight="600" letter-spacing="3.2" fill="currentColor">
+          <textPath href="#seal-ring-path" startOffset="1%">RODRIGO ROCHA &#8226; M&#201;TODO CQV &#8226; RODRIGO ROCHA &#8226; M&#201;TODO CQV &#8226;</textPath>
+        </text>
+        <text x="60" y="74" font-size="34" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-weight="700" letter-spacing="-3" fill="currentColor">RR</text>
+        <line x1="60" y1="7" x2="60" y2="14" stroke="currentColor" stroke-width="1"/>
+        <line x1="60" y1="106" x2="60" y2="113" stroke="currentColor" stroke-width="1"/>
+        <line x1="7" y1="60" x2="14" y2="60" stroke="currentColor" stroke-width="1"/>
+        <line x1="106" y1="60" x2="113" y2="60" stroke="currentColor" stroke-width="1"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="../" class="nav-logo" aria-label="Rodrigo Rocha">
+        <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><use href="#seal-rr"/></svg>
+      </a>
+      <div class="nav-links">
+        <a href="../#metodo">Método</a>
+        <a href="../#sobre">Sobre</a>
+        <a href="../blog/">Blog</a>
+        <div class="nav-cta">
+          <a href="https://wa.me/554899291215?text=Oi%20Rodrigo!%20Vim%20pelo%20diagn%C3%B3stico%20de%20compliance%20e%20quero%20a%20an%C3%A1lise%20gratuita%20da%20minha%20cl%C3%ADnica." class="btn btn--primary" target="_blank">Falar comigo</a>
+        </div>
+      </div>
+      <button class="nav-mobile-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="diag-hero">
+      <div class="container">
+        <span class="rule-label" style="justify-content:center;">Compliance</span>
+        <div class="divider visible"></div>
+        <h1>Seu anúncio tem risco de <span class="gold-text">infração ética</span>?</h1>
+        <p>5 perguntas rápidas, baseadas nas resoluções do CFM e na LGPD, pra você saber se o anúncio da sua clínica tem algum ponto de atenção real. Leva menos de 1 minuto.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="diag-wrap">
+
+        <div class="diag-progress" id="diagProgress"></div>
+
+        <div class="diag-card">
+
+          <div class="diag-question active" data-index="0">
+            <span class="diag-q-label">Pergunta 1 de 5</span>
+            <p class="diag-q-text">Seu anúncio promete resultado garantido ou usa frases como "resultado certo", sem nenhuma ressalva?</p>
+            <div class="diag-answers">
+              <button class="diag-answer-btn" data-value="yes">Sim</button>
+              <button class="diag-answer-btn" data-value="no">Não</button>
+            </div>
+          </div>
+
+          <div class="diag-question" data-index="1">
+            <span class="diag-q-label">Pergunta 2 de 5</span>
+            <p class="diag-q-text">Algum criativo seu usa ou menciona PMMA (polimetilmetacrilato) como substância de preenchimento?</p>
+            <div class="diag-answers">
+              <button class="diag-answer-btn" data-value="yes">Sim</button>
+              <button class="diag-answer-btn" data-value="no">Não</button>
+            </div>
+          </div>
+
+          <div class="diag-question" data-index="2">
+            <span class="diag-q-label">Pergunta 3 de 5</span>
+            <p class="diag-q-text">Você usa foto de antes/depois de paciente sem um termo de uso de imagem específico pra marketing (separado do termo de consentimento do procedimento)?</p>
+            <div class="diag-answers">
+              <button class="diag-answer-btn" data-value="yes">Sim</button>
+              <button class="diag-answer-btn" data-value="no">Não</button>
+            </div>
+          </div>
+
+          <div class="diag-question" data-index="3">
+            <span class="diag-q-label">Pergunta 4 de 5</span>
+            <p class="diag-q-text">Seu anúncio se compara a concorrentes, ou usa termos como "melhor que", "líder" ou desmerece outro profissional?</p>
+            <div class="diag-answers">
+              <button class="diag-answer-btn" data-value="yes">Sim</button>
+              <button class="diag-answer-btn" data-value="no">Não</button>
+            </div>
+          </div>
+
+          <div class="diag-question" data-index="4">
+            <span class="diag-q-label">Pergunta 5 de 5</span>
+            <p class="diag-q-text">Algum criativo de antes/depois seu já foi reprovado no Meta Ads e você não entendeu exatamente por quê?</p>
+            <div class="diag-answers">
+              <button class="diag-answer-btn" data-value="yes">Sim</button>
+              <button class="diag-answer-btn" data-value="no">Não</button>
+            </div>
+          </div>
+
+          <div class="diag-nav">
+            <button class="diag-back" id="diagBack">&larr; Voltar</button>
+          </div>
+
+          <div class="diag-result" id="diagResult">
+            <div class="diag-result-score">
+              <div class="diag-result-number" id="diagScoreNumber">0</div>
+              <div class="diag-result-label" id="diagScoreLabel">de 5 pontos de risco encontrados</div>
+            </div>
+            <div class="diag-result-list" id="diagResultList"></div>
+            <div class="diag-result-actions">
+              <a href="#" id="diagWaBtn" class="btn btn--primary" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span id="diagWaBtnText">Revisar com Rodrigo no WhatsApp</span>
+              </a>
+            </div>
+            <button class="diag-restart" id="diagRestart">Refazer o diagnóstico</button>
+          </div>
+
+        </div>
+
+        <p class="diag-disclaimer">Este diagnóstico é informativo, não é parecer jurídico nem substitui consulta a um advogado especializado ou ao seu conselho profissional. As perguntas se baseiam na Resolução CFM 2.336/2023, na Resolução CFM 2.461/2026 e na Lei 13.709/2018 (LGPD).</p>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <svg class="seal seal--sm" viewBox="0 0 120 120" aria-hidden="true" style="margin-bottom:var(--s-4);"><use href="#seal-rr"/></svg>
+          <p class="footer-tagline">Menos leads. Mais pacientes.<br>Resultado de método, não de sorte.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-nav-title">Navegação</div>
+          <ul>
+            <li><a href="../#problema">O problema</a></li>
+            <li><a href="../#metodo">Método CQV</a></li>
+            <li><a href="../#sobre">Sobre</a></li>
+            <li><a href="../blog/">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-nav-title">Contato</div>
+          <ul>
+            <li><a href="https://wa.me/554899291215?text=Oi%20Rodrigo!%20Quero%20saber%20mais%20sobre%20o%20M%C3%A9todo%20CQV%20pra%20minha%20cl%C3%ADnica." target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/rodrigorocha.ads/" target="_blank">@rodrigorocha.ads</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Rodrigo Rocha · Gestão de Tráfego para Clínicas de Estética</span>
+        <span>LGPD compliant</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', { 'cta_location': 'diagnostico_compliance', 'cta_text': link.textContent.trim().substring(0, 60) });
+        }
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact');
+        }
+      });
+    });
+
+    // DIAGNOSTICO DE COMPLIANCE
+    (function () {
+      const QUESTIONS = [
+        { risk: 'Prometer resultado garantido é o tipo de alegação que mais gera advertência do conselho profissional.', article: { href: '/blog/o-que-o-cfm-permite-em-anuncio-de-procedimento-estetico.html', label: 'Entenda o que dá pra fazer em anúncio de procedimento estético' } },
+        { risk: 'Uso e divulgação de PMMA é infração ética desde junho de 2026, independente de ter causado dano ou não.', article: { href: '/blog/cfm-proibiu-pmma-o-que-muda-em-anuncio-de-procedimento-estetico.html', label: 'Veja o que muda com a proibição do PMMA' } },
+        { risk: 'Sem termo específico de uso de imagem pra marketing, o paciente pode exigir remoção da foto a qualquer momento, mesmo anos depois.', article: { href: '/blog/lgpd-foto-depoimento-de-paciente-em-anuncio-o-que-a-clinica-precisa-ter.html', label: 'Veja o que a LGPD exige antes de usar foto de paciente' } },
+        { risk: 'Comparação ou desmerecimento de colegas é sempre um risco ético, mesmo sem citar nome.', article: { href: '/blog/o-que-o-cfm-permite-em-anuncio-de-procedimento-estetico.html', label: 'Entenda o que dá pra fazer em anúncio de procedimento estético' } },
+        { risk: 'Desde julho de 2026 a Meta decide aprovação pelo texto do anúncio, não só pela imagem — vale revisar o que está escrito no criativo.', article: { href: '/blog/meta-afrouxou-regra-de-antes-e-depois-mas-texto-do-anuncio-ainda-derruba.html', label: 'Veja o que mudou na regra de antes/depois da Meta' } }
+      ];
+
+      const answers = new Array(QUESTIONS.length).fill(null);
+      let current = 0;
+
+      const progressEl = document.getElementById('diagProgress');
+      QUESTIONS.forEach(() => {
+        const dot = document.createElement('div');
+        dot.className = 'diag-progress-dot';
+        dot.innerHTML = '<span></span>';
+        progressEl.appendChild(dot);
+      });
+      const dots = progressEl.querySelectorAll('.diag-progress-dot span');
+
+      const questionEls = document.querySelectorAll('.diag-question');
+      const backBtn = document.getElementById('diagBack');
+      const resultEl = document.getElementById('diagResult');
+      const cardNav = document.querySelector('.diag-nav');
+
+      function updateProgress() {
+        dots.forEach((d, i) => { d.style.width = i <= current ? '100%' : '0%'; });
+      }
+
+      function showQuestion(index) {
+        questionEls.forEach(q => q.classList.toggle('active', Number(q.dataset.index) === index));
+        backBtn.classList.toggle('visible', index > 0);
+        updateProgress();
+      }
+
+      function selectAnswer(index, value, btnEl) {
+        answers[index] = value;
+        const parent = btnEl.closest('.diag-answers');
+        parent.querySelectorAll('.diag-answer-btn').forEach(b => b.classList.remove('selected'));
+        btnEl.classList.add('selected');
+        if (typeof gtag === 'function') {
+          gtag('event', 'diagnostico_resposta', { 'pergunta': index + 1, 'resposta': value });
+        }
+        window.setTimeout(() => {
+          if (index < QUESTIONS.length - 1) {
+            current = index + 1;
+            showQuestion(current);
+          } else {
+            showResult();
+          }
+        }, 250);
+      }
+
+      questionEls.forEach(q => {
+        const index = Number(q.dataset.index);
+        q.querySelectorAll('.diag-answer-btn').forEach(btn => {
+          btn.addEventListener('click', () => selectAnswer(index, btn.dataset.value, btn));
+        });
+      });
+
+      backBtn.addEventListener('click', () => {
+        if (current > 0) {
+          current -= 1;
+          showQuestion(current);
+        }
+      });
+
+      function showResult() {
+        questionEls.forEach(q => q.classList.remove('active'));
+        cardNav.style.display = 'none';
+        progressEl.style.display = 'none';
+        resultEl.classList.add('active');
+
+        const riskCount = answers.filter(a => a === 'yes').length;
+        document.getElementById('diagScoreNumber').textContent = String(riskCount);
+        document.getElementById('diagScoreLabel').textContent = riskCount === 1 ? 'ponto de risco encontrado' : 'pontos de risco encontrados';
+
+        const listEl = document.getElementById('diagResultList');
+        listEl.innerHTML = '';
+        QUESTIONS.forEach((q, i) => {
+          const item = document.createElement('div');
+          if (answers[i] === 'yes') {
+            item.className = 'diag-result-item risk';
+            item.innerHTML = '<span class="diag-result-icon">&#9888;</span><span><strong>Ponto de atenção ' + (i + 1) + '.</strong> ' + q.risk + ' <a href="' + q.article.href + '">' + q.article.label + ' &rarr;</a></span>';
+          } else {
+            item.className = 'diag-result-item ok';
+            item.innerHTML = '<span class="diag-result-icon">&#10003;</span><span>Pergunta ' + (i + 1) + ': sem risco identificado nessa resposta.</span>';
+          }
+          listEl.appendChild(item);
+        });
+
+        const waBtn = document.getElementById('diagWaBtn');
+        const waBtnText = document.getElementById('diagWaBtnText');
+        let msg;
+        if (riskCount === 0) {
+          msg = 'Oi Rodrigo! Fiz o diagnóstico de compliance no site e não encontrei ponto de risco. Quero saber mais sobre o Método CQV pra minha clínica.';
+          waBtnText.textContent = 'Falar com Rodrigo no WhatsApp';
+        } else {
+          msg = 'Oi Rodrigo! Fiz o diagnóstico de compliance no site e encontrei ' + riskCount + (riskCount === 1 ? ' ponto de risco' : ' pontos de risco') + ' no meu anúncio. Quero revisar isso com você.';
+          waBtnText.textContent = 'Revisar com Rodrigo no WhatsApp';
+        }
+        waBtn.href = 'https://wa.me/554899291215?text=' + encodeURIComponent(msg);
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'diagnostico_concluido', { 'pontos_risco': riskCount });
+        }
+      }
+
+      document.getElementById('diagRestart').addEventListener('click', () => {
+        answers.fill(null);
+        current = 0;
+        document.querySelectorAll('.diag-answer-btn').forEach(b => b.classList.remove('selected'));
+        resultEl.classList.remove('active');
+        cardNav.style.display = '';
+        progressEl.style.display = '';
+        showQuestion(0);
+      });
+
+      showQuestion(0);
+    })();
+  </script>
+</body>
+</html>
