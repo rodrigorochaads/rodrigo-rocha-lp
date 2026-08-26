@@ -8,11 +8,17 @@ Rodrigo Rocha é gestor de tráfego especializado em clínicas de estética de p
 
 - [Home](https://www.rodrigorochaads.com.br/): Apresentação do método CQV, prova social, processo de trabalho, qualificação de quem é o cliente ideal, FAQ sobre contrato e resultado.
 - [Blog](https://www.rodrigorochaads.com.br/blog/): Artigos respondendo as dúvidas reais de dono de clínica antes de contratar gestão de tráfego pago.
+- [Diagnóstico de Compliance](https://www.rodrigorochaads.com.br/diagnostico-compliance/): Ferramenta interativa de 5 perguntas pra clínica avaliar se o próprio anúncio tem risco de infração ética (CFM) ou de LGPD.
 
 ## Artigos do blog
 
 - [Por que sua clínica recebe muitos leads e poucos pacientes?](https://www.rodrigorochaads.com.br/blog/por-que-sua-clinica-recebe-muitos-leads-e-poucos-pacientes.html): Explica por que volume de lead barato não equivale a paciente pagante, e como qualificar antes do clique em vez de depois da mensagem.
 - [Quanto custa um gestor de tráfego pago para clínica de estética?](https://www.rodrigorochaads.com.br/blog/quanto-custa-gestor-de-trafego-para-clinica-de-estetica.html): Diferencia honorário de gestão e verba de mídia, e explica por que existe um investimento mínimo mensal em mídia pra campanha sair do modo de aprendizado.
+- [O que dá pra fazer em anúncio de procedimento estético (e o que evitar)](https://www.rodrigorochaads.com.br/blog/o-que-o-cfm-permite-em-anuncio-de-procedimento-estetico.html): Guia sobre publicidade médica ética conforme a Resolução CFM 2.336/2023 — o que pode e o que evitar num anúncio de procedimento estético.
+- [CFM proibiu o PMMA: o que muda pra quem anuncia procedimento estético](https://www.rodrigorochaads.com.br/blog/cfm-proibiu-pmma-o-que-muda-em-anuncio-de-procedimento-estetico.html): Explica a Resolução CFM 2.461/2026, que proíbe uso e divulgação de PMMA como preenchedor, e o que isso muda pra quem já tem anúncio no ar.
+- [Agência genérica ou especialista em estética: qual escolher?](https://www.rodrigorochaads.com.br/blog/agencia-generica-ou-especialista-em-estetica-qual-escolher.html): Diferença real entre contratar uma agência de marketing genérica e um especialista em tráfego pago pra clínica de estética.
+- [Como saber se o gestor de tráfego está entregando resultado de verdade?](https://www.rodrigorochaads.com.br/blog/como-saber-se-o-gestor-de-trafego-esta-entregando-resultado.html): Quais métricas realmente importam (custo por paciente fechado) e quais só parecem boas no relatório (alcance, número bruto de lead).
+- [Por que gestores de tráfego pedem contrato mínimo de 3 meses?](https://www.rodrigorochaads.com.br/blog/por-que-contrato-minimo-de-3-meses-com-gestor-de-trafego.html): O que acontece em cada mês de campanha (calibração, otimização, escala), e por que encerrar cedo demais desperdiça o investimento.
 
 ## Sobre
 
