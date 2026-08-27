@@ -422,9 +422,9 @@
       const QUESTIONS = [
         { risk: 'Prometer resultado garantido é o tipo de alegação que mais gera advertência do conselho profissional.', article: { href: '/blog/o-que-o-cfm-permite-em-anuncio-de-procedimento-estetico.html', label: 'Entenda o que dá pra fazer em anúncio de procedimento estético' } },
         { risk: 'Uso e divulgação de PMMA é infração ética desde junho de 2026, independente de ter causado dano ou não.', article: { href: '/blog/cfm-proibiu-pmma-o-que-muda-em-anuncio-de-procedimento-estetico.html', label: 'Veja o que muda com a proibição do PMMA' } },
-        { risk: 'Sem termo específico de uso de imagem pra marketing, o paciente pode exigir remoção da foto a qualquer momento, mesmo anos depois.', article: { href: '/blog/lgpd-foto-depoimento-de-paciente-em-anuncio-o-que-a-clinica-precisa-ter.html', label: 'Veja o que a LGPD exige antes de usar foto de paciente' } },
+        { risk: 'Sem termo específico de uso de imagem pra marketing, o paciente pode exigir remoção da foto a qualquer momento, mesmo anos depois.', article: { href: '/blog/o-que-o-cfm-permite-em-anuncio-de-procedimento-estetico.html', label: 'Entenda o que exige consentimento em anúncio de estética' } },
         { risk: 'Comparação ou desmerecimento de colegas é sempre um risco ético, mesmo sem citar nome.', article: { href: '/blog/o-que-o-cfm-permite-em-anuncio-de-procedimento-estetico.html', label: 'Entenda o que dá pra fazer em anúncio de procedimento estético' } },
-        { risk: 'Desde julho de 2026 a Meta decide aprovação pelo texto do anúncio, não só pela imagem — vale revisar o que está escrito no criativo.', article: { href: '/blog/meta-afrouxou-regra-de-antes-e-depois-mas-texto-do-anuncio-ainda-derruba.html', label: 'Veja o que mudou na regra de antes/depois da Meta' } }
+        { risk: 'Desde julho de 2026 a Meta decide aprovação pelo texto do anúncio, não só pela imagem — vale revisar o que está escrito no criativo, não só a foto.', article: null }
       ];
 
       const answers = new Array(QUESTIONS.length).fill(null);
@@ -502,7 +502,10 @@
           const item = document.createElement('div');
           if (answers[i] === 'yes') {
             item.className = 'diag-result-item risk';
-            item.innerHTML = '<span class="diag-result-icon">&#9888;</span><span><strong>Ponto de atenção ' + (i + 1) + '.</strong> ' + q.risk + ' <a href="' + q.article.href + '">' + q.article.label + ' &rarr;</a></span>';
+            const link = q.article
+              ? ' <a href="' + q.article.href + '">' + q.article.label + ' &rarr;</a>'
+              : '';
+            item.innerHTML = '<span class="diag-result-icon">&#9888;</span><span><strong>Ponto de atenção ' + (i + 1) + '.</strong> ' + q.risk + link + '</span>';
           } else {
             item.className = 'diag-result-item ok';
             item.innerHTML = '<span class="diag-result-icon">&#10003;</span><span>Pergunta ' + (i + 1) + ': sem risco identificado nessa resposta.</span>';
