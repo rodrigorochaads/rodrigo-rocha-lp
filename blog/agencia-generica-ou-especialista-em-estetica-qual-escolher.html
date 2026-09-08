@@ -202,6 +202,14 @@
         }
       });
     });
+    document.querySelectorAll('a[href*="instagram.com"], a[href*="linkedin.com"]').forEach(link => {
+      link.addEventListener('click', () => {
+        const canal = link.href.includes('instagram.com') ? 'instagram' : 'linkedin';
+        if (typeof gtag === 'function') {
+          gtag('event', 'social_click', { 'canal': canal, 'cta_location': 'blog_artigo' });
+        }
+      });
+    });
   </script>
   <!-- Analytics (GA4 / Meta Pixel / Clarity) -- movido pro fim do body pra nao atrasar o LCP -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>

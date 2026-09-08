@@ -2404,6 +2404,23 @@
       });
     });
 
+    // TRACKING — clique em rede social (rodapé)
+    document.querySelectorAll('a[href*="instagram.com"], a[href*="linkedin.com"]').forEach(link => {
+      link.addEventListener('click', () => {
+        const section = link.closest('section, nav, footer, .sticky-cta');
+        const location = section
+          ? (section.id || section.className.split(' ')[0] || 'desconhecido')
+          : 'desconhecido';
+        const canal = link.href.includes('instagram.com') ? 'instagram' : 'linkedin';
+        if (typeof gtag === 'function') {
+          gtag('event', 'social_click', {
+            'canal': canal,
+            'cta_location': location
+          });
+        }
+      });
+    });
+
     // SMOOTH SCROLL for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
