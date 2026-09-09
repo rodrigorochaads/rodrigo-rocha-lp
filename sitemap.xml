@@ -55,4 +55,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.rodrigorochaads.com.br/blog/ja-tentei-anuncio-antes-e-nao-funcionou-o-que-pode-ter-dado-errado.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
