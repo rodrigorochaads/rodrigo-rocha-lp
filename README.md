@@ -5,30 +5,20 @@ automático: o que entra na branch `main` vai pro ar via Vercel em ~1 minuto.
 
 ## Publicar um artigo do blog
 
-Os artigos já escritos ficam agendados em `blog/queue.json`. Quando a data
-chegar:
+**Publicação é automática.** Todo dia às 08:00 BRT, o GitHub Action
+`.github/workflows/publicar-blog.yml` roda `node publicar.js --aplicar`. Se
+tiver algum artigo em `blog/queue.json` com data igual ou anterior a hoje,
+ele publica (card no index + `<loc>` no sitemap + saída da fila), commita e
+dá push. O Vercel sobe em seguida.
+
+Ou seja: escreveu o artigo, colocou no `queue.json` com a data certa, deu
+push. No dia, publica sozinho. Não precisa fazer nada.
+
+Pra publicar na hora (fora do horário do Action), ou pra testar:
 
 ```bash
-node publicar.js
-```
-
-Isso só mostra o que seria feito, sem gravar nada. Se estiver certo:
-
-```bash
-node publicar.js --aplicar
-```
-
-O script cuida das três coisas que antes eram manuais:
-
-1. cria o card em `blog/index.html`
-2. adiciona a `<loc>` no `sitemap.xml`
-3. tira o artigo de `blog/queue.json`
-
-Depois é só conferir e subir:
-
-```bash
-git diff
-git add -A && git commit -m "post: {título do artigo}" && git push
+node publicar.js            # simula, não grava nada
+node publicar.js --aplicar  # grava; depois: git add -A && git commit && git push
 ```
 
 O script se recusa a rodar (sem gravar nada) se o arquivo do artigo não

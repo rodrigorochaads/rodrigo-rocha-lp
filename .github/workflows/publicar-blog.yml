@@ -1,0 +1,37 @@
+name: Publicar posts agendados do blog
+
+# Roda todo dia de manhã (08:00 BRT). O publicar.js não faz nada nos dias
+# sem post agendado, então rodar diariamente é seguro e tira a necessidade
+# de acertar o dia da semana na hora de agendar.
+on:
+  schedule:
+    - cron: "0 11 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Rodar publicar.js
+        run: node publicar.js --aplicar
+
+      - name: Commit e push se algo foi publicado
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "post: publicacao automatica agendada"
+            git push
+          else
+            echo "Nada com data para hoje. Nada a publicar."
+          fi
