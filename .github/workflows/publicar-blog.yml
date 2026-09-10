@@ -34,4 +34,10 @@ jobs:
             git push
           else
             echo "Nada com data para hoje. Nada a publicar."
+            # Verifica que o push funcionaria, sem escrever nada. Assim uma
+            # quebra de permissao aparece aqui antes do dia da publicacao,
+            # em vez de silenciosamente nao publicar o post.
+            echo "Verificando se o push estaria funcionando (dry-run)..."
+            git push --dry-run
+            echo "OK: credencial de push valida."
           fi
