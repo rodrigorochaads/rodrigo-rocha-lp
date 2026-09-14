@@ -51,10 +51,14 @@ grep -L 'src="/assets/consent.js"' index.html politica-de-privacidade.html blog/
 ## Cookies e LGPD
 
 O aviso de cookies, a política de privacidade (`politica-de-privacidade.html`)
-e o carregamento condicional das tags vivem em `assets/consent.js`. O GA4 roda
-em Consent Mode v2: sem aceite, manda só ping sem cookie (o Google modela o
-resto). A escolha fica em `localStorage` por 12 meses. O link "Preferências de
-cookies" do rodapé reabre o aviso.
+e o carregamento condicional das tags vivem em `assets/consent.js`. Modo
+básico: nada de terceiros (nem o GA4) carrega antes do aceite. Duas categorias:
+"estatísticas" (GA4 + Clarity) e "anúncios" (Meta Pixel + sinais de anúncio do
+GA4). A escolha fica em `localStorage` por 12 meses, com `CONSENT_VERSION`:
+se a política mudar de forma relevante, suba o número no `consent.js` e o
+aviso reaparece pra todo mundo. O botão "Preferências de cookies" do rodapé
+reabre o aviso. Os `gtag('event', ...)` das páginas ficam guardados por
+`typeof gtag === 'function'`, então sem aceite eles simplesmente não rodam.
 
 ## Duas armadilhas que já morderam este blog
 

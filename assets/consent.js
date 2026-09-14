@@ -1,54 +1,82 @@
 /*
  * Consentimento de cookies (LGPD) do rodrigorochaads.com.br
  *
- * Como funciona:
- * - Cada pagina define o gtag com consent 'denied' por padrao (Consent Mode v2)
- *   ANTES de carregar o gtag.js. Sem aceite, o GA4 so manda ping sem cookie,
- *   que o Google usa pra modelar o trafego nao consentido.
- * - Meta Pixel e Microsoft Clarity so sao carregados depois do aceite.
- * - A escolha fica em localStorage por 12 meses. Depois disso, pergunta de novo.
- * - O link "Preferencias de cookies" no rodape reabre o aviso a qualquer momento.
+ * Modo basico: NENHUMA ferramenta de terceiros (Google Analytics, Meta Pixel,
+ * Microsoft Clarity) e carregada antes do visitante aceitar. Sem aceite, nada
+ * sai do navegador.
+ *
+ * Duas categorias, escolhidas em separado ou juntas:
+ * - estatisticas: Google Analytics 4 + Microsoft Clarity
+ * - anuncios:     Meta Pixel (e os sinais de anuncio do Google no GA4)
+ *
+ * A escolha fica em localStorage por 12 meses, com numero de versao. Se a
+ * politica mudar de forma relevante, sobe CONSENT_VERSION e o aviso reaparece.
+ * O botao "Preferencias de cookies" no rodape reabre o aviso a qualquer momento.
  */
 (function () {
   'use strict';
 
+  var CONSENT_VERSION = 2;
   var KEY = 'rr_consent';
-  var KEY_TS = 'rr_consent_ts';
   var MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
+  var GA4_ID = 'G-6JZ4C1X5NQ';
   var PIXEL_ID = '921979810687389';
   var CLARITY_ID = 'xxmuyafj16';
   var POLICY_URL = '/politica-de-privacidade.html';
 
-  var carregado = { pixel: false, clarity: false };
+  var carregado = { ga4: false, pixel: false, clarity: false };
   var banner = null;
 
   function lerEscolha() {
     try {
-      var status = localStorage.getItem(KEY);
-      var ts = parseInt(localStorage.getItem(KEY_TS), 10) || 0;
-      if (status !== 'granted' && status !== 'denied') return null;
-      if (Date.now() - ts > MAX_AGE_MS) return null;
-      return status;
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var obj = JSON.parse(raw);
+      if (!obj || obj.v !== CONSENT_VERSION) return null;
+      if (Date.now() - (obj.ts || 0) > MAX_AGE_MS) return null;
+      return { estatisticas: !!obj.estatisticas, anuncios: !!obj.anuncios };
     } catch (e) {
       return null;
     }
   }
 
-  function gravarEscolha(status) {
+  function gravarEscolha(escolha) {
     try {
-      localStorage.setItem(KEY, status);
-      localStorage.setItem(KEY_TS, String(Date.now()));
+      localStorage.setItem(KEY, JSON.stringify({
+        v: CONSENT_VERSION,
+        estatisticas: !!escolha.estatisticas,
+        anuncios: !!escolha.anuncios,
+        ts: Date.now()
+      }));
     } catch (e) {}
   }
 
-  function atualizarGoogle(status) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('consent', 'update', {
-      ad_storage: status,
-      ad_user_data: status,
-      ad_personalization: status,
-      analytics_storage: status
+  function sinal(b) { return b ? 'granted' : 'denied'; }
+
+  function carregarGA4(escolha) {
+    if (carregado.ga4) {
+      window.gtag('consent', 'update', {
+        ad_storage: sinal(escolha.anuncios),
+        ad_user_data: sinal(escolha.anuncios),
+        ad_personalization: sinal(escolha.anuncios)
+      });
+      return;
+    }
+    carregado.ga4 = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+      analytics_storage: 'granted',
+      ad_storage: sinal(escolha.anuncios),
+      ad_user_data: sinal(escolha.anuncios),
+      ad_personalization: sinal(escolha.anuncios)
     });
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID);
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s);
   }
 
   function carregarPixel() {
@@ -77,45 +105,61 @@
     })(window, document, 'clarity', 'script', CLARITY_ID);
   }
 
-  function apagarCookiesDeRastreio() {
+  function aplicar(escolha) {
+    if (escolha.estatisticas) {
+      carregarGA4(escolha);
+      carregarClarity();
+    }
+    if (escolha.anuncios) carregarPixel();
+  }
+
+  var COOKIES = {
+    estatisticas: /^(_ga|_gid|_gat|_clck|_clsk|CLID|ANONCHK|MUID|SM|MR)/,
+    anuncios: /^(_fbp|_fbc|_gcl)/
+  };
+
+  // Apaga os cookies das categorias NAO permitidas. Roda ao retirar permissao e
+  // em toda carga de pagina: o GA4 regrava _ga_* ao descarregar a pagina, e
+  // quem visitou antes do aviso existir ainda carrega cookies antigos.
+  function apagarCookiesNaoPermitidos(escolha) {
     var nomes = document.cookie.split(';').map(function (c) { return c.split('=')[0].trim(); });
     var dominios = ['', location.hostname, '.' + location.hostname.replace(/^www\./, '')];
     nomes.forEach(function (nome) {
-      if (!/^(_ga|_gid|_gat|_gcl|_fbp|_fbc|_clck|_clsk|CLID|ANONCHK|MUID|SM)/.test(nome)) return;
+      var bloqueado = Object.keys(COOKIES).some(function (cat) {
+        return !(escolha && escolha[cat]) && COOKIES[cat].test(nome);
+      });
+      if (!bloqueado) return;
       dominios.forEach(function (d) {
         document.cookie = nome + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
       });
     });
   }
 
-  function aceitar() {
-    var anterior = lerEscolha();
-    gravarEscolha('granted');
-    atualizarGoogle('granted');
-    carregarPixel();
-    carregarClarity();
-    registrarEscolha('aceitar');
-    fechar();
-    if (anterior === 'denied') location.reload();
-  }
-
-  function recusar() {
-    var anterior = lerEscolha();
-    gravarEscolha('denied');
-    atualizarGoogle('denied');
-    registrarEscolha('recusar');
-    fechar();
-    // Se algo ja tinha carregado nesta pagina, so o reload garante que pare.
-    if (anterior === 'granted' || carregado.pixel || carregado.clarity) {
-      apagarCookiesDeRastreio();
-      location.reload();
-    }
-  }
-
   function registrarEscolha(escolha) {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'cookie_consent', { escolha: escolha });
+    if (escolha.estatisticas && typeof window.gtag === 'function') {
+      window.gtag('event', 'cookie_consent', {
+        estatisticas: 'sim',
+        anuncios: escolha.anuncios ? 'sim' : 'nao'
+      });
     }
+  }
+
+  function decidir(escolha) {
+    var anterior = lerEscolha() || { estatisticas: false, anuncios: false };
+    var reduziu = (anterior.estatisticas && !escolha.estatisticas) || (anterior.anuncios && !escolha.anuncios);
+    var jaCarregouAlgo = carregado.ga4 || carregado.pixel || carregado.clarity;
+
+    gravarEscolha(escolha);
+    fechar();
+
+    // Tirar permissao de algo que ja rodou nesta pagina so e garantido com reload.
+    if (reduziu || (jaCarregouAlgo && !(escolha.estatisticas && escolha.anuncios))) {
+      apagarCookiesNaoPermitidos(escolha);
+      location.reload();
+      return;
+    }
+    aplicar(escolha);
+    registrarEscolha(escolha);
   }
 
   var CSS = [
@@ -129,15 +173,22 @@
     '.rr-consent-text{margin:0;font-size:14px;line-height:1.55;color:#C9C4BC}',
     '.rr-consent-text strong{color:#F0EDE8;font-weight:600}',
     '.rr-consent-text a{color:#C9A84C;text-decoration:underline;text-underline-offset:3px}',
-    '.rr-consent-actions{display:flex;gap:10px}',
-    '.rr-consent-btn{flex:1;height:44px;border-radius:8px;font:600 14px Inter,system-ui,sans-serif;cursor:pointer;letter-spacing:.01em}',
-    '.rr-consent-btn--primary{background:#C9A84C;color:#0A0A0A;border:1px solid #C9A84C}',
-    '.rr-consent-btn--primary:hover{background:#D9BC6A;border-color:#D9BC6A}',
-    '.rr-consent-btn--ghost{background:transparent;color:#F0EDE8;border:1px solid rgba(240,237,232,.28)}',
-    '.rr-consent-btn--ghost:hover{border-color:rgba(240,237,232,.6)}',
+    '.rr-consent-actions{display:flex;gap:10px;flex-wrap:wrap}',
+    '.rr-consent-btn{flex:1;min-width:120px;height:44px;border-radius:8px;font:600 14px Inter,system-ui,sans-serif;',
+    'cursor:pointer;letter-spacing:.01em;background:transparent;color:#F0EDE8;border:1px solid #C9A84C;transition:background .15s,color .15s}',
+    '.rr-consent-btn:hover{background:#C9A84C;color:#0A0A0A}',
     '.rr-consent-btn:focus-visible{outline:2px solid #C9A84C;outline-offset:2px}',
-    '@media(min-width:769px){.rr-consent{left:24px;right:auto;bottom:24px;max-width:440px}',
-    '.rr-consent-btn{flex:0 0 auto;padding:0 22px}}',
+    '.rr-consent-more{background:none;border:0;padding:0;margin:0;font:500 13px Inter,system-ui,sans-serif;',
+    'color:#C9C4BC;text-decoration:underline;text-underline-offset:3px;cursor:pointer;align-self:flex-start}',
+    '.rr-consent-more:hover{color:#C9A84C}',
+    '.rr-consent-cats{display:none;flex-direction:column;gap:10px;padding-top:4px;border-top:1px solid rgba(240,237,232,.12)}',
+    '.rr-consent.is-open .rr-consent-cats{display:flex}',
+    '.rr-consent.is-open .rr-consent-more{display:none}',
+    '.rr-consent-cat{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:#C9C4BC;cursor:pointer}',
+    '.rr-consent-cat input{margin:3px 0 0;width:16px;height:16px;flex:0 0 16px;accent-color:#C9A84C;cursor:pointer}',
+    '.rr-consent-cat strong{color:#F0EDE8;font-weight:600}',
+    '@media(min-width:769px){.rr-consent{left:24px;right:auto;bottom:24px;max-width:460px}',
+    '.rr-consent-btn{flex:0 0 auto;padding:0 22px;min-width:0}}',
     'html.rr-consent-open .sticky-cta{bottom:calc(var(--rr-consent-h,0px) + 28px)}',
     '@media(prefers-reduced-motion:reduce){.rr-consent{transition:none}}',
     '.rr-consent-link{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;',
@@ -157,12 +208,19 @@
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', 'Aviso de cookies');
     banner.innerHTML =
-      '<p class="rr-consent-text"><strong>Este site usa cookies.</strong> Servem pra eu entender como o site é usado e medir os meus anúncios. Você decide. ' +
+      '<p class="rr-consent-text"><strong>Este site usa cookies.</strong> Servem pra eu entender como o site é usado e medir os meus anúncios. ' +
+      'Os dados vão pro Google, Meta e Microsoft, inclusive fora do Brasil. Nada é carregado antes de você escolher, e recusar não muda nada no uso do site. ' +
       '<a href="' + POLICY_URL + '">Política de privacidade</a></p>' +
+      '<div class="rr-consent-cats">' +
+      '<label class="rr-consent-cat"><input type="checkbox" data-rr-cat="estatisticas"><span><strong>Estatísticas</strong> (Google Analytics e Microsoft Clarity): quais páginas são lidas e como.</span></label>' +
+      '<label class="rr-consent-cat"><input type="checkbox" data-rr-cat="anuncios"><span><strong>Anúncios</strong> (Meta Pixel e sinais de anúncio do Google): medir campanhas e mostrar meus anúncios a quem visitou o site.</span></label>' +
+      '</div>' +
       '<div class="rr-consent-actions">' +
-      '<button type="button" class="rr-consent-btn rr-consent-btn--ghost" data-rr-consent="deny">Recusar</button>' +
-      '<button type="button" class="rr-consent-btn rr-consent-btn--primary" data-rr-consent="grant">Aceitar</button>' +
-      '</div>';
+      '<button type="button" class="rr-consent-btn" data-rr-consent="deny">Recusar</button>' +
+      '<button type="button" class="rr-consent-btn" data-rr-consent="grant">Aceitar</button>' +
+      '<button type="button" class="rr-consent-btn" data-rr-consent="save" hidden>Salvar escolha</button>' +
+      '</div>' +
+      '<button type="button" class="rr-consent-more" data-rr-consent="more">Escolher por categoria</button>';
     document.body.appendChild(banner);
     return banner;
   }
@@ -174,6 +232,10 @@
 
   function abrir() {
     montar();
+    var atual = lerEscolha();
+    banner.querySelectorAll('[data-rr-cat]').forEach(function (cb) {
+      cb.checked = !!(atual && atual[cb.getAttribute('data-rr-cat')]);
+    });
     document.documentElement.classList.add('rr-consent-open');
     requestAnimationFrame(function () {
       banner.classList.add('is-visible');
@@ -187,25 +249,42 @@
     document.documentElement.classList.remove('rr-consent-open');
   }
 
+  function expandir() {
+    banner.classList.add('is-open');
+    banner.querySelector('[data-rr-consent="save"]').hidden = false;
+    banner.querySelector('[data-rr-consent="grant"]').textContent = 'Aceitar todos';
+    banner.querySelector('[data-rr-consent="deny"]').textContent = 'Recusar todos';
+    medir();
+  }
+
+  function lerCheckboxes() {
+    var e = { estatisticas: false, anuncios: false };
+    banner.querySelectorAll('[data-rr-cat]').forEach(function (cb) {
+      e[cb.getAttribute('data-rr-cat')] = cb.checked;
+    });
+    return e;
+  }
+
   document.addEventListener('click', function (ev) {
     var alvo = ev.target.closest('[data-rr-consent]');
     if (!alvo) return;
     var acao = alvo.getAttribute('data-rr-consent');
-    if (acao === 'grant') { ev.preventDefault(); aceitar(); }
-    else if (acao === 'deny') { ev.preventDefault(); recusar(); }
+    if (acao === 'grant') { ev.preventDefault(); decidir({ estatisticas: true, anuncios: true }); }
+    else if (acao === 'deny') { ev.preventDefault(); decidir({ estatisticas: false, anuncios: false }); }
+    else if (acao === 'save') { ev.preventDefault(); decidir(lerCheckboxes()); }
+    else if (acao === 'more') { ev.preventDefault(); expandir(); }
     else if (acao === 'open') { ev.preventDefault(); abrir(); }
   });
 
   window.addEventListener('resize', medir);
 
-  window.rrConsent = { abrir: abrir, aceitar: aceitar, recusar: recusar, status: lerEscolha };
+  window.rrConsent = { abrir: abrir, status: lerEscolha };
 
   var escolha = lerEscolha();
-  if (escolha === 'granted') {
-    atualizarGoogle('granted');
-    carregarPixel();
-    carregarClarity();
-  } else if (escolha === null) {
+  apagarCookiesNaoPermitidos(escolha);
+  if (escolha) {
+    aplicar(escolha);
+  } else {
     setTimeout(abrir, 400);
   }
 })();

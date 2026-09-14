@@ -215,33 +215,8 @@
       });
     });
   </script>
-  <!-- Tags (GA4 / Meta Pixel / Clarity) com consentimento LGPD. O GA4 roda em Consent Mode:
-       sem aceite, so manda ping sem cookie. Pixel e Clarity so carregam depois do aceite.
-       A logica do aviso e do carregamento esta em /assets/consent.js -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-    try {
-      if (localStorage.getItem('rr_consent') === 'granted' && Date.now() - (+localStorage.getItem('rr_consent_ts') || 0) < 31536000000) {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      }
-    } catch (e) {}
-    gtag('js', new Date());
-    gtag('config', 'G-6JZ4C1X5NQ');
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JZ4C1X5NQ"></script>
+  <!-- Tags (GA4 / Meta Pixel / Clarity) so carregam depois do aceite no aviso de cookies.
+       Nada de terceiros roda antes disso. A logica esta em /assets/consent.js -->
   <script src="/assets/consent.js" defer></script>
 </body>
 </html>
