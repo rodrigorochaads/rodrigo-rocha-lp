@@ -37,6 +37,24 @@ estrutura. Não esqueça de:
   trata como conteúdo duplicado.
 - **Entrada em `blog/queue.json`** com `date` (AAAA-MM-DD), `file`, `title`,
   `excerpt` e `date_label`.
+- **Bloco de tags no fim do `<body>`** igual ao dos outros artigos (vem junto ao
+  copiar). Nunca cole o snippet do Meta Pixel ou do Clarity direto na página:
+  eles só podem carregar depois do aceite, e quem faz isso é o
+  `assets/consent.js`. Pra conferir que nenhuma página escapou:
+
+```bash
+grep -L 'src="/assets/consent.js"' index.html politica-de-privacidade.html blog/*.html diagnostico-compliance/index.html; grep -l 'fbevents.js\|clarity.ms/tag' index.html politica-de-privacidade.html blog/*.html diagnostico-compliance/index.html
+```
+
+  (a primeira lista deve sair vazia, a segunda também).
+
+## Cookies e LGPD
+
+O aviso de cookies, a política de privacidade (`politica-de-privacidade.html`)
+e o carregamento condicional das tags vivem em `assets/consent.js`. O GA4 roda
+em Consent Mode v2: sem aceite, manda só ping sem cookie (o Google modela o
+resto). A escolha fica em `localStorage` por 12 meses. O link "Preferências de
+cookies" do rodapé reabre o aviso.
 
 ## Duas armadilhas que já morderam este blog
 
