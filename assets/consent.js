@@ -139,7 +139,8 @@
     if (escolha.estatisticas && typeof window.gtag === 'function') {
       window.gtag('event', 'cookie_consent', {
         estatisticas: 'sim',
-        anuncios: escolha.anuncios ? 'sim' : 'nao'
+        anuncios: escolha.anuncios ? 'sim' : 'nao',
+        versao_aviso: CONSENT_VERSION
       });
     }
   }
