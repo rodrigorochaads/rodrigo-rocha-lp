@@ -65,4 +65,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.rodrigorochaads.com.br/blog/lgpd-foto-depoimento-de-paciente-em-anuncio-o-que-a-clinica-precisa-ter.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
