@@ -1,11 +1,13 @@
 name: Publicar posts agendados do blog
 
-# Roda todo dia de manhã (08:00 BRT). O publicar.js não faz nada nos dias
-# sem post agendado, então rodar diariamente é seguro e tira a necessidade
-# de acertar o dia da semana na hora de agendar.
+# Roda todo dia de madrugada (03:00 BRT). O GitHub atrasa cron de repositório
+# com pouco movimento em ate 3-5 horas (visto nos logs: agendado pras 8h,
+# rodava entre 10h48 e 13h43), entao o horario cedo garante que o post esteja
+# no ar antes das 8h. O publicar.js nao faz nada nos dias sem post agendado,
+# entao rodar diariamente e seguro. Pra publicar na hora exata: gh workflow run publicar-blog.yml
 on:
   schedule:
-    - cron: "0 11 * * *"
+    - cron: "0 6 * * *"
   workflow_dispatch: {}
 
 permissions:
