@@ -30,8 +30,16 @@ existir, se ele já estiver listado no index, ou se faltar campo no
 Copie um artigo existente de `blog/` como base — todos seguem a mesma
 estrutura. Não esqueça de:
 
-- **Schema.org Article** no `<head>`: `headline`, `image`, `author`,
-  `publisher`, `datePublished` e `dateModified`.
+- **Schema.org no `<head>`**, três blocos: `Article` (`headline`, `image`,
+  `author`, `publisher`, `datePublished`, `dateModified`), `FAQPage` (as mesmas
+  perguntas do bloco visível) e `BreadcrumbList` (Início > Blog > título).
+- **Bloco "Perguntas frequentes"** (`<section class="article-faq">`) entre o
+  fim do `article-body` e o `diag-promo`: 3 perguntas curtas que alguém
+  digitaria no Google, com resposta direta de 2 a 4 frases tirada do próprio
+  artigo. É o que o Google usa pra snippet e o que a IA cita. As perguntas do
+  `FAQPage` têm que ser idênticas às visíveis, senão o Google ignora o schema.
+- **`llms.txt`** é regenerado sozinho na publicação (a partir do sitemap e da
+  meta description). Não edite a lista de artigos à mão.
 - **Imagem OG própria** em `assets/og/{slug}.png` (1200x630). Nunca reaproveite
   a imagem de outro artigo: o card de compartilhamento fica igual e o Google
   trata como conteúdo duplicado.

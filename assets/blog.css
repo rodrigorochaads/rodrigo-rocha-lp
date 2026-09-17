@@ -331,6 +331,57 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .article-back:hover { color: var(--c-gold); }
 
+/* PERGUNTAS FREQUENTES — resposta curta pra snippet do Google e citação por IA */
+.article-faq {
+  margin-top: var(--s-12);
+  padding-top: var(--s-8);
+  border-top: 1px solid var(--c-gold-line);
+}
+.article-faq h2 {
+  font-family: var(--f-display);
+  font-size: var(--t-h2);
+  font-weight: 600;
+  color: var(--c-text);
+  margin: 0 0 var(--s-5);
+}
+.article-faq details {
+  border-bottom: 1px solid var(--c-border);
+}
+.article-faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--s-4) var(--s-8) var(--s-4) 0;
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--c-text);
+  line-height: 1.4;
+  position: relative;
+}
+.article-faq summary::-webkit-details-marker { display: none; }
+.article-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: var(--s-4);
+  font-family: var(--f-body);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--c-gold);
+  transition: transform var(--tr-base);
+}
+.article-faq details[open] summary::after { transform: rotate(45deg); }
+.article-faq summary:hover { color: var(--c-gold); }
+.article-faq summary:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 2px; }
+.article-faq p {
+  font-size: 16px;
+  color: var(--c-text-2);
+  line-height: 1.7;
+  margin: 0 0 var(--s-5);
+  padding-right: var(--s-8);
+}
+
 /* LEIA TAMBEM — internal linking entre artigos do blog */
 .related-posts {
   margin-top: var(--s-12);

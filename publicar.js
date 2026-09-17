@@ -3,13 +3,15 @@
  * publicar.js — publica os artigos da fila cuja data já chegou.
  *
  * Uso:
- *   node publicar.js            → mostra o que faria, sem gravar nada
- *   node publicar.js --aplicar  → grava as alterações
+ *   node publicar.js                 → mostra o que faria, sem gravar nada
+ *   node publicar.js --aplicar       → grava as alterações
+ *   node publicar.js --llms --aplicar → só regenera o llms.txt a partir do sitemap
  *
  * O que faz, para cada artigo da fila com data <= hoje:
  *   1. adiciona o card no topo de blog/index.html
  *   2. adiciona a <url> no sitemap.xml
- *   3. remove o artigo de blog/queue.json
+ *   3. regenera a lista de artigos do llms.txt
+ *   4. remove o artigo de blog/queue.json
  *
  * Depois é só conferir com `git diff` e dar push.
  */
@@ -21,9 +23,11 @@ const RAIZ = __dirname;
 const QUEUE = path.join(RAIZ, 'blog', 'queue.json');
 const INDEX = path.join(RAIZ, 'blog', 'index.html');
 const SITEMAP = path.join(RAIZ, 'sitemap.xml');
+const LLMS = path.join(RAIZ, 'llms.txt');
 const BASE = 'https://www.rodrigorochaads.com.br';
 
 const aplicar = process.argv.includes('--aplicar');
+const soLlms = process.argv.includes('--llms');
 const hoje = new Date().toISOString().slice(0, 10);
 
 function escapaHtml(s) {
@@ -33,6 +37,39 @@ function escapaHtml(s) {
 function erro(msg) {
   console.error(`\n  ERRO: ${msg}\n`);
   process.exit(1);
+}
+
+function desescapaHtml(s) {
+  return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+}
+
+// A lista de artigos do llms.txt e regenerada a partir do sitemap (fonte de
+// verdade do que esta publicado) e da meta description de cada artigo. O
+// texto antes de "## Artigos do blog" e depois de "## Sobre" e mantido.
+function regerarLlms(sitemapXml) {
+  const atual = fs.readFileSync(LLMS, 'utf8');
+  const ini = atual.indexOf('## Artigos do blog');
+  const fim = atual.indexOf('## Sobre');
+  if (ini < 0 || fim < 0 || fim < ini) erro('llms.txt sem as seções "## Artigos do blog" / "## Sobre". Ajuste o script.');
+
+  const urls = [...sitemapXml.matchAll(/<loc>([^<]+\/blog\/[a-z0-9-]+\.html)<\/loc>/g)].map((m) => m[1]);
+  const linhas = urls.map((url) => {
+    const arquivo = path.join(RAIZ, 'blog', url.split('/blog/')[1]);
+    const html = fs.readFileSync(arquivo, 'utf8');
+    const titulo = (html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1];
+    const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+    if (!titulo || !desc) erro(`blog/${path.basename(arquivo)} sem <h1> ou meta description; llms.txt precisa dos dois.`);
+    return `- [${desescapaHtml(titulo.replace(/<[^>]+>/g, '').trim())}](${url}): ${desescapaHtml(desc)}`;
+  });
+
+  return atual.slice(0, ini) + '## Artigos do blog\n\n' + linhas.join('\n') + '\n\n' + atual.slice(fim);
+}
+
+if (soLlms) {
+  const novo = regerarLlms(fs.readFileSync(SITEMAP, 'utf8'));
+  if (aplicar) fs.writeFileSync(LLMS, novo);
+  console.log(`\n  llms.txt ${aplicar ? 'regravado' : 'regenerado (simulação)'} com ${(novo.match(/^- \[/gm) || []).length} artigos.\n`);
+  process.exit(0);
 }
 
 // ---------- leitura ----------
@@ -108,10 +145,12 @@ for (const a of ordenados) {
   }
 }
 
+const llms = regerarLlms(sitemap);
+
 console.log(`\n  ${vencidos.length} artigo(s) para publicar:\n`);
 for (const a of ordenados) {
   console.log(`    ${a.date}  ${a.title}`);
-  console.log(`              card no index + <loc> no sitemap + saída da fila`);
+  console.log(`              card no index + <loc> no sitemap + llms.txt + saída da fila`);
 }
 
 if (!aplicar) {
@@ -122,6 +161,7 @@ if (!aplicar) {
 
 fs.writeFileSync(INDEX, index);
 fs.writeFileSync(SITEMAP, sitemap);
+fs.writeFileSync(LLMS, llms);
 fs.writeFileSync(QUEUE, JSON.stringify(pendentes, null, 2) + '\n');
 
 console.log(`\n  Gravado. Confira com "git diff" antes de subir.`);
