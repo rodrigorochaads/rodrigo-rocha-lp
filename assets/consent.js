@@ -164,27 +164,27 @@
   }
 
   var CSS = [
-    '.rr-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;box-sizing:border-box;',
-    'background:#111110;border:1px solid rgba(201,168,76,.32);border-radius:12px;padding:18px 20px;',
+    '.rr-consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;box-sizing:border-box;',
+    'background:#111110;border:1px solid rgba(201,168,76,.32);border-radius:12px;padding:14px 16px;',
     'box-shadow:0 12px 40px rgba(0,0,0,.65);font-family:Inter,system-ui,-apple-system,sans-serif;color:#F0EDE8;',
-    'display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(12px);',
+    'display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(12px);',
     'visibility:hidden;pointer-events:none;',
     'transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s}',
     '.rr-consent.is-visible{opacity:1;transform:none;visibility:visible;pointer-events:auto;transition-delay:0s}',
-    '.rr-consent-text{margin:0;font-size:14px;line-height:1.55;color:#C9C4BC}',
+    '.rr-consent-text{margin:0;font-size:13px;line-height:1.5;color:#C9C4BC}',
     '.rr-consent-text strong{color:#F0EDE8;font-weight:600}',
     '.rr-consent-text a{color:#C9A84C;text-decoration:underline;text-underline-offset:3px}',
     '.rr-consent-actions{display:flex;gap:10px;flex-wrap:wrap}',
-    '.rr-consent-btn{flex:1;min-width:120px;height:44px;border-radius:8px;font:600 14px Inter,system-ui,sans-serif;',
+    '.rr-consent-btn{flex:1;min-width:110px;height:40px;border-radius:8px;font:600 14px Inter,system-ui,sans-serif;',
     'cursor:pointer;letter-spacing:.01em;background:transparent;color:#F0EDE8;border:1px solid #C9A84C;transition:background .15s,color .15s}',
     '.rr-consent-btn:hover{background:#C9A84C;color:#0A0A0A}',
     '.rr-consent-btn:focus-visible{outline:2px solid #C9A84C;outline-offset:2px}',
-    '.rr-consent-more{background:none;border:0;padding:0;margin:0;font:500 13px Inter,system-ui,sans-serif;',
-    'color:#C9C4BC;text-decoration:underline;text-underline-offset:3px;cursor:pointer;align-self:flex-start}',
+    '.rr-consent-more{background:none;border:0;padding:0;margin:0;font:inherit;display:inline;',
+    'color:#C9C4BC;text-decoration:underline;text-underline-offset:3px;cursor:pointer}',
     '.rr-consent-more:hover{color:#C9A84C}',
     '.rr-consent-cats{display:none;flex-direction:column;gap:10px;padding-top:4px;border-top:1px solid rgba(240,237,232,.12)}',
     '.rr-consent.is-open .rr-consent-cats{display:flex}',
-    '.rr-consent.is-open .rr-consent-more{display:none}',
+    '.rr-consent.is-open .rr-consent-more,.rr-consent.is-open .rr-consent-sep{display:none}',
     '.rr-consent-cat{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:#C9C4BC;cursor:pointer}',
     '.rr-consent-cat input{margin:3px 0 0;width:16px;height:16px;flex:0 0 16px;accent-color:#C9A84C;cursor:pointer}',
     '.rr-consent-cat strong{color:#F0EDE8;font-weight:600}',
@@ -209,9 +209,9 @@
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', 'Aviso de cookies');
     banner.innerHTML =
-      '<p class="rr-consent-text"><strong>Este site usa cookies.</strong> Servem pra eu entender como o site é usado e medir os meus anúncios. ' +
-      'Os dados vão pro Google, Meta e Microsoft, inclusive fora do Brasil. Nada é carregado antes de você escolher, e recusar não muda nada no uso do site. ' +
-      '<a href="' + POLICY_URL + '">Política de privacidade</a></p>' +
+      '<p class="rr-consent-text"><strong>Cookies:</strong> uso pra medir o site e meus anúncios, com Google, Meta e Microsoft (inclusive fora do Brasil). ' +
+      'Nada roda antes da sua escolha. <a href="' + POLICY_URL + '">Política de privacidade</a><span class="rr-consent-sep"> · </span>' +
+      '<button type="button" class="rr-consent-more" data-rr-consent="more">Escolher por categoria</button></p>' +
       '<div class="rr-consent-cats">' +
       '<label class="rr-consent-cat"><input type="checkbox" data-rr-cat="estatisticas"><span><strong>Estatísticas</strong> (Google Analytics e Microsoft Clarity): quais páginas são lidas e como.</span></label>' +
       '<label class="rr-consent-cat"><input type="checkbox" data-rr-cat="anuncios"><span><strong>Anúncios</strong> (Meta Pixel e sinais de anúncio do Google): medir campanhas e mostrar meus anúncios a quem visitou o site.</span></label>' +
@@ -220,8 +220,7 @@
       '<button type="button" class="rr-consent-btn" data-rr-consent="deny">Recusar</button>' +
       '<button type="button" class="rr-consent-btn" data-rr-consent="grant">Aceitar</button>' +
       '<button type="button" class="rr-consent-btn" data-rr-consent="save" hidden>Salvar escolha</button>' +
-      '</div>' +
-      '<button type="button" class="rr-consent-more" data-rr-consent="more">Escolher por categoria</button>';
+      '</div>';
     document.body.appendChild(banner);
     return banner;
   }
