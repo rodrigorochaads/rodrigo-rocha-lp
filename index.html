@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0A0A0A">
-  <meta name="description" content="Rodrigo Rocha: especialista em tráfego pago para clínicas de estética de alto ticket. Método CQV: Captação, Qualificação e Venda.">
+  <meta name="description" content="Rodrigo Rocha, especialista em tráfego pago para clínicas de estética de alto ticket. Google Ads, ficha do Google e página de captação, com medição até o WhatsApp.">
   <title>Rodrigo Rocha | Tráfego Pago para Clínicas de Estética</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="canonical" href="https://www.rodrigorochaads.com.br/">
@@ -13,11 +13,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.rodrigorochaads.com.br/">
   <meta property="og:title" content="Rodrigo Rocha | Tráfego Pago para Clínicas de Estética">
-  <meta property="og:description" content="Pare de pagar por curiosos. Atraia pacientes de alto ticket com o método CQV, exclusivo para clínicas de estética.">
+  <meta property="og:description" content="Quem pesquisa o seu procedimento no Google encontra a sua clínica ou a concorrente? Tráfego pago para clínicas de estética de alto ticket.">
   <meta property="og:image" content="https://www.rodrigorochaads.com.br/foto.jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rodrigo Rocha | Tráfego Pago para Clínicas de Estética">
-  <meta name="twitter:description" content="Pare de pagar por curiosos. Atraia pacientes de alto ticket com o método CQV, exclusivo para clínicas de estética.">
+  <meta name="twitter:description" content="Quem pesquisa o seu procedimento no Google encontra a sua clínica ou a concorrente? Tráfego pago para clínicas de estética de alto ticket.">
   <meta name="twitter:image" content="https://www.rodrigorochaads.com.br/foto.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
     "image": "https://www.rodrigorochaads.com.br/foto.jpeg",
     "url": "https://www.rodrigorochaads.com.br/",
     "telephone": "+554899291215",
-    "priceRange": "R$1.500+",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Criciúma",
@@ -60,13 +60,14 @@
     "knowsAbout": [
       "Tráfego pago para clínicas de estética",
       "Google Ads para procedimentos estéticos de alto ticket",
-      "Google Meu Negócio para clínicas",
+      "Perfil da Empresa no Google (Google Meu Negócio) para clínicas",
+      "Meta Ads (certificação Subido)",
       "Compliance em publicidade médica (Resolução CFM 2.336/2023)",
       "LGPD aplicada a foto e depoimento de paciente",
       "Qualificação de lead para procedimento de alto ticket",
       "Método CQV: Captação, Qualificação e Venda"
     ],
-    "description": "Gestão de tráfego pago (Meta Ads, Google Ads, Google Meu Negócio) especializada em clínicas de estética de alto ticket. Método proprietário CQV: Captação, Qualificação e Venda."
+    "description": "Gestão de tráfego pago (Google Ads, Perfil da Empresa no Google e página de captação) especializada em clínicas de estética de alto ticket. Método proprietário CQV: Captação, Qualificação e Venda."
   }
   </script>
 
@@ -1373,6 +1374,744 @@
     }
 
     /* ================================
+       HERO — headline em pergunta (palavra-chave dentro do H1)
+    ================================ */
+    .hero-headline--pergunta { font-size: clamp(2.35rem, 5vw, 3.9rem); }
+    .hero-headline .hl-kicker {
+      display: flex;
+      width: fit-content;
+      font-family: var(--f-body);
+      line-height: 1.5;
+      margin-bottom: var(--s-5);
+    }
+    .hero-headline .hl-setup {
+      display: block;
+      max-width: 26em;
+      font-family: var(--f-body);
+      font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: var(--c-text-2);
+      margin-bottom: var(--s-3);
+      text-wrap: balance;
+    }
+
+    /* ================================
+       ONDE ESTÁ A PACIENTE PRONTA (Google primeiro)
+    ================================ */
+    .onde {
+      padding: var(--section-py) 0;
+      background: var(--c-bg-alt);
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .onde-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: center;
+    }
+    /* sem isso, o texto da busca (que não quebra linha) alarga a coluna no celular */
+    .onde-grid > * { min-width: 0; }
+    /* overflow-x: hidden no html/body impede o sticky; "clip" corta igual sem criar área de rolagem */
+    @supports (overflow: clip) {
+      html, body { overflow-x: clip; }
+    }
+    /* no computador a demonstração acompanha a leitura da coluna de texto, que ficou mais longa */
+    @media (min-width: 901px) {
+      .onde-grid { align-items: start; }
+      .onde-grid > :last-child { position: sticky; top: 96px; }
+    }
+    .onde-copy h2 {
+      font-family: var(--f-display);
+      font-size: var(--t-h2);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--s-5);
+    }
+    .onde-copy > p:not(.onde-nota) {
+      color: var(--c-text-2);
+      font-size: var(--t-lead);
+      line-height: 1.7;
+      margin-bottom: var(--s-8);
+      max-width: 540px;
+    }
+    .onde-contraste {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--c-border-md);
+      margin-bottom: var(--s-8);
+    }
+    .onde-contraste > div { padding: var(--s-5) var(--s-6); }
+    .onde-contraste > div + div { border-left: 1px solid var(--c-border-md); background: var(--c-gold-subtle); }
+    .onde-contraste span {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-text-4);
+      margin-bottom: var(--s-2);
+    }
+    .onde-contraste > div + div span { color: var(--c-gold); }
+    .onde-contraste p { font-size: 14px; color: var(--c-text-2); line-height: 1.6; }
+    .onde-contraste strong { color: var(--c-text); font-weight: 600; }
+    .onde-nota {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--c-text-3);
+      padding-left: var(--s-4);
+      border-left: 2px solid var(--c-gold-line);
+      max-width: 540px;
+    }
+    .onde-ponte {
+      max-width: 540px;
+      margin-bottom: var(--s-8);
+      padding: var(--s-5) var(--s-6);
+      border-left: 2px solid var(--c-gold);
+      background: rgba(201,168,76,0.06);
+    }
+    .onde-ponte strong {
+      display: block;
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: var(--s-2);
+    }
+    .onde-ponte p { font-size: 14.5px; line-height: 1.65; color: var(--c-text-2); }
+    /* demanda real (Planejador de Palavras-chave): um número de destaque + 3 linhas alinhadas */
+    .onde-demanda {
+      max-width: 540px;
+      padding-top: var(--s-6);
+      border-top: 1px solid var(--c-border-md);
+    }
+    .onde-copy .onde-demanda-titulo {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-3);
+    }
+    .onde-copy .onde-demanda-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--s-2) var(--s-4);
+      margin-bottom: var(--s-4);
+    }
+    .onde-demanda-hero b {
+      font-family: var(--f-display);
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--c-text);
+    }
+    .onde-demanda-hero span { font-size: 15px; color: var(--c-text-2); }
+    .onde-demanda-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--s-3);
+      border-top: 1px solid var(--c-border);
+    }
+    .onde-demanda-lista li {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--s-4);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--c-border);
+      font-size: 14px;
+      color: var(--c-text-2);
+    }
+    .onde-demanda-lista b { font-weight: 600; color: var(--c-text); font-variant-numeric: tabular-nums; }
+    .onde-demanda small { display: block; font-size: 11.5px; line-height: 1.5; font-style: italic; color: var(--c-text-4); }
+    .onde-copy .onde-demanda-nota { margin-top: var(--s-4); font-size: 14px; line-height: 1.6; color: var(--c-text); }
+    @media (max-width: 900px) {
+      .onde-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .onde-contraste { grid-template-columns: 1fr; }
+      .onde-contraste > div + div { border-left: 0; border-top: 1px solid var(--c-border-md); }
+    }
+
+    /* ================================
+       OFERTA — PLANO EMPILHADO
+    ================================ */
+    .oferta {
+      padding: var(--section-py-lg) 0;
+      background: var(--c-bg);
+    }
+    .plano {
+      position: relative;
+      max-width: 940px;
+      margin: var(--s-12) auto 0;
+      background: linear-gradient(180deg, #131313 0%, #0E0E0E 100%);
+      border: 1px solid var(--c-gold-line);
+      padding: clamp(1.25rem, 4vw, 3rem);
+    }
+    .plano::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(201,168,76,0.12);
+      pointer-events: none;
+    }
+    .plano-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--s-6);
+      padding-bottom: var(--s-6);
+      border-bottom: 1px solid var(--c-gold-line);
+    }
+    .plano-nome {
+      font-family: var(--f-display);
+      font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .plano-nome small {
+      display: block;
+      font-family: var(--f-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-2);
+    }
+    .plano-cols {
+      display: grid;
+      grid-template-columns: 96px 96px;
+      text-align: center;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-text-3);
+      line-height: 1.3;
+    }
+    .plano-cols span:last-child { color: var(--c-gold); }
+    .plano-linha {
+      display: grid;
+      grid-template-columns: 1fr 96px 96px;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .plano-item { padding: var(--s-5) var(--s-4) var(--s-5) 0; }
+    .plano-linha:last-of-type { border-bottom: 0; }
+    .plano-item strong {
+      display: block;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: 3px;
+    }
+    .plano-item span {
+      display: block;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--c-text-3);
+      max-width: 520px;
+    }
+    .plano-item em {
+      font-style: normal;
+      color: var(--c-gold-light);
+    }
+    .plano-check {
+      display: grid;
+      place-items: center;
+      color: var(--c-gold);
+    }
+    .plano-check svg { width: 18px; height: 18px; }
+    .plano-check.nao::before { content: ''; width: 12px; height: 1px; background: var(--c-text-4); opacity: .6; }
+    .plano-linha > .plano-check { align-self: stretch; }
+    .plano-linha > .plano-check:last-child { background: rgba(201,168,76,0.045); }
+    .plano-cols span:last-child { background: rgba(201,168,76,0.045); padding: 6px 0; }
+    .plano-rodape {
+      margin-top: var(--s-6);
+      padding-top: var(--s-6);
+      border-top: 1px solid var(--c-gold-line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-3) var(--s-8);
+      font-size: 13px;
+      color: var(--c-text-3);
+    }
+    .plano-rodape b { color: var(--c-text); font-weight: 600; }
+    .plano-cols span { display: flex; align-items: flex-end; justify-content: center; }
+    .plano-tag, .plano-sub { display: none; }
+    @media (max-width: 640px) {
+      /* celular: sem colunas, cada item diz em qual plano entra */
+      .plano-topo { flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+      .plano-cols, .plano-check { display: none; }
+      .plano-sub { display: block; font-size: 13px; line-height: 1.55; color: var(--c-text-3); }
+      .plano-sub b { color: var(--c-text); font-weight: 600; }
+      .plano-linha { grid-template-columns: 1fr; }
+      .plano-item { padding: var(--s-5) 0; }
+      .plano-item strong { font-size: 15px; }
+      .plano-item span { font-size: 13.5px; }
+      .plano-tag {
+        display: inline-block;
+        margin-top: var(--s-2);
+        font-style: normal;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--c-text-4);
+      }
+      .plano-tag--so { color: var(--c-gold); }
+    }
+
+    /* PROVA REAL (visível também no celular) */
+    .prova {
+      max-width: 940px;
+      margin: var(--s-10) auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--c-border-md);
+      background: var(--c-surface);
+    }
+    .prova-cab {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s-2);
+      padding: var(--s-4) var(--s-6);
+      border-bottom: 1px solid var(--c-border-md);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-weight: 600;
+    }
+    .prova-cab span:last-child { color: var(--c-text-4); letter-spacing: 0.04em; text-transform: none; font-weight: 400; font-style: italic; }
+    .prova-num {
+      padding: var(--s-6);
+      text-align: left;
+    }
+    .prova-num + .prova-num { border-left: 1px solid var(--c-border); }
+    .prova-num b {
+      display: block;
+      font-family: var(--f-display);
+      font-size: clamp(1.35rem, 3vw, 2.1rem);
+      font-weight: 700;
+      color: var(--c-text);
+      white-space: nowrap;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .prova-num span { font-size: 12px; color: var(--c-text-3); }
+    .prova-feito {
+      grid-column: 1 / -1;
+      padding: var(--s-5) var(--s-6);
+      border-top: 1px solid var(--c-border-md);
+    }
+    .prova-feito small {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-3);
+    }
+    .prova-feito ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-8); list-style: none; padding: 0; margin: 0; }
+    .prova-feito li { display: flex; align-items: flex-start; gap: var(--s-2); font-size: 14px; line-height: 1.5; color: var(--c-text); }
+    .prova-feito svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; color: var(--c-gold); }
+    .prova-bloqueio {
+      grid-column: 1 / -1;
+      padding: 0 var(--s-6) var(--s-5);
+    }
+    .prova-bloqueio small {
+      display: block;
+      font-size: 12px;
+      color: var(--c-text-3);
+      margin-bottom: var(--s-3);
+    }
+    .prova-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 var(--s-3); }
+    .prova-chips li {
+      padding: 4px 12px;
+      border: 1px solid var(--c-border-md);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--c-text-3);
+      background: rgba(255,255,255,0.02);
+    }
+    .prova-chips s { text-decoration-color: var(--c-gold); text-decoration-thickness: 1.5px; }
+    .prova-bloqueio p { font-size: 13.5px; line-height: 1.6; color: var(--c-text-2); max-width: 640px; }
+    .prova-leitura {
+      grid-column: 1 / -1;
+      padding: var(--s-5) var(--s-6);
+      border-top: 1px solid var(--c-border-md);
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--c-text-2);
+    }
+    @media (max-width: 640px) {
+      .prova { grid-template-columns: 1fr 1fr; }
+      .prova-num:nth-child(4) { border-left: 0; }
+      .prova-num:nth-child(n+4) { border-top: 1px solid var(--c-border); }
+    }
+
+    /* ================================
+       LINHA DO TEMPO — 90 DIAS
+    ================================ */
+    .tempo {
+      padding: var(--section-py) 0;
+      background: var(--c-bg-alt);
+    }
+    .tempo-trilha {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-8);
+      margin-top: var(--s-12);
+    }
+    .tempo-trilha::before {
+      content: '';
+      position: absolute;
+      top: 11px;
+      left: 12px;
+      right: 12px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--c-gold) 0%, rgba(201,168,76,0.25) 100%);
+    }
+    .tempo-fase { position: relative; padding-top: var(--s-10); }
+    .tempo-fase::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--c-bg-alt);
+      border: 2px solid var(--c-gold);
+    }
+    .tempo-fase:first-child::before { background: var(--c-gold); }
+    .tempo-fase small {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-2);
+    }
+    .tempo-fase h3 {
+      font-family: var(--f-display);
+      font-size: var(--t-h3);
+      font-weight: 600;
+      margin-bottom: var(--s-3);
+    }
+    .tempo-fase ul { display: flex; flex-direction: column; gap: var(--s-2); }
+    .tempo-fase li {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--c-text-3);
+      padding-left: var(--s-4);
+      position: relative;
+    }
+    .tempo-fase li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 1px;
+      background: var(--c-gold);
+    }
+    @media (max-width: 768px) {
+      .tempo-trilha { grid-template-columns: 1fr; gap: var(--s-8); }
+      .tempo-trilha::before { top: 12px; bottom: 12px; left: 11px; right: auto; width: 1px; height: auto;
+        background: linear-gradient(180deg, var(--c-gold) 0%, rgba(201,168,76,0.25) 100%); }
+      .tempo-fase { padding-top: 0; padding-left: var(--s-10); }
+      .tempo-fase::before { top: 4px; }
+    }
+
+    /* ================================
+       GARANTIA
+    ================================ */
+    .garantia {
+      padding: var(--section-py) 0;
+      background: var(--c-bg);
+    }
+    .garantia-box {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: clamp(1.5rem, 5vw, 3.5rem);
+      align-items: center;
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      border: 1px solid var(--c-gold-line);
+      background: radial-gradient(ellipse at 0% 50%, rgba(201,168,76,0.08), transparent 60%), var(--c-surface);
+    }
+    .garantia-box { align-items: start; }
+    .garantia-selo { width: 150px; height: 150px; color: var(--c-gold); }
+    .garantia-lista { display: flex; flex-direction: column; gap: var(--s-3); margin: var(--s-5) 0 0; }
+    .garantia-lista li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: var(--s-3);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--c-text-2);
+    }
+    .garantia-lista svg { width: 18px; height: 18px; margin-top: 3px; color: var(--c-gold); }
+    .garantia-lista b, .garantia-extra b { color: var(--c-text); font-weight: 600; }
+    .garantia-box p.garantia-regra {
+      margin-top: var(--s-6);
+      padding: var(--s-4) var(--s-5);
+      border-left: 2px solid var(--c-gold);
+      background: rgba(201,168,76,0.07);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--c-text);
+    }
+    .garantia-box p.garantia-extra { margin-top: var(--s-5); font-size: 14px; color: var(--c-text-3); }
+    .garantia-box h2 {
+      font-family: var(--f-display);
+      font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: var(--s-4);
+    }
+    .garantia-box p { font-size: 15px; line-height: 1.7; color: var(--c-text-2); }
+    .garantia-box p + p { margin-top: var(--s-3); }
+    @media (max-width: 640px) {
+      .garantia-box { grid-template-columns: 1fr; }
+      .garantia-selo { margin: 0 auto; width: 120px; height: 120px; }
+    }
+
+    /* ================================
+       5 PERGUNTAS ANTES DE CONTRATAR
+    ================================ */
+    .perguntas {
+      padding: var(--section-py) 0;
+      background: var(--c-bg);
+    }
+    .perguntas-lista {
+      list-style: none;
+      padding: 0;
+      max-width: 980px;
+      margin: var(--s-12) auto 0;
+      counter-reset: pergunta;
+      border-top: 1px solid var(--c-gold-line);
+    }
+    .pergunta {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: var(--s-8);
+      padding: var(--s-8) 0;
+      border-bottom: 1px solid var(--c-border-md);
+    }
+    .pergunta::before {
+      counter-increment: pergunta;
+      content: counter(pergunta);
+      font-family: var(--f-display);
+      font-size: 2.1rem;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--c-gold);
+    }
+    .pergunta h3 {
+      font-family: var(--f-display);
+      font-size: var(--t-h3);
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--c-text);
+    }
+    .pergunta-resp small {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-2);
+    }
+    .pergunta-resp p { font-size: 15px; line-height: 1.7; color: var(--c-text-2); }
+    @media (max-width: 768px) {
+      .pergunta { grid-template-columns: 36px minmax(0, 1fr); gap: var(--s-3) var(--s-4); padding: var(--s-6) 0; }
+      .pergunta::before { font-size: 1.7rem; grid-row: span 2; }
+      .pergunta-resp { grid-column: 2; }
+    }
+
+    /* ================================
+       AINDA NÃO É A HORA (isca)
+    ================================ */
+    .isca {
+      padding: var(--section-py) 0;
+      background: var(--c-bg-alt);
+      border-top: 1px solid var(--c-border);
+    }
+    .isca-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-6);
+      max-width: 940px;
+      margin: var(--s-10) auto 0;
+    }
+    .isca-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-3);
+      padding: var(--s-8);
+      border: 1px solid var(--c-border-md);
+      background: var(--c-surface);
+      transition: border-color var(--tr-base), transform var(--tr-base);
+    }
+    .isca-card:hover { border-color: var(--c-gold-line); transform: translateY(-2px); }
+    .isca-card small {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+    .isca-card h3 { font-family: var(--f-display); font-size: var(--t-h3); font-weight: 600; line-height: 1.3; }
+    .isca-card p { font-size: 14px; line-height: 1.65; color: var(--c-text-3); flex: 1; }
+    .isca-card span.ir { font-size: 14px; font-weight: 600; color: var(--c-gold); }
+    .isca-card:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 3px; }
+    @media (max-width: 700px) {
+      .isca-grid { grid-template-columns: 1fr; }
+    }
+
+
+  .busca {
+    margin: 0;
+    position: relative;
+    background: linear-gradient(180deg, #141414 0%, #0F0F0F 100%);
+    border: 1px solid var(--c-gold-line);
+    border-radius: 16px;
+    padding: clamp(18px, 3vw, 28px);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.02) inset;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .busca::before {
+    content: '';
+    position: absolute;
+    inset: -40% -20% auto auto;
+    width: 70%;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(201,168,76,.14), transparent 65%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .busca-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--c-text-4);
+    margin-bottom: 10px;
+    transition: color .4s ease;
+  }
+  .busca-step b {
+    display: inline-grid;
+    place-items: center;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--c-border-md);
+    font-size: 10px;
+    letter-spacing: 0;
+    color: var(--c-text-3);
+    transition: border-color .4s ease, color .4s ease, background .4s ease;
+  }
+  .busca-step.is-on { color: var(--c-gold); }
+  .busca-step.is-on b { border-color: var(--c-gold); color: #0A0A0A; background: var(--c-gold); }
+
+  .busca-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 52px;
+    padding: 0 18px;
+    background: #1B1B1B;
+    border: 1px solid var(--c-border-md);
+    border-radius: 999px;
+    margin-bottom: 22px;
+    font-size: 15px;
+    color: var(--c-text);
+    min-width: 0;
+  }
+  .busca-bar svg { width: 18px; height: 18px; flex: 0 0 18px; color: var(--c-text-3); }
+  .busca-query { white-space: nowrap; overflow: hidden; text-overflow: clip; min-width: 0; }
+  .busca-caret {
+    width: 1.5px; height: 20px; background: var(--c-gold);
+    flex: 0 0 auto;
+    animation: busca-blink 1s steps(1) infinite;
+  }
+  @keyframes busca-blink { 50% { opacity: 0; } }
+
+  .busca-result {
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .5s ease, transform .5s ease, border-color .5s ease, background .5s ease;
+  }
+  .busca-result.is-on { opacity: 1; transform: none; }
+  .busca-result.is-picked { border-color: var(--c-gold-line); background: rgba(201,168,76,.05); }
+  .busca-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--c-text-3); margin-bottom: 4px; }
+  .busca-tag { font-weight: 700; color: var(--c-text); }
+  .busca-title { display: block; font-size: 17px; line-height: 1.35; color: #9EB8FF; margin-bottom: 4px; }
+  .busca-desc { display: block; font-size: 13px; line-height: 1.5; color: var(--c-text-2); }
+
+  .busca-chat {
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .busca-chat.is-on { opacity: 1; transform: none; }
+  .busca-bubble {
+    max-width: 88%;
+    background: #1F2C22;
+    border: 1px solid rgba(116,198,157,.22);
+    border-radius: 14px 14px 4px 14px;
+    padding: 12px 14px 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--c-text);
+  }
+  .busca-bubble small {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: #8FB9A0;
+    margin-top: 4px;
+  }
+  .busca-legend {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--c-text-4);
+    font-style: italic;
+    text-align: center;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .busca-caret { animation: none; }
+    .busca-result, .busca-chat { transition: none; }
+  }
+
+    /* ================================
        FOOTER
     ================================ */
     .footer {
@@ -1478,15 +2217,23 @@
         "name": "Quanto tempo até ver resultado?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Honestamente: entre 30 e 60 dias para a campanha calibrar e ter dados suficientes para otimização real. Previsibilidade de resultado vem com 90 dias de trabalho. Quem promete resultado em uma semana está mentindo, ou vai gerar volume de leads que não convertem."
+          "text": "No primeiro mês, com a campanha no ar, você já vê os primeiros números de busca e de contato. Pra otimizar de verdade, a campanha precisa de 30 a 60 dias de dado, e em 90 dias você tem número suficiente pra decidir. Por isso o contrato tem esse prazo."
         }
       },
       {
         "@type": "Question",
-        "name": "Por que o mínimo de R$1.500/mês em mídia?",
+        "name": "Quanto custa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Abaixo desse valor, o algoritmo das plataformas não tem dados suficientes para otimizar. A campanha fica em modo de aprendizado constante e nunca performa. Não é regra minha. É como Meta e Google funcionam. Investir menos é queimar verba."
+          "text": "São dois planos com valor mensal fixo. O Presença no Google cuida da ficha, e o Agenda Previsível soma Google Ads, página exclusiva e medição completa. Eu te passo os valores depois da análise gratuita, junto com o que faz sentido pro seu caso. A verba de anúncio é separada e vai direto pro Google."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto eu preciso investir em anúncio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende da cidade e do procedimento. Depois da análise eu te digo quanto eu recomendo pro seu caso, e dá pra começar com menos e ir subindo aos poucos. Com a campanha rodando, a gente descobre o custo real de cada contato e ajusta a verba com base nisso."
         }
       },
       {
@@ -1494,31 +2241,7 @@
         "name": "Por que contrato de 3 meses?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Porque esse é o tempo real que o método CQV precisa para funcionar. Mês 1: estruturação e calibração. Mês 2: otimização com dados reais. Mês 3: escala e previsibilidade. Encerrar antes é exatamente quando o investimento começa a dar retorno."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Os criativos respeitam as normas do CFM?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim. Todo material criativo passa por checklist de compliance com as resoluções do Conselho Federal de Medicina. Isso inclui restrições sobre antes/depois, garantias de resultado, linguagem e uso de imagens. Sua clínica nunca vai receber advertência por causa de anúncio mal feito."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Posso ver resultados de outros clientes?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sob NDA, em conversa 1:1. Protejo a privacidade de quem confia em mim. Não exponho dados dos meus clientes publicamente. Se você precisa de referência, posso facilitar contato direto com um cliente atual que aceite conversar."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Atendem clínicas fora da minha cidade?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim. 100% remoto. Atendemos clínicas em todo o Brasil. Gestão de tráfego digital não tem limitação geográfica. Nossa comunicação é direta via WhatsApp e reuniões online."
+          "text": "Porque a campanha aprende com o tempo. No mês 1, estrutura. No mês 2, ajuste com dado real. No mês 3, ritmo. Encerrar antes é parar antes de ter dado suficiente pra decidir. A cobrança é mensal."
         }
       },
       {
@@ -1526,7 +2249,39 @@
         "name": "E se eu não gostar dos resultados?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Se após 90 dias a qualidade dos leads não for visivelmente superior ao que você tinha (menos curiosos, mais pacientes com perfil de compra), encerramos o contrato sem multa e sem discussão. Não prometo CPL milagroso. Prometo clareza: você vai saber exatamente para onde cada real foi e o que gerou."
+          "text": "Resultado de campanha depende também do que acontece depois do clique, como o atendimento da clínica, então eu não prometo número. O que eu garanto é o meu trabalho: tudo pronto em até 2 dias úteis, ajuste toda semana, relatório a cada 30 dias e suporte de segunda a sábado. Se eu falhar em qualquer um desses pontos, você cancela na hora, sem multa. No fim dos 3 meses, você decide se continua com os números na mão."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Os anúncios respeitam as normas do meu conselho?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, e esse é um dos pontos em que eu mais trabalho. Anúncio, página e postagens passam por revisão com base nas normas do seu conselho (como CFM e CFO) e nas políticas do Google. Nada de promessa de resultado, antes e depois fora do lugar ou nome de medicamento. O objetivo é que nenhum anúncio exponha a clínica a advertência."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Você faz Meta Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sou certificado em Meta Ads pela Subido (Pedro Sobral), com recertificação anual, e uso esse conhecimento no diagnóstico da clínica. A gestão de Meta Ads está pausada no momento. Se você já anuncia no Instagram, o Google soma: pega quem viu o seu anúncio e depois foi pesquisar o procedimento. Se ainda não anuncia em nenhum dos dois, pra alto ticket eu recomendo começar pelo Google, onde está a paciente que já decidiu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso ver resultados de outros clientes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tem um caso real aqui na página, publicado sem nome. Em conversa individual, eu mostro mais. Eu protejo a privacidade de quem confia em mim e não exponho publicamente nada que identifique um cliente. Se você precisar de referência, eu facilito o contato direto com um cliente atual que aceite conversar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Você atende clínica de qualquer cidade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, desde que a vaga do seu procedimento na sua cidade esteja livre. Atendo 100% remoto, clínicas de todo o Brasil. A conversa é direta comigo pelo WhatsApp, e por chamada quando precisa."
         }
       },
       {
@@ -1534,7 +2289,7 @@
         "name": "Como funciona a análise gratuita?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "É uma conversa de 30 minutos via WhatsApp ou chamada. Você me conta sobre sua clínica, seus procedimentos e o que você já tentou em tráfego. Eu analiso e te dou um diagnóstico honesto, incluindo se o perfil da sua clínica faz sentido com o meu método. Sem compromisso, sem pitch agressivo."
+          "text": "É uma conversa de 30 minutos, pelo WhatsApp ou por chamada. Você me conta da clínica, dos procedimentos e do que já tentou. Depois eu te mando por escrito o que encontrei: quantas pessoas procuram os seus procedimentos na sua cidade, como a sua clínica aparece hoje no Google e como eu trabalharia com você. Sem compromisso."
         }
       }
     ]
@@ -1595,14 +2350,14 @@
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero-content fade-up">
-        <span class="rule-label rule-label--left">Tráfego pago para clínicas de estética</span>
-        <h1 class="hero-headline">
-          Pare de pagar
-          <span class="accent gold-text gold-sweep">por curiosos.</span>
-          Atraia pacientes<br>de alto ticket.
+        <h1 class="hero-headline hero-headline--pergunta">
+          <span class="rule-label rule-label--left hl-kicker">Tráfego pago para clínicas de estética de alto ticket</span>
+          <span class="hl-setup">Quem pesquisa o seu procedimento no Google encontra</span>
+          <span class="accent gold-text gold-sweep">a sua clínica</span>
+          ou a concorrente?
         </h1>
         <p class="hero-sub">
-          Com o método CQV, cada real investido em mídia trabalha para atrair pacientes prontos para contratar procedimentos de R$1.500 ou mais, sem encher o WhatsApp de quem só pergunta o preço.
+          Eu trabalho pra sua clínica aparecer no topo do Google na hora em que a paciente pesquisa o procedimento. Anúncio, ficha do Maps, página e medição ficam comigo. A sua parte é atender quem chega no WhatsApp.
         </p>
         <div class="hero-actions">
           <div class="hero-qualify">
@@ -1618,7 +2373,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Quero minha análise gratuita
           </a>
-          <span style="font-size:12px;color:var(--c-text-3);">Resposta em até 2h úteis · Sem compromisso</span>
+          <span style="font-size:12px;color:var(--c-text-3);">Resposta em até 2h úteis · Análise gratuita de 30 minutos</span>
           <a href="#metodo" class="hero-anchor">
             Ver como funciona
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -1627,17 +2382,17 @@
         <div class="hero-trust">
           <div class="hero-trust-item">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            Compliance CFM
+            Dentro das normas do conselho
           </div>
           <span class="hero-trust-dot"></span>
           <div class="hero-trust-item">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"/></svg>
-            Meta &amp; Google Ads
+            Certificado em Google e Meta Ads
           </div>
           <span class="hero-trust-dot"></span>
           <div class="hero-trust-item">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-            100% Especializado em Estética
+            Especialista em estética
           </div>
         </div>
       </div>
@@ -1655,19 +2410,19 @@
         <p class="hero-caption">Rodrigo Rocha, especialista em tráfego para clínicas de estética</p>
         <div class="hero-ledger">
           <div class="hero-ledger-item">
-            <span class="hero-ledger-value">269</span>
+            <span class="hero-ledger-value">408</span>
             <span class="hero-ledger-label">Cliques</span>
           </div>
           <div class="hero-ledger-item">
-            <span class="hero-ledger-value">16</span>
+            <span class="hero-ledger-value">11</span>
             <span class="hero-ledger-label">Conversões</span>
           </div>
           <div class="hero-ledger-item">
-            <span class="hero-ledger-value">R$57</span>
-            <span class="hero-ledger-label">Por conversão</span>
+            <span class="hero-ledger-value">1º</span>
+            <span class="hero-ledger-label">Mês de campanha</span>
           </div>
         </div>
-        <p style="font-size:10px;color:var(--c-text-4);font-style:italic;text-align:center;margin-top:var(--s-2);">Cliente real · campanha Google Ads · jun/2026</p>
+        <p style="font-size:10px;color:var(--c-text-4);font-style:italic;text-align:center;margin-top:var(--s-2);">Cliente real · cirurgia plástica · agosto de 2026</p>
       </div>
     </div>
   </section>
@@ -1678,20 +2433,20 @@
   <section class="authority-bar">
     <div class="container">
       <div class="authority-item fade-up">
-        <span class="authority-value" data-count="100">100%</span>
-        <span class="authority-label">Foco em clínicas de estética</span>
+        <span class="authority-value">CQV</span>
+        <span class="authority-label">Método próprio de Captação, Qualificação e Venda</span>
       </div>
       <div class="authority-item fade-up" style="transition-delay:0.1s">
-        <span class="authority-value">CQV</span>
-        <span class="authority-label">Método proprietário</span>
+        <span class="authority-value">5</span>
+        <span class="authority-label">Certificações, 3 oficiais do Google e 2 pela Subido (Google e Meta)</span>
       </div>
       <div class="authority-item fade-up" style="transition-delay:0.2s">
-        <span class="authority-value">CFM</span>
-        <span class="authority-label">Anúncios dentro das normas do conselho</span>
+        <span class="authority-value">2</span>
+        <span class="authority-label">Dias úteis pra página e campanha ficarem prontas</span>
       </div>
       <div class="authority-item fade-up" style="transition-delay:0.3s">
-        <span class="authority-value">3</span>
-        <span class="authority-label">Plataformas integradas: Meta Ads, Google Ads e Google Meu Negócio</span>
+        <span class="authority-value">8</span>
+        <span class="authority-label">Clínicas no máximo, ao mesmo tempo</span>
       </div>
     </div>
   </section>
@@ -1710,33 +2465,167 @@
         <li class="pain-item fade-up">
           <span class="pain-num">I</span>
           <div class="pain-item-body">
-            <h3>Agência genérica que não entende estética</h3>
-            <p>Te tratam como se vendesse pizza ou plano de saúde. Não conhecem o CFM, não sabem o ciclo de decisão da sua paciente, não entendem o que é um procedimento de alto ticket.</p>
+            <h3>Anúncio que não conversa com a sua paciente</h3>
+            <p>Quem vai investir R$5 mil num procedimento não decide no impulso. Ela pesquisa, compara e precisa confiar antes de chamar. Anúncio pensado só pra volume fala com a pessoa errada, e ainda pode esbarrar nas normas do seu conselho.</p>
           </div>
         </li>
         <li class="pain-item fade-up" style="transition-delay:0.1s">
           <span class="pain-num">II</span>
           <div class="pain-item-body">
             <h3>Leads que nunca respondem</h3>
-            <p>Você paga por contato, sua secretária liga, manda mensagem... silêncio. WhatsApp cheio de gente curiosa que nunca vai marcar. Mídia queimada, equipe desmotivada.</p>
+            <p>Você paga por contato, a recepção liga, manda mensagem... silêncio. WhatsApp cheio de gente curiosa que nunca vai marcar. Mídia queimada, equipe desmotivada.</p>
           </div>
         </li>
         <li class="pain-item fade-up" style="transition-delay:0.15s">
           <span class="pain-num">III</span>
           <div class="pain-item-body">
             <h3>Promessas de "mil leads por mês"</h3>
-            <p>Volume não paga conta. O que paga é paciente que fecha tratamento de R$3k, R$8k, R$15k ou mais. Leads baratos que não convertem são desperdício, não resultado.</p>
+            <p>Volume não paga conta. O que paga é paciente que fecha tratamento de R$3k, R$8k, R$15k ou mais. Lead barato que não vira paciente continua sendo desperdício.</p>
           </div>
         </li>
         <li class="pain-item fade-up" style="transition-delay:0.2s">
           <span class="pain-num">IV</span>
           <div class="pain-item-body">
             <h3>Falta de previsibilidade</h3>
-            <p>Um mês entra movimento, outro mês cai. Você não sabe quanto vai faturar no mês que vem. Impossível planejar contratação, estoque, expansão sem previsibilidade.</p>
+            <p>Um mês entra movimento, outro mês cai. Quando a agenda depende só de indicação, você não sabe quanto vai faturar no mês que vem, e fica difícil planejar contratação, estoque e expansão.</p>
           </div>
         </li>
       </ol>
       <p class="pain-cue fade-up">Se você se reconheceu em pelo menos dois pontos, role para baixo. Isso tem solução.</p>
+    </div>
+  </section>
+
+  <!-- ================================
+       ONDE ESTÁ A PACIENTE PRONTA
+  ================================ -->
+  <section class="onde" id="google">
+    <div class="container">
+      <div class="onde-grid">
+        <div class="onde-copy fade-up">
+          <span class="rule-label rule-label--left">Onde está a paciente pronta</span>
+          <h2>Quem digita o procedimento no Google já decidiu fazer. Só está escolhendo com quem.</h2>
+          <p>Antes de investir R$3 mil, R$8 mil, R$15 mil num procedimento, ela pesquisa, compara clínicas e lê avaliação. É nessa hora que a sua clínica precisa aparecer primeiro, com anúncio, ficha no Maps e avaliações.</p>
+          <div class="onde-contraste">
+            <div><span>No Instagram</span><p>O anúncio aparece pra quem está rolando o feed e desperta um desejo que ainda não existia.</p></div>
+            <div><span>No Google</span><p>Ela digitou o nome do procedimento. <strong>O desejo já existe.</strong> A pergunta é qual clínica ela vai achar primeiro.</p></div>
+          </div>
+          <div class="onde-ponte">
+            <strong>Já anuncia no Instagram?</strong>
+            <p>Então o Google fica ainda mais importante. Parte de quem viu o seu anúncio, ou ouviu falar de você por indicação, vai pesquisar o procedimento antes de chamar. Se a sua clínica não aparece nessa hora, quem colhe o desejo que você plantou é a concorrente.</p>
+          </div>
+          <div class="onde-demanda">
+            <p class="onde-demanda-titulo">Buscas por mês no Google, no Brasil</p>
+            <p class="onde-demanda-hero"><b>49.500</b><span>por “harmonização facial”</span></p>
+            <ul class="onde-demanda-lista">
+              <li><span>Preenchimento labial</span><b>49.500</b></li>
+              <li><span>Implante capilar</span><b>27.100</b></li>
+              <li><span>Bioestimulador de colágeno</span><b>12.100</b></li>
+            </ul>
+            <small>Média de setembro de 2025 a agosto de 2026 · Planejador de Palavras-chave do Google</small>
+            <p class="onde-demanda-nota">Na análise gratuita, eu te mostro esse número pra sua cidade e pro seu procedimento.</p>
+          </div>
+        </div>
+        <div class="fade-up" style="transition-delay:0.15s">
+          <figure class="busca" id="buscaDemo" aria-label="Exemplo ilustrativo: uma paciente pesquisa o procedimento no Google, encontra o anúncio da clínica e manda mensagem no WhatsApp">
+            <div class="busca-step is-on" data-step="1"><b>1</b> Ela pesquisa</div>
+            <div class="busca-bar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <span class="busca-query" id="buscaQuery">lentes de contato dental quanto custa</span><span class="busca-caret" aria-hidden="true"></span>
+            </div>
+          
+            <div class="busca-step is-on" data-step="2"><b>2</b> Sua clínica aparece</div>
+            <div class="busca-result is-on is-picked" id="buscaResult">
+              <div class="busca-meta"><span class="busca-tag">Patrocinado</span><span>·</span><span>suaclinica.com.br</span></div>
+              <span class="busca-title" id="buscaTitle">Lentes de contato dental · Avaliação e planejamento</span>
+              <span class="busca-desc" id="buscaDesc">Planejamento digital do sorriso antes de decidir. Agende sua avaliação.</span>
+            </div>
+          
+            <div class="busca-step is-on" data-step="3"><b>3</b> Ela chama no WhatsApp</div>
+            <div class="busca-chat is-on" id="buscaChat">
+              <div class="busca-bubble"><span id="buscaMsg">Oi! Vi a clínica no Google. Quero agendar uma avaliação pra lentes de contato dental.</span><small>agora ✓✓</small></div>
+            </div>
+            <figcaption class="busca-legend">Exemplo ilustrativo</figcaption>
+          </figure>
+          
+          <script>
+            (function () {
+              var root = document.getElementById('buscaDemo');
+              if (!root) return;
+              var cenas = [
+                {
+                  q: 'lentes de contato dental quanto custa',
+                  t: 'Lentes de contato dental · Avaliação e planejamento',
+                  d: 'Planejamento digital do sorriso antes de decidir. Agende sua avaliação.',
+                  m: 'Oi! Vi a clínica no Google. Quero agendar uma avaliação pra lentes de contato dental.'
+                },
+                {
+                  q: 'bioestimulador de colágeno onde fazer',
+                  t: 'Bioestimulador de colágeno · Avaliação individual',
+                  d: 'Indicação feita em consulta, conforme o seu caso. Agende sua avaliação.',
+                  m: 'Oi! Achei vocês no Google. Queria entender se o bioestimulador serve pro meu caso.'
+                },
+                {
+                  q: 'lipoaspiração hd cirurgião plástico',
+                  t: 'Lipoaspiração · Consulta com cirurgião plástico',
+                  d: 'Consulta de avaliação, exames e planejamento cirúrgico. Agende.',
+                  m: 'Oi! Vi no Google. Quero marcar uma consulta de avaliação pra lipo.'
+                }
+              ];
+              var q = document.getElementById('buscaQuery');
+              var res = document.getElementById('buscaResult');
+              var chat = document.getElementById('buscaChat');
+              var steps = root.querySelectorAll('.busca-step');
+              var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              var timers = [];
+              var i = 0;
+              var ativo = false;
+          
+              function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+              function limpar() { timers.forEach(clearTimeout); timers = []; }
+              function passo(n) { steps.forEach(function (s) { s.classList.toggle('is-on', +s.dataset.step <= n); }); }
+              function preencher(c) {
+                document.getElementById('buscaTitle').textContent = c.t;
+                document.getElementById('buscaDesc').textContent = c.d;
+                document.getElementById('buscaMsg').textContent = c.m;
+              }
+              function rodar() {
+                if (!ativo) return;
+                var c = cenas[i % cenas.length];
+                limpar();
+                q.textContent = ''; preencher(c); passo(1);
+                res.classList.remove('is-on', 'is-picked'); chat.classList.remove('is-on');
+                var k = 0;
+                (function digitar() {
+                  if (!ativo) return;
+                  q.textContent = c.q.slice(0, ++k); q.scrollLeft = q.scrollWidth;
+                  if (k < c.q.length) later(digitar, 45 + Math.random() * 55);
+                  else later(function () {
+                    passo(2); res.classList.add('is-on');
+                    later(function () { res.classList.add('is-picked'); }, 900);
+                    later(function () { passo(3); chat.classList.add('is-on'); }, 1700);
+                    later(function () { i++; rodar(); }, 5200);
+                  }, 450);
+                })();
+              }
+              // a primeira cena já vem pronta no HTML; com movimento reduzido ela fica parada
+              if (reduz || !('IntersectionObserver' in window)) return;
+              function iniciar() {
+                new IntersectionObserver(function (entries) {
+                  var visivel = entries[0].isIntersecting;
+                  if (visivel && !ativo) { ativo = true; rodar(); }
+                  else if (!visivel && ativo) { ativo = false; limpar(); }
+                }, { threshold: 0.35 }).observe(root);
+              }
+              // a animação só começa depois que a página terminou de carregar
+              window.addEventListener('load', function () {
+                if ('requestIdleCallback' in window) requestIdleCallback(iniciar, { timeout: 2000 });
+                else setTimeout(iniciar, 200);
+              });
+            })();
+          </script>
+          
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1749,7 +2638,7 @@
         <span class="rule-label">Método proprietário</span>
         <div class="divider"></div>
         <h2>O sistema CQV:<br>Captação, Qualificação, Venda</h2>
-        <p>Não é campanha genérica. É um sistema desenhado para transformar verba de mídia em pacientes agendados, não em mensagens de WhatsApp sem resposta.</p>
+        <p>É o caminho que eu sigo em toda clínica, da busca no Google até a conversa no WhatsApp. Cada etapa tem uma função, e cada uma é medida.</p>
       </div>
       <p class="method-mark fade-up">C<span class="sep">&#183;</span>Q<span class="sep">&#183;</span>V</p>
       <div class="method-steps">
@@ -1759,12 +2648,12 @@
             <span class="step-letter">Captação</span>
           </div>
           <div class="step-content-col">
-            <h3>Atrair quem pode pagar,<br>não quem quer desconto.</h3>
-            <p>Campanhas Meta Ads, Google Ads e Google Meu Negócio desenhadas para atrair o perfil exato de paciente que busca procedimentos como os da sua clínica, segmentadas por localização, comportamento e poder de compra.</p>
+            <h3>Aparecer pra quem já está<br>procurando o procedimento.</h3>
+            <p>Google Ads e ficha do Google trabalhando juntos pra sua clínica aparecer pra quem busca exatamente os procedimentos que você faz, na sua região, no momento em que a decisão está sendo tomada.</p>
             <ul class="step-bullets">
               <li class="step-bullet">Estrutura de campanhas para alto ticket</li>
-              <li class="step-bullet">Criativos respeitando normas CFM</li>
-              <li class="step-bullet">Públicos qualificados e expansão via Advantage+</li>
+              <li class="step-bullet">Anúncios dentro das normas do seu conselho</li>
+              <li class="step-bullet">Palavras-chave de quem já decidiu o procedimento</li>
             </ul>
           </div>
         </div>
@@ -1774,11 +2663,11 @@
             <span class="step-letter">Qualificação</span>
           </div>
           <div class="step-content-col">
-            <h3>Filtrar antes do clique.<br>Não depois da mensagem.</h3>
-            <p>Cada peça criativa e cada página de destino já funcionam como um filtro. Quem não tem perfil para sua clínica simplesmente não converte. Você recebe menos leads e fecha mais.</p>
+            <h3>Filtrar quem não tem perfil<br>antes do clique.</h3>
+            <p>O filtro começa no anúncio e continua na página. Palavra-chave de quem já quer o procedimento, texto que convida pra avaliação e página que explica antes do WhatsApp. Quem só quer saber o preço tende a sair antes de te chamar.</p>
             <ul class="step-bullets">
-              <li class="step-bullet">Criativo e copy que já filtram antes do clique</li>
-              <li class="step-bullet">Segmentação por comportamento e poder de compra</li>
+              <li class="step-bullet">Anúncio que filtra antes do clique e página que filtra antes do WhatsApp</li>
+              <li class="step-bullet">Buscas que não interessam excluídas toda semana</li>
               <li class="step-bullet">Menos curioso no WhatsApp, mais paciente com perfil de fechar</li>
             </ul>
           </div>
@@ -1789,10 +2678,10 @@
             <span class="step-letter">Venda</span>
           </div>
           <div class="step-content-col">
-            <h3>Entregar um lead pronto,<br>não uma tarefa para sua equipe.</h3>
-            <p>O lead que chega ao seu time já passou pela jornada de qualificação. Sabe o que quer, conhece o valor e está pronto para marcar. Sua equipe fecha. Não convence.</p>
+            <h3>Entregar a conversa no WhatsApp<br>e mostrar quanto ela custou.</h3>
+            <p>A paciente chega no WhatsApp da clínica depois de ver o anúncio, a ficha e a página. Daí em diante, quem fecha é a sua equipe, e você acompanha de onde veio cada contato e quanto ele custou.</p>
             <ul class="step-bullets">
-              <li class="step-bullet">Lead chega no WhatsApp já filtrado, pronto pra agendar</li>
+              <li class="step-bullet">Medição do clique até o WhatsApp e a ligação</li>
               <li class="step-bullet">Relatório mensal de resultado, com plano de ação</li>
               <li class="step-bullet">Ajuste de rota na campanha quando os números pedem</li>
             </ul>
@@ -1809,144 +2698,167 @@
   </section>
 
   <!-- ================================
-       DELIVERABLES
+       OFERTA
   ================================ -->
-  <section class="deliverables" id="entregaveis">
+  <section class="oferta" id="entregaveis">
     <div class="container">
       <div class="section-header fade-up">
-        <span class="rule-label">O que você recebe</span>
+        <span class="rule-label">O que está incluído</span>
         <div class="divider"></div>
-        <h2>Tudo incluído no acompanhamento</h2>
-        <p>Sem terceiros, sem suporte via ticket. Você fala diretamente comigo.</p>
+        <h2>Tudo o que a clínica precisa pra ser encontrada no Google, num lugar só</h2>
+        <p>Você não precisa contratar uma pessoa pra ficha, outra pra página e outra pra configurar a medição. Eu cuido de tudo, e você fala direto comigo.</p>
       </div>
-      <div class="deliverables-grid">
-        <div class="deliverables-list fade-up">
-          <div class="deliverable-item">
-            <span class="deliverable-mark" aria-hidden="true">&#9670;</span>
-            <div class="deliverable-text">
-              <strong>Auditoria completa das suas contas</strong>
-              <span>Meta Ads, Google Ads e Google Meu Negócio</span>
-            </div>
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-mark" aria-hidden="true">&#9670;</span>
-            <div class="deliverable-text">
-              <strong>Estruturação ou reestruturação de campanhas</strong>
-              <span>Do zero ou otimizando o que já existe</span>
-            </div>
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-mark" aria-hidden="true">&#9670;</span>
-            <div class="deliverable-text">
-              <strong>Criativos profissionais</strong>
-              <span>Imagem e copy em compliance com CFM</span>
-            </div>
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-mark" aria-hidden="true">&#9670;</span>
-            <div class="deliverable-text">
-              <strong>WhatsApp direto comigo</strong>
-              <span>Sem suporte terceirizado, sem atendente</span>
-            </div>
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-mark" aria-hidden="true">&#9670;</span>
-            <div class="deliverable-text">
-              <strong>Relatório mensal com plano de ação</strong>
-              <span>Clareza sobre cada real investido</span>
-            </div>
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-mark" aria-hidden="true">&#9670;</span>
-            <div class="deliverable-text">
-              <strong>Otimização contínua</strong>
-              <span>Públicos, criativos e segmentações melhorados toda semana</span>
-            </div>
-          </div>
+      <div class="plano fade-up">
+        <div class="plano-topo">
+          <div class="plano-nome"><small>Plano recomendado</small>Agenda Previsível</div>
+          <div class="plano-cols" aria-hidden="true"><span>Presença<br>no Google</span><span>Agenda<br>Previsível</span></div>
+          <p class="plano-sub">Tem também o <b>Presença no Google</b>, só com a ficha. Cada item mostra em qual plano ele entra.</p>
         </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Ficha do Google (Perfil da Empresa)</strong><span>Criada do zero ou ajustada, com procedimentos, descrição, categorias e palavras-chave certas pra clínica aparecer no Maps.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Postagens e avaliações</strong><span>Postagens na ficha e uma rotina pra pedir avaliação às pacientes, dentro das regras do Google.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Campanhas no Google Ads</strong><span>Pesquisa de palavras-chave, exclusão das buscas que não interessam e anúncio pensado pra aparecer no topo quando ela pesquisa o procedimento.</span><i class="plano-tag plano-tag--so">Só no Agenda Previsível</i></div>
+            <div class="plano-check nao" role="img" aria-label="Não incluído no Presença no Google"></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Otimização toda semana</strong><span>Eu olho os dados e ajusto termo, anúncio e lance pelo que gera contato. Nada fica rodando no automático.</span><i class="plano-tag plano-tag--so">Só no Agenda Previsível</i></div>
+            <div class="plano-check nao" role="img" aria-label="Não incluído no Presença no Google"></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Página exclusiva pro anúncio</strong><span>Feita pra transformar o clique em conversa no seu WhatsApp. Fica no ar enquanto a campanha estiver rodando.</span><i class="plano-tag plano-tag--so">Só no Agenda Previsível</i></div>
+            <div class="plano-check nao" role="img" aria-label="Não incluído no Presença no Google"></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Medição completa</strong><span>Tag Manager, Google Analytics 4 e Search Console configurados. Você vê de onde veio cada contato e quanto ele custou.</span><i class="plano-tag plano-tag--so">Só no Agenda Previsível</i></div>
+            <div class="plano-check nao" role="img" aria-label="Não incluído no Presença no Google"></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Conta do Google Ads no nome da clínica</strong><span>Com todo o histórico, desde o primeiro dia. O domínio da página também fica no seu nome.</span><i class="plano-tag plano-tag--so">Só no Agenda Previsível</i></div>
+            <div class="plano-check nao" role="img" aria-label="Não incluído no Presença no Google"></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Dentro das normas do seu conselho</strong><span>Anúncio, página e postagens revisados com base nas normas do seu conselho e nas políticas do Google.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Relatório a cada 30 dias</strong><span>Os números reais: quantas pessoas te acharam, quantas entraram em contato e o que muda no mês seguinte.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Suporte direto comigo</strong><span>Pelo WhatsApp, de segunda a sábado, sem intermediário.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Uma clínica por procedimento na sua cidade</strong><span>Eu não atendo outra clínica do mesmo procedimento na sua cidade. Assim eu nunca coloco dois clientes meus disputando a mesma paciente.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
+        <div class="plano-rodape"><span><b>Contrato de 3 meses</b>, com cobrança mensal</span><span><b>Verba de anúncio</b> separada, paga direto ao Google</span><span><b>Valores</b> depois da análise gratuita</span></div>
+      </div>
+      <div class="prova fade-up">
+        <div class="prova-cab"><span>Cliente real · Cirurgia plástica · Google Ads</span><span>Agosto de 2026 · primeiro mês de campanha</span></div>
+        <div class="prova-num"><b>R$2.112,08</b><span>investidos em mídia</span></div>
+        <div class="prova-num"><b>408</b><span>cliques</span></div>
+        <div class="prova-num"><b>11</b><span>conversões</span></div>
+        <div class="prova-num"><b>R$192,01</b><span>por conversão</span></div>
+        <div class="prova-feito">
+          <small>O que está por trás desses números</small>
+          <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Campanhas separadas por área: face, nariz e corpo</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Medição de conversão configurada</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Anúncios revisados com base nas normas do CFM</span></li></ul>
+        </div>
+        <div class="prova-bloqueio">
+          <small>44 termos de busca bloqueados, como</small>
+          <ul class="prova-chips"><li><s>curso</s></li><li><s>emprego</s></li><li><s>SUS</s></li><li><s>convênio</s></li><li><s>gratuito</s></li><li><s>desconto</s></li><li><s>não cirúrgico</s></li><li><s>sem corte</s></li></ul>
+          <p>Quem procura curso, atendimento pelo SUS ou procedimento sem cirurgia nem vê o anúncio. A verba fica pra quem pode virar paciente.</p>
+        </div>
+        <p class="prova-leitura">Primeiro mês de campanha, ainda em calibração. Em cirurgia plástica o ticket é alto, então uma única paciente que fecha já paga a verba do mês com folga. Conversão é o contato que a campanha gerou, como clique pra chamar no WhatsApp, ligação ou formulário. Os dados dos meus clientes ficam em sigilo, por isso não aparece nome. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="deliverables-panel fade-up" style="transition-delay:0.15s">
-          <svg class="seal seal--sm panel-seal" viewBox="0 0 120 120" aria-hidden="true"><use href="#seal-rr"/></svg>
-          <div class="panel-header">
-            <div class="panel-header-title">Indicadores CQV · Google Ads</div>
-            <div class="panel-header-sub">Cliente real · 1 a 30 de junho de 2026</div>
-          </div>
-          <div class="panel-metric">
-            <span class="panel-metric-label">Investimento em mídia</span>
-            <span class="panel-metric-value">R$ 921</span>
-          </div>
-          <div class="panel-metric">
-            <span class="panel-metric-label">Cliques</span>
-            <span class="panel-metric-value">269</span>
-          </div>
-          <div class="panel-metric">
-            <span class="panel-metric-label">Conversões (WhatsApp + ligação)</span>
-            <span class="panel-metric-value positive">16</span>
-          </div>
-          <div class="panel-metric">
-            <span class="panel-metric-label">CPC médio</span>
-            <span class="panel-metric-value">R$ 3,42</span>
-          </div>
-          <div class="panel-metric">
-            <span class="panel-metric-label">Custo por conversão</span>
-            <span class="panel-metric-value">R$ 57,56</span>
-          </div>
-          <div class="panel-chart">
-            <div class="panel-chart-label" style="font-size:12px;color:var(--c-text-2);font-style:normal;line-height:1.6;">R$ 921 investidos geraram 16 contatos reais de possíveis pacientes. Mesmo que só 2 ou 3 fechem um procedimento de R$1.500+, o retorno já supera o investido.</div>
-          </div>
+  <!-- ================================
+       90 DIAS
+  ================================ -->
+  <section class="tempo" id="noventa-dias">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="rule-label">Os 90 dias</span>
+        <div class="divider"></div>
+        <h2>O que acontece em cada mês</h2>
+        <p>Anúncio no Google não é interruptor, é aprendizado. Por isso o contrato tem 3 meses, e você sabe desde o começo o que acontece em cada um.</p>
+      </div>
+      <div class="tempo-trilha">
+        <div class="tempo-fase fade-up">
+          <small>Mês 1</small>
+          <h3>Estrutura</h3>
+          <ul><li>Página e campanha prontas em até 2 dias úteis</li><li>Ficha do Google e medição configuradas</li><li>Primeiros números de busca e de contato já medidos</li></ul>
+        </div>
+        <div class="tempo-fase fade-up" style="transition-delay:0.12s">
+          <small>Mês 2</small>
+          <h3>Ajuste</h3>
+          <ul><li>Com dado real, corto o que não traz contato e reforço o que traz</li><li>Palavras-chave, textos, horários e bairros refinados</li><li>Relatório com o que mudou e o porquê</li></ul>
+        </div>
+        <div class="tempo-fase fade-up" style="transition-delay:0.24s">
+          <small>Mês 3</small>
+          <h3>Ritmo</h3>
+          <ul><li>Verba concentrada no que traz contato com perfil</li><li>Custo por contato tende a cair</li><li>Três meses de dado pra você decidir se continua</li></ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ================================
-       COMPARISON
+       5 PERGUNTAS ANTES DE CONTRATAR
   ================================ -->
-  <section class="comparison" id="diferenciais">
+  <section class="perguntas" id="diferenciais">
     <div class="container">
       <div class="section-header fade-up">
-        <span class="rule-label">Por que clínicas nos escolhem</span>
+        <span class="rule-label">Antes de contratar</span>
         <div class="divider"></div>
-        <h2>Especialização importa<br>mais que experiência genérica</h2>
-        <p>Um gestor generalista aprende sobre sua clínica enquanto gasta seu dinheiro. Eu já sei o que funciona antes de criar o primeiro anúncio.</p>
+        <h2>6 perguntas pra fazer a qualquer gestor de tráfego</h2>
+        <p>Vale pra mim e pra qualquer pessoa que você estiver avaliando. Junto de cada uma, a minha resposta.</p>
       </div>
-      <div class="manifesto fade-up">
-        <div class="manifesto-row manifesto-head">
-          <div class="manifesto-col-label">Critério</div>
-          <div class="manifesto-col-them" style="padding-left:0">Agência genérica</div>
-          <div class="manifesto-col-us">Rodrigo Rocha</div>
-        </div>
-        <div class="manifesto-row">
-          <div class="manifesto-col-label">Nicho de atuação</div>
-          <div class="manifesto-col-them">Atende todos os segmentos</div>
-          <div class="manifesto-col-us">100% clínicas de estética</div>
-        </div>
-        <div class="manifesto-row">
-          <div class="manifesto-col-label">Conhecimento do CFM</div>
-          <div class="manifesto-col-them">Aprende com seus erros</div>
-          <div class="manifesto-col-us">Desde o primeiro anúncio</div>
-        </div>
-        <div class="manifesto-row">
-          <div class="manifesto-col-label">Foco principal</div>
-          <div class="manifesto-col-them">Volume de leads</div>
-          <div class="manifesto-col-us">Qualidade que converte</div>
-        </div>
-        <div class="manifesto-row">
-          <div class="manifesto-col-label">Seu contato direto</div>
-          <div class="manifesto-col-them">Atendente / SDR</div>
-          <div class="manifesto-col-us">Direto com o especialista</div>
-        </div>
-        <div class="manifesto-row">
-          <div class="manifesto-col-label">Método de trabalho</div>
-          <div class="manifesto-col-them">Campanha padrão</div>
-          <div class="manifesto-col-us">Sistema CQV proprietário</div>
-        </div>
-        <div class="manifesto-row">
-          <div class="manifesto-col-label">Compromisso</div>
-          <div class="manifesto-col-them">Mensal renovável</div>
-          <div class="manifesto-col-us">3 meses para resultado real</div>
-        </div>
-      </div>
+      <ol class="perguntas-lista">
+        <li class="pergunta fade-up">
+          <h3>Você atende a minha concorrente?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Não no mesmo procedimento e na mesma cidade. Eu atendo uma clínica por procedimento em cada cidade, pra não concorrer comigo mesmo. Posso ter uma cliente de implante, outra de lipo e outra de harmonização na mesma cidade, porque uma não disputa paciente com a outra. Duas de harmonização, não.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.06s">
+          <h3>Você vai me mostrar quanto custou cada contato?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Sim. Eu configuro a medição do clique até o WhatsApp e a ligação. A cada 30 dias você vê quantas pessoas te acharam, quantos contatos a campanha gerou e quanto custou cada um. Daí em diante, o fechamento é com a sua equipe.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.12s">
+          <h3>Quem vai falar comigo no dia a dia?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Eu. Não tem atendente nem gerente de conta no meio. Você fala direto comigo pelo WhatsApp, de segunda a sábado, com resposta em até 2h úteis.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.18s">
+          <h3>Em quanto tempo fica tudo pronto?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Em até 2 dias úteis depois da assinatura, do pagamento e dos acessos, a página fica no ar e a campanha vai pra revisão do Google, que na maioria das vezes sai em até 1 dia útil. Se eu atrasar, você cancela sem multa.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.24s">
+          <h3>Se um dia a gente parar, o que fica com a clínica?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>A conta do Google Ads é da clínica desde o primeiro dia, com todo o histórico, e o domínio fica no seu nome. A página fica no ar enquanto a campanha roda, e por isso você não paga hospedagem. Se quiser ficar com ela depois, dá pra comprar à parte.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.30s">
+          <h3>Como o anúncio fica dentro das normas do meu conselho?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Anúncio, página e postagens da ficha passam por revisão com base nas normas do seu conselho e nas políticas do Google antes de ir pro ar. Nada de promessa de resultado ou nome de medicamento.</p></div>
+        </li>
+      </ol>
       <div class="method-cta fade-up" style="margin-top:var(--s-10)">
         <a href="https://wa.me/554899291215?text=Oi%20Rodrigo!%20Vim%20pelo%20site%20e%20quero%20a%20an%C3%A1lise%20gratuita%20da%20minha%20cl%C3%ADnica." class="btn btn--primary" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1979,9 +2891,9 @@
           <h2>Rodrigo Rocha</h2>
           <p class="about-role">Especialista em tráfego para clínicas de estética</p>
           <div class="about-paragraphs">
-            <p>Trabalho exclusivamente com clínicas de estética de alto ticket. Não atendo academia, restaurante, e-commerce. Apenas estética: da harmonização facial às facetas de porcelana, do transplante capilar aos bioestimuladores. Quando você fala dos seus procedimentos, eu já sei do que se trata e sei como comunicar isso sem violar as normas dos conselhos profissionais.</p>
-            <p>Meu trabalho começa onde a maioria dos gestores termina: depois do clique. O que importa não é o custo por lead, é quantos desses leads viraram pacientes pagantes. Essa é a métrica que importa para o seu negócio.</p>
-            <p>Trabalho com um número limitado de clínicas para garantir atenção real ao negócio de cada uma. Não sou agência. Sou parceiro estratégico que entende que o seu resultado é o meu resultado.</p>
+            <p>Sou especialista em clínicas de estética de alto ticket, da harmonização facial às facetas de porcelana, do transplante capilar aos bioestimuladores. Quando você me fala do seu procedimento, eu já sei como a paciente pesquisa, o que ela compara antes de decidir e o cuidado que o anúncio precisa ter com as normas do seu conselho.</p>
+            <p>Sou certificado em Google Ads e em Meta Ads, então conheço os dois lados da jornada da paciente: o Instagram, que desperta o desejo, e o Google, onde ela procura o procedimento. Hoje a minha gestão é concentrada no Google, e a de Meta Ads está pausada no momento.</p>
+            <p>Trabalho com no máximo 8 clínicas ao mesmo tempo, e você fala direto comigo, do diagnóstico ao relatório. O que eu olho no fim do mês é quantos contatos a campanha gerou, no WhatsApp e na ligação, e quanto custou cada um.</p>
           </div>
           <div class="cred-badges">
             <a href="https://skillshop.credential.net/bd9e3850-d11c-4ec1-9b73-9b9eb713f03f" target="_blank" rel="noopener" title="Verificar certificação Google Ads Search"><img src="assets/certs/google-ads-search.png" alt="Certificação Google Ads Search" width="56" height="56" loading="lazy"></a>
@@ -1989,13 +2901,13 @@
             <a href="https://skillshop.credential.net/0d43fb95-7e76-4c58-8896-504f145d3426" target="_blank" rel="noopener" title="Verificar certificação em Métricas do Google Ads"><img src="assets/certs/google-ads-measurement.png" alt="Certificação em Métricas do Google Ads" width="56" height="56" loading="lazy"></a>
           </div>
           <div class="about-creds">
-            <div class="cred-item">Certificação Google Ads Search — Skillshop, plataforma oficial da Google</div>
-            <div class="cred-item">Certificação Google Analytics (GA4) — Skillshop, plataforma oficial da Google</div>
-            <div class="cred-item">Certificação em Métricas do Google Ads — Skillshop, plataforma oficial da Google</div>
-            <div class="cred-item">Certificação Subido de Tráfego — Google Ads (recertificação anual)</div>
-            <div class="cred-item">Certificação Subido de Tráfego — Meta Ads (recertificação anual)</div>
-            <div class="cred-item">Especialização em compliance para publicidade médica</div>
-            <div class="cred-item">Método CQV desenvolvido exclusivamente para o nicho estético</div>
+            <div class="cred-item">Certificação Google Ads Search · Skillshop, plataforma oficial do Google</div>
+            <div class="cred-item">Certificação Google Analytics (GA4) · Skillshop, plataforma oficial do Google</div>
+            <div class="cred-item">Certificação em Métricas do Google Ads · Skillshop, plataforma oficial do Google</div>
+            <div class="cred-item">Certificação Subido de Tráfego (Pedro Sobral) em Google Ads · renovada todo ano</div>
+            <div class="cred-item">Certificação Subido de Tráfego (Pedro Sobral) em Meta Ads · renovada todo ano</div>
+            <div class="cred-item">Estudo contínuo das normas de publicidade em saúde (CFM, CFO e LGPD)</div>
+            <div class="cred-item">Método CQV, desenvolvido para clínicas de estética de alto ticket</div>
           </div>
           <a href="https://wa.me/554899291215?text=Oi%20Rodrigo!%20Vim%20pelo%20site%20e%20quero%20a%20an%C3%A1lise%20gratuita%20da%20minha%20cl%C3%ADnica." class="about-link" target="_blank">
             Conversar com Rodrigo no WhatsApp
@@ -2027,7 +2939,7 @@
             </li>
             <li class="qual-item yes">
               <span class="qual-icon">✓</span>
-              <span>Você pode investir no mínimo R$1.500/mês em mídia</span>
+              <span>Você pode investir em anúncio todo mês, além da gestão</span>
             </li>
             <li class="qual-item yes">
               <span class="qual-icon">✓</span>
@@ -2039,7 +2951,7 @@
             </li>
             <li class="qual-item yes">
               <span class="qual-icon">✓</span>
-              <span>Você quer parceiro estratégico, não apenas fornecedor</span>
+              <span>Você quer saber pra onde vai cada real investido</span>
             </li>
           </ul>
         </div>
@@ -2052,7 +2964,7 @@
             </li>
             <li class="qual-item no">
               <span class="qual-icon">✗</span>
-              <span>Quer o maior volume de leads possível, independente da qualidade</span>
+              <span>Quer o maior volume de leads possível, independentemente da qualidade</span>
             </li>
             <li class="qual-item no">
               <span class="qual-icon">✗</span>
@@ -2060,7 +2972,7 @@
             </li>
             <li class="qual-item no">
               <span class="qual-icon">✗</span>
-              <span>Quer agência que trabalha sem método definido</span>
+              <span>Escolhe quem cuida do anúncio só pelo menor preço</span>
             </li>
             <li class="qual-item no">
               <span class="qual-icon">✗</span>
@@ -2070,8 +2982,39 @@
         </div>
       </div>
       <div class="qual-cue fade-up">
-        <strong>Se nenhum ponto negativo se aplicou à sua clínica</strong>, você provavelmente é exatamente o perfil que faz sentido. Trabalho com no máximo <strong>8 clínicas simultâneas</strong> para garantir qualidade de atenção. Hoje, 4 dessas vagas já estão ocupadas.
+        <strong>Se nenhum ponto negativo se aplicou à sua clínica</strong>, você provavelmente é exatamente o perfil que faz sentido. Trabalho com no máximo <strong>8 clínicas ao mesmo tempo</strong>, e só <strong>uma por procedimento em cada cidade</strong>. Hoje, 4 das 8 vagas estão ocupadas. Se outra clínica do seu procedimento na sua cidade fechar antes, a vaga do seu procedimento na sua cidade deixa de existir.
         <span id="vagasNote" style="display:none;color:var(--c-gold);font-weight:600;"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       GARANTIA DE ENTREGA
+  ================================ -->
+  <section class="garantia" id="garantia">
+    <div class="container">
+      <div class="garantia-box fade-up">
+        <svg class="garantia-selo" viewBox="0 0 160 160" aria-hidden="true">
+          <defs><path id="garantia-arco" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
+          <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="80" cy="80" r="50" fill="none" stroke="currentColor" stroke-width=".8"/>
+          <text font-size="7.6" font-weight="600" letter-spacing="2.5" fill="currentColor"><textPath href="#garantia-arco" startOffset="0">GARANTIA DE ENTREGA • RODRIGO ROCHA • MÉTODO CQV •</textPath></text>
+          <text x="80" y="82" text-anchor="middle" font-family="'Playfair Display', serif" font-size="24" font-style="italic" font-weight="700" fill="currentColor">2 dias</text>
+          <text x="80" y="100" text-anchor="middle" font-size="9" font-weight="600" letter-spacing="3" fill="currentColor">ÚTEIS</text>
+        </svg>
+        <div>
+          <span class="rule-label rule-label--left">Garantia de entrega</span>
+          <h2>Você não precisa mexer em nada. A sua parte é atender quem chega no WhatsApp.</h2>
+          <p>Ficha, página, anúncio e medição ficam comigo, e o meu trabalho tem prazo e rotina definidos.</p>
+          <ul class="garantia-lista">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Tudo pronto em até 2 dias úteis</b> depois da assinatura, do pagamento e dos acessos. A página entra no ar e a campanha vai pra revisão do Google.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Ajuste toda semana.</b> Eu olho os dados e mexo no que precisa, nada fica rodando no automático.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Relatório a cada 30 dias</b>, com os números reais e o que muda no mês seguinte.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Suporte direto comigo</b>, de segunda a sábado.</span></li>
+          </ul>
+          <p class="garantia-regra">Se eu falhar em qualquer um desses pontos, você cancela na hora, sem multa.</p>
+          <p class="garantia-extra"><b>E antes de tudo, um diagnóstico honesto.</b> Se na análise eu perceber que o Google não vai dar retorno pra sua clínica, eu te falo antes de qualquer contrato.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2093,72 +3036,108 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-1">
-            <div class="faq-answer-inner">Honestamente: entre 30 e 60 dias para a campanha calibrar e ter dados suficientes para otimização real. Previsibilidade de resultado vem com 90 dias de trabalho. Quem promete resultado em uma semana está mentindo, ou vai gerar volume de leads que não convertem.</div>
+            <div class="faq-answer-inner">No primeiro mês, com a campanha no ar, você já vê os primeiros números de busca e de contato. Pra otimizar de verdade, a campanha precisa de 30 a 60 dias de dado, e em 90 dias você tem número suficiente pra decidir. Por isso o contrato tem esse prazo.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
-            Por que o mínimo de R$1.500/mês em mídia?
+            Quanto custa?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-2">
-            <div class="faq-answer-inner">Abaixo desse valor, o algoritmo das plataformas não tem dados suficientes para otimizar. A campanha fica em modo de aprendizado constante e nunca performa. Não é regra minha. É como Meta e Google funcionam. Investir menos é queimar verba.</div>
+            <div class="faq-answer-inner">São dois planos com valor mensal fixo. O Presença no Google cuida da ficha, e o Agenda Previsível soma Google Ads, página exclusiva e medição completa. Eu te passo os valores depois da análise gratuita, junto com o que faz sentido pro seu caso. A verba de anúncio é separada e vai direto pro Google.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
-            Por que contrato de 3 meses?
+            Quanto eu preciso investir em anúncio?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-3">
-            <div class="faq-answer-inner">Porque esse é o tempo real que o método CQV precisa para funcionar. Mês 1: estruturação e calibração. Mês 2: otimização com dados reais. Mês 3: escala e previsibilidade. Encerrar antes é exatamente quando o investimento começa a dar retorno.</div>
+            <div class="faq-answer-inner">Depende da cidade e do procedimento. Depois da análise eu te digo quanto eu recomendo pro seu caso, e dá pra começar com menos e ir subindo aos poucos. Com a campanha rodando, a gente descobre o custo real de cada contato e ajusta a verba com base nisso.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
-            Os criativos respeitam as normas do CFM?
+            Por que contrato de 3 meses?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-4">
-            <div class="faq-answer-inner">Sim. Todo material criativo passa por checklist de compliance com as resoluções do Conselho Federal de Medicina. Isso inclui restrições sobre antes/depois, garantias de resultado, linguagem e uso de imagens. Sua clínica nunca vai receber advertência por causa de anúncio mal feito.</div>
+            <div class="faq-answer-inner">Porque a campanha aprende com o tempo. No mês 1, estrutura. No mês 2, ajuste com dado real. No mês 3, ritmo. Encerrar antes é parar antes de ter dado suficiente pra decidir. A cobrança é mensal.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
-            Posso ver resultados de outros clientes?
+            E se eu não gostar dos resultados?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-5">
-            <div class="faq-answer-inner">Sob NDA, em conversa 1:1. Protejo a privacidade de quem confia em mim. Não exponho dados dos meus clientes publicamente. Se você precisa de referência, posso facilitar contato direto com um cliente atual que aceite conversar.</div>
+            <div class="faq-answer-inner">Resultado de campanha depende também do que acontece depois do clique, como o atendimento da clínica, então eu não prometo número. O que eu garanto é o meu trabalho: tudo pronto em até 2 dias úteis, ajuste toda semana, relatório a cada 30 dias e suporte de segunda a sábado. Se eu falhar em qualquer um desses pontos, você cancela na hora, sem multa. No fim dos 3 meses, você decide se continua com os números na mão.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
-            Atendem clínicas fora da minha cidade?
+            Os anúncios respeitam as normas do meu conselho?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-6">
-            <div class="faq-answer-inner">Sim. 100% remoto. Atendemos clínicas em todo o Brasil. Gestão de tráfego digital não tem limitação geográfica. Nossa comunicação é direta via WhatsApp e reuniões online.</div>
+            <div class="faq-answer-inner">Sim, e esse é um dos pontos em que eu mais trabalho. Anúncio, página e postagens passam por revisão com base nas normas do seu conselho (como CFM e CFO) e nas políticas do Google. Nada de promessa de resultado, antes e depois fora do lugar ou nome de medicamento. O objetivo é que nenhum anúncio exponha a clínica a advertência.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
-            E se eu não gostar dos resultados?
+            Você faz Meta Ads?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-7">
-            <div class="faq-answer-inner">Se após 90 dias a qualidade dos leads não for visivelmente superior ao que você tinha (menos curiosos, mais pacientes com perfil de compra), encerramos o contrato sem multa e sem discussão. Não prometo CPL milagroso. Prometo clareza: você vai saber exatamente para onde cada real foi e o que gerou.</div>
+            <div class="faq-answer-inner">Sou certificado em Meta Ads pela Subido (Pedro Sobral), com recertificação anual, e uso esse conhecimento no diagnóstico da clínica. A gestão de Meta Ads está pausada no momento. Se você já anuncia no Instagram, o Google soma: pega quem viu o seu anúncio e depois foi pesquisar o procedimento. Se ainda não anuncia em nenhum dos dois, pra alto ticket eu recomendo começar pelo Google, onde está a paciente que já decidiu.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
-            Como funciona a análise gratuita?
+            Posso ver resultados de outros clientes?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-8">
-            <div class="faq-answer-inner">É uma conversa de 30 minutos via WhatsApp ou chamada. Você me conta sobre sua clínica, seus procedimentos e o que você já tentou em tráfego. Eu analiso e te dou um diagnóstico honesto, incluindo se o perfil da sua clínica faz sentido com o meu método. Sem compromisso, sem pitch agressivo.</div>
+            <div class="faq-answer-inner">Tem um caso real aqui na página, publicado sem nome. Em conversa individual, eu mostro mais. Eu protejo a privacidade de quem confia em mim e não exponho publicamente nada que identifique um cliente. Se você precisar de referência, eu facilito o contato direto com um cliente atual que aceite conversar.</div>
           </div>
         </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9">
+            Você atende clínica de qualquer cidade?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-9">
+            <div class="faq-answer-inner">Sim, desde que a vaga do seu procedimento na sua cidade esteja livre. Atendo 100% remoto, clínicas de todo o Brasil. A conversa é direta comigo pelo WhatsApp, e por chamada quando precisa.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-10">
+            Como funciona a análise gratuita?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-10">
+            <div class="faq-answer-inner">É uma conversa de 30 minutos, pelo WhatsApp ou por chamada. Você me conta da clínica, dos procedimentos e do que já tentou. Depois eu te mando por escrito o que encontrei: quantas pessoas procuram os seus procedimentos na sua cidade, como a sua clínica aparece hoje no Google e como eu trabalharia com você. Sem compromisso.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       AINDA NÃO É A HORA
+  ================================ -->
+  <section class="isca" id="comece-por-aqui">
+    <div class="container">
+      <div class="section-header fade-up" style="margin-bottom:0">
+        <span class="rule-label">Ainda não é a hora?</span>
+        <div class="divider"></div>
+        <h2>Comece por aqui, sem compromisso</h2>
+        <p>Se você ainda está pesquisando, essas duas portas te dão clareza antes de qualquer conversa.</p>
+      </div>
+      <div class="isca-grid">
+        <a class="isca-card fade-up" href="/diagnostico-compliance/"><small>1 minuto · gratuito</small><h3>Diagnóstico de compliance</h3><p>Cinco perguntas pra saber se o anúncio da sua clínica tem risco de infração ética ou de LGPD.</p><span class="ir">Fazer o diagnóstico &rarr;</span></a>
+        <a class="isca-card fade-up" href="/blog/"><small>Blog</small><h3>As perguntas que eu mais recebo, respondidas</h3><p>Quanto custa, quanto tempo leva, o que pode e o que derruba anúncio de clínica. Sem enrolação.</p><span class="ir">Ler o blog &rarr;</span></a>
       </div>
     </div>
   </section>
@@ -2171,8 +3150,8 @@
       <div class="fade-up">
         <span class="rule-label">Próximo passo</span>
         <div class="divider"></div>
-        <h2>Vamos descobrir se sua clínica está pronta para crescer com previsibilidade.</h2>
-        <p>Diagnóstico gratuito de 30 minutos. Sem compromisso, sem pitch agressivo. Você sai com clareza, mesmo que não seja cliente.</p>
+        <h2>Me conta da sua clínica. Eu te mostro quantas pessoas procuram o seu procedimento na sua cidade.</h2>
+        <p>Análise gratuita de 30 minutos, pelo WhatsApp ou por chamada. Depois você recebe por escrito o que eu encontrei e como eu trabalharia com você, mesmo que a gente não feche.</p>
         <div class="lead-qualify">
           <div class="lead-qualify-item">
             <label for="ctaTicketMedio">Ticket médio dos seus procedimentos?</label>
@@ -2187,8 +3166,8 @@
             <label for="ctaVerbaMensal">Qual a verba mensal disponível pra mídia?</label>
             <select id="ctaVerbaMensal">
               <option value="">Prefiro não informar agora</option>
-              <option value="Abaixo de R$1.500/mês">Abaixo de R$1.500/mês</option>
-              <option value="Entre R$1.500 e R$3.000/mês">Entre R$1.500 e R$3.000/mês</option>
+              <option value="Até R$1.000/mês">Até R$1.000/mês</option>
+              <option value="Entre R$1.000 e R$3.000/mês">Entre R$1.000 e R$3.000/mês</option>
               <option value="Acima de R$3.000/mês">Acima de R$3.000/mês</option>
             </select>
           </div>
@@ -2207,13 +3186,13 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar com Rodrigo no WhatsApp
           </a>
-          <span class="cta-final-meta">Atendimento direto · Resposta em até 2h úteis · Seg a Sex, 9h–19h</span>
+          <span class="cta-final-meta">Atendimento direto comigo · Resposta em até 2h úteis · Segunda a sábado</span>
         </div>
         <div class="cta-guarantee">
           <svg class="seal seal--sm guarantee-icon" viewBox="0 0 120 120" aria-hidden="true"><use href="#seal-rr"/></svg>
           <div>
-            <h3>Garantia de Diagnóstico</h3>
-            <p>Se na nossa conversa de 30 minutos eu identificar que sua clínica não tem fit com o método, te indico 2 caminhos alternativos honestos, sem custo. Não trabalho com quem não posso entregar resultado.</p>
+            <h3>Diagnóstico honesto</h3>
+            <p>Se eu perceber que o Google não vai dar retorno pra sua clínica, eu te falo na análise, antes de qualquer contrato.</p>
           </div>
         </div>
       </div>
@@ -2229,7 +3208,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <svg class="seal seal--sm" viewBox="0 0 120 120" aria-hidden="true" style="margin-bottom:var(--s-4);"><use href="#seal-rr"/></svg>
-          <p class="footer-tagline">Menos leads. Mais pacientes.<br>Resultado de método, não de sorte.</p>
+          <p class="footer-tagline">Tráfego pago para clínicas de estética de alto ticket.<br>Do Google até o WhatsApp da clínica.</p>
         </div>
         <div class="footer-nav">
           <div class="footer-nav-title">Navegação</div>
