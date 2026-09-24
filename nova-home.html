@@ -1709,6 +1709,23 @@
       margin-bottom: 4px;
     }
     .prova-num span { font-size: 12px; color: var(--c-text-3); }
+    .prova-feito {
+      grid-column: 1 / -1;
+      padding: var(--s-5) var(--s-6);
+      border-top: 1px solid var(--c-border-md);
+    }
+    .prova-feito small {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-3);
+    }
+    .prova-feito ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-8); list-style: none; padding: 0; margin: 0; }
+    .prova-feito li { display: flex; align-items: flex-start; gap: var(--s-2); font-size: 14px; line-height: 1.5; color: var(--c-text); }
+    .prova-feito svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; color: var(--c-gold); }
     .prova-leitura {
       grid-column: 1 / -1;
       padding: var(--s-5) var(--s-6);
@@ -2385,7 +2402,7 @@
             <span class="hero-ledger-label">Mês de campanha</span>
           </div>
         </div>
-        <p style="font-size:10px;color:var(--c-text-4);font-style:italic;text-align:center;margin-top:var(--s-2);">Cliente real · Google Ads · agosto de 2026</p>
+        <p style="font-size:10px;color:var(--c-text-4);font-style:italic;text-align:center;margin-top:var(--s-2);">Cliente real · cirurgia plástica · agosto de 2026</p>
       </div>
     </div>
   </section>
@@ -2733,12 +2750,16 @@
         <div class="plano-rodape"><span><b>Contrato de 3 meses</b>, com cobrança mensal</span><span><b>Verba de anúncio</b> separada, paga direto ao Google</span><span><b>Valores</b> depois da análise gratuita</span></div>
       </div>
       <div class="prova fade-up">
-        <div class="prova-cab"><span>Cliente real · Estética facial e corporal · Google Ads</span><span>Agosto de 2026 · primeiro mês de campanha</span></div>
+        <div class="prova-cab"><span>Cliente real · Cirurgia plástica · Google Ads</span><span>Agosto de 2026 · primeiro mês de campanha</span></div>
         <div class="prova-num"><b>R$2.112,08</b><span>investidos em mídia</span></div>
         <div class="prova-num"><b>408</b><span>cliques</span></div>
         <div class="prova-num"><b>11</b><span>conversões</span></div>
         <div class="prova-num"><b>R$192,01</b><span>por conversão</span></div>
-        <p class="prova-leitura">Primeiro mês de campanha, ainda em calibração. Conversão é o contato que a campanha gerou: clique pra chamar no WhatsApp, ligação ou formulário. Se só 2 dessas 11 conversões virarem paciente de um procedimento de R$1.500 ou mais, a verba do mês já se paga. Os dados dos meus clientes ficam em sigilo, por isso não aparece nome. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
+        <div class="prova-feito">
+          <small>O que eu fiz nesse mês</small>
+          <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Campanhas separadas por área: face, nariz e corpo</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Medição de conversão configurada no primeiro mês</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Anúncios revisados com base nas normas do CFM</span></li></ul>
+        </div>
+        <p class="prova-leitura">Primeiro mês de campanha, ainda em calibração. Em cirurgia plástica o ticket é alto, então uma única paciente que fecha já paga a verba do mês várias vezes. Conversão é o contato que a campanha gerou, como clique pra chamar no WhatsApp, ligação ou formulário. Os dados dos meus clientes ficam em sigilo, por isso não aparece nome. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
       </div>
     </div>
   </section>
