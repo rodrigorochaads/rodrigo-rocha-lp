@@ -1726,6 +1726,27 @@
     .prova-feito ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-8); list-style: none; padding: 0; margin: 0; }
     .prova-feito li { display: flex; align-items: flex-start; gap: var(--s-2); font-size: 14px; line-height: 1.5; color: var(--c-text); }
     .prova-feito svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; color: var(--c-gold); }
+    .prova-bloqueio {
+      grid-column: 1 / -1;
+      padding: 0 var(--s-6) var(--s-5);
+    }
+    .prova-bloqueio small {
+      display: block;
+      font-size: 12px;
+      color: var(--c-text-3);
+      margin-bottom: var(--s-3);
+    }
+    .prova-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 var(--s-3); }
+    .prova-chips li {
+      padding: 4px 12px;
+      border: 1px solid var(--c-border-md);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--c-text-3);
+      background: rgba(255,255,255,0.02);
+    }
+    .prova-chips s { text-decoration-color: var(--c-gold); text-decoration-thickness: 1.5px; }
+    .prova-bloqueio p { font-size: 13.5px; line-height: 1.6; color: var(--c-text-2); max-width: 640px; }
     .prova-leitura {
       grid-column: 1 / -1;
       padding: var(--s-5) var(--s-6);
@@ -2756,10 +2777,15 @@
         <div class="prova-num"><b>11</b><span>conversões</span></div>
         <div class="prova-num"><b>R$192,01</b><span>por conversão</span></div>
         <div class="prova-feito">
-          <small>O que eu fiz nesse mês</small>
-          <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Campanhas separadas por área: face, nariz e corpo</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Medição de conversão configurada no primeiro mês</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Anúncios revisados com base nas normas do CFM</span></li></ul>
+          <small>O que está por trás desses números</small>
+          <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Campanhas separadas por área: face, nariz e corpo</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Medição de conversão configurada</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Anúncios revisados com base nas normas do CFM</span></li></ul>
         </div>
-        <p class="prova-leitura">Primeiro mês de campanha, ainda em calibração. Em cirurgia plástica o ticket é alto, então uma única paciente que fecha já paga a verba do mês várias vezes. Conversão é o contato que a campanha gerou, como clique pra chamar no WhatsApp, ligação ou formulário. Os dados dos meus clientes ficam em sigilo, por isso não aparece nome. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
+        <div class="prova-bloqueio">
+          <small>44 termos de busca bloqueados, como</small>
+          <ul class="prova-chips"><li><s>curso</s></li><li><s>emprego</s></li><li><s>SUS</s></li><li><s>convênio</s></li><li><s>gratuito</s></li><li><s>desconto</s></li><li><s>não cirúrgico</s></li><li><s>sem corte</s></li></ul>
+          <p>Quem procura curso, atendimento pelo SUS ou procedimento sem cirurgia nem vê o anúncio. A verba fica pra quem pode virar paciente.</p>
+        </div>
+        <p class="prova-leitura">Primeiro mês de campanha, ainda em calibração. Em cirurgia plástica o ticket é alto, então uma única paciente que fecha já paga a verba do mês com folga. Conversão é o contato que a campanha gerou, como clique pra chamar no WhatsApp, ligação ou formulário. Os dados dos meus clientes ficam em sigilo, por isso não aparece nome. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
       </div>
     </div>
   </section>
