@@ -1457,6 +1457,22 @@
       border-left: 2px solid var(--c-gold-line);
       max-width: 540px;
     }
+    .onde-ponte {
+      max-width: 540px;
+      margin-bottom: var(--s-8);
+      padding: var(--s-5) var(--s-6);
+      border-left: 2px solid var(--c-gold);
+      background: rgba(201,168,76,0.06);
+    }
+    .onde-ponte strong {
+      display: block;
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: var(--s-2);
+    }
+    .onde-ponte p { font-size: 14.5px; line-height: 1.65; color: var(--c-text-2); }
     .onde-dado {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -2181,7 +2197,7 @@
         "name": "Você faz Meta Ads?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sou certificado em Meta Ads pela Subido (Pedro Sobral), com recertificação anual, e uso esse conhecimento no diagnóstico da clínica. A gestão de Meta Ads está pausada no momento. Pra clínica de alto ticket, eu recomendo começar pelo Google de qualquer forma. No Instagram, o anúncio interrompe quem está rolando o feed. No Google, a sua clínica aparece pra quem acabou de digitar o procedimento e só está escolhendo com quem fazer."
+          "text": "Sou certificado em Meta Ads pela Subido (Pedro Sobral), com recertificação anual, e uso esse conhecimento no diagnóstico da clínica. A gestão de Meta Ads está pausada no momento. Se você já anuncia no Instagram, o Google soma: pega quem viu o seu anúncio e depois foi pesquisar o procedimento. Se ainda não anuncia em nenhum dos dois, pra alto ticket eu recomendo começar pelo Google, onde está a paciente que já decidiu."
         }
       },
       {
@@ -2422,8 +2438,12 @@
           <h2>Quem digita o procedimento no Google já decidiu fazer. Só está escolhendo com quem.</h2>
           <p>Antes de investir R$3 mil, R$8 mil, R$15 mil num procedimento, ela pesquisa, compara clínicas e lê avaliação. É nessa hora que a sua clínica precisa aparecer primeiro, com anúncio, ficha no Maps e avaliações.</p>
           <div class="onde-contraste">
-            <div><span>No feed</span><p>Ela está rolando por distração. O anúncio precisa criar um desejo que ainda não existe.</p></div>
+            <div><span>No Instagram</span><p>O anúncio aparece pra quem está rolando o feed e desperta um desejo que ainda não existia.</p></div>
             <div><span>No Google</span><p>Ela digitou o nome do procedimento. <strong>O desejo já existe.</strong> A pergunta é qual clínica ela vai achar primeiro.</p></div>
+          </div>
+          <div class="onde-ponte">
+            <strong>Já anuncia no Instagram?</strong>
+            <p>Então o Google fica ainda mais importante. Parte de quem viu o seu anúncio, ou ouviu falar de você por indicação, vai pesquisar o procedimento antes de chamar. Se a sua clínica não aparece nessa hora, quem colhe o desejo que você plantou é a concorrente.</p>
           </div>
           <div class="onde-dado">
             <b>590</b>
@@ -2668,6 +2688,11 @@
             <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
             <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
           </div>
+          <div class="plano-linha">
+            <div class="plano-item"><strong>Uma clínica por procedimento na sua cidade</strong><span>Eu não atendo outra clínica do mesmo procedimento na sua cidade. Assim eu nunca coloco dois clientes meus disputando a mesma paciente.</span><i class="plano-tag">Nos dois planos</i></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Presença no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+            <div class="plano-check" role="img" aria-label="Incluído no Agenda Previsível"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+          </div>
         <div class="plano-rodape"><span><b>Contrato de 3 meses</b>, com cobrança mensal</span><span><b>Verba de anúncio</b> separada, paga direto ao Google</span><span><b>Valores</b> depois da análise gratuita</span></div>
       </div>
       <div class="prova fade-up">
@@ -2720,21 +2745,21 @@
       <div class="section-header fade-up">
         <span class="rule-label">Antes de contratar</span>
         <div class="divider"></div>
-        <h2>5 perguntas pra fazer a qualquer gestor de tráfego</h2>
+        <h2>6 perguntas pra fazer a qualquer gestor de tráfego</h2>
         <p>Vale pra mim e pra qualquer pessoa que você estiver avaliando. Junto de cada uma, a minha resposta.</p>
       </div>
       <ol class="perguntas-lista">
         <li class="pergunta fade-up">
+          <h3>Você atende a minha concorrente?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Não no mesmo procedimento e na mesma cidade. Eu atendo uma clínica por procedimento em cada cidade, pra não concorrer comigo mesmo. Posso ter uma cliente de implante, outra de lipo e outra de harmonização na mesma cidade, porque uma não disputa paciente com a outra. Duas de harmonização, não.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.06s">
           <h3>Você vai me mostrar quanto custou cada contato?</h3>
           <div class="pergunta-resp"><small>Minha resposta</small><p>Sim. Eu configuro a medição do clique até o WhatsApp e a ligação. A cada 30 dias você vê quantas pessoas te acharam, quantas te chamaram e quanto custou cada contato. Daí em diante, o fechamento é com a sua equipe.</p></div>
         </li>
-        <li class="pergunta fade-up" style="transition-delay:0.06s">
-          <h3>Quem vai falar comigo no dia a dia?</h3>
-          <div class="pergunta-resp"><small>Minha resposta</small><p>Eu. Não tem atendente nem gerente de conta no meio. Você fala direto comigo pelo WhatsApp, de segunda a sábado.</p></div>
-        </li>
         <li class="pergunta fade-up" style="transition-delay:0.12s">
-          <h3>Como o anúncio fica dentro das normas do meu conselho?</h3>
-          <div class="pergunta-resp"><small>Minha resposta</small><p>Anúncio, página e postagens da ficha passam por revisão com base nas normas do seu conselho e nas políticas do Google antes de ir pro ar. Nada de promessa de resultado ou nome de medicamento.</p></div>
+          <h3>Quem vai falar comigo no dia a dia?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Eu. Não tem atendente nem gerente de conta no meio. Você fala direto comigo pelo WhatsApp, de segunda a sábado, com resposta em até 2h úteis.</p></div>
         </li>
         <li class="pergunta fade-up" style="transition-delay:0.18s">
           <h3>Em quanto tempo fica tudo pronto?</h3>
@@ -2743,6 +2768,10 @@
         <li class="pergunta fade-up" style="transition-delay:0.24s">
           <h3>Se um dia a gente parar, o que fica com a clínica?</h3>
           <div class="pergunta-resp"><small>Minha resposta</small><p>A conta do Google Ads é da clínica desde o primeiro dia, com todo o histórico, e o domínio fica no seu nome. A página fica no ar enquanto a campanha roda, e por isso você não paga hospedagem. Se quiser ficar com ela depois, dá pra comprar à parte.</p></div>
+        </li>
+        <li class="pergunta fade-up" style="transition-delay:0.30s">
+          <h3>Como o anúncio fica dentro das normas do meu conselho?</h3>
+          <div class="pergunta-resp"><small>Minha resposta</small><p>Anúncio, página e postagens da ficha passam por revisão com base nas normas do seu conselho e nas políticas do Google antes de ir pro ar. Nada de promessa de resultado ou nome de medicamento.</p></div>
         </li>
       </ol>
       <div class="method-cta fade-up" style="margin-top:var(--s-10)">
@@ -2778,7 +2807,7 @@
           <p class="about-role">Especialista em tráfego para clínicas de estética</p>
           <div class="about-paragraphs">
             <p>Sou especialista em clínicas de estética de alto ticket, da harmonização facial às facetas de porcelana, do transplante capilar aos bioestimuladores. Quando você me fala do seu procedimento, eu já sei como a paciente pesquisa, o que ela compara antes de decidir e o cuidado que o anúncio precisa ter com as normas do seu conselho.</p>
-            <p>Sou certificado em Google Ads e em Meta Ads. Hoje eu trabalho 100% com Google (anúncio, ficha do Maps e página de captação), e a gestão de Meta Ads está pausada no momento.</p>
+            <p>Sou certificado em Google Ads e em Meta Ads, então conheço os dois lados da jornada da paciente: o Instagram, que desperta o desejo, e o Google, onde ela procura o procedimento. Hoje a minha gestão é concentrada no Google, e a de Meta Ads está pausada no momento.</p>
             <p>Trabalho com no máximo 8 clínicas ao mesmo tempo, e você fala direto comigo, do diagnóstico ao relatório. O que eu olho no fim do mês é quantas pessoas te chamaram no WhatsApp e quanto custou cada uma.</p>
           </div>
           <div class="cred-badges">
@@ -2868,7 +2897,7 @@
         </div>
       </div>
       <div class="qual-cue fade-up">
-        <strong>Se nenhum ponto negativo se aplicou à sua clínica</strong>, você provavelmente é exatamente o perfil que faz sentido. Trabalho com no máximo <strong>8 clínicas simultâneas</strong> para garantir qualidade de atenção. Hoje, 4 dessas vagas já estão ocupadas.
+        <strong>Se nenhum ponto negativo se aplicou à sua clínica</strong>, você provavelmente é exatamente o perfil que faz sentido. Trabalho com no máximo <strong>8 clínicas ao mesmo tempo</strong>, e só <strong>uma por procedimento em cada cidade</strong>. Hoje, 4 das 8 vagas estão ocupadas. Se outra clínica do seu procedimento na sua cidade fechar antes, a vaga da sua cidade deixa de existir.
         <span id="vagasNote" style="display:none;color:var(--c-gold);font-weight:600;"></span>
       </div>
     </div>
@@ -2976,7 +3005,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer" id="faq-answer-7">
-            <div class="faq-answer-inner">Sou certificado em Meta Ads pela Subido (Pedro Sobral), com recertificação anual, e uso esse conhecimento no diagnóstico da clínica. A gestão de Meta Ads está pausada no momento. Pra clínica de alto ticket, eu recomendo começar pelo Google de qualquer forma. No Instagram, o anúncio interrompe quem está rolando o feed. No Google, a sua clínica aparece pra quem acabou de digitar o procedimento e só está escolhendo com quem fazer.</div>
+            <div class="faq-answer-inner">Sou certificado em Meta Ads pela Subido (Pedro Sobral), com recertificação anual, e uso esse conhecimento no diagnóstico da clínica. A gestão de Meta Ads está pausada no momento. Se você já anuncia no Instagram, o Google soma: pega quem viu o seu anúncio e depois foi pesquisar o procedimento. Se ainda não anuncia em nenhum dos dois, pra alto ticket eu recomendo começar pelo Google, onde está a paciente que já decidiu.</div>
           </div>
         </div>
         <div class="faq-item">
