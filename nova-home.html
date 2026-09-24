@@ -1415,6 +1415,15 @@
     }
     /* sem isso, o texto da busca (que não quebra linha) alarga a coluna no celular */
     .onde-grid > * { min-width: 0; }
+    /* overflow-x: hidden no html/body impede o sticky; "clip" corta igual sem criar área de rolagem */
+    @supports (overflow: clip) {
+      html, body { overflow-x: clip; }
+    }
+    /* no computador a demonstração acompanha a leitura da coluna de texto, que ficou mais longa */
+    @media (min-width: 901px) {
+      .onde-grid { align-items: start; }
+      .onde-grid > :last-child { position: sticky; top: 96px; }
+    }
     .onde-copy h2 {
       font-family: var(--f-display);
       font-size: var(--t-h2);
@@ -1473,31 +1482,53 @@
       margin-bottom: var(--s-2);
     }
     .onde-ponte p { font-size: 14.5px; line-height: 1.65; color: var(--c-text-2); }
-    .onde-dado {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      column-gap: var(--s-4);
-      align-items: center;
+    /* demanda real (Planejador de Palavras-chave): um número de destaque + 3 linhas alinhadas */
+    .onde-demanda {
       max-width: 540px;
-      padding-top: var(--s-5);
+      padding-top: var(--s-6);
       border-top: 1px solid var(--c-border-md);
     }
-    .onde-dado b {
+    .onde-copy .onde-demanda-titulo {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: var(--s-3);
+    }
+    .onde-copy .onde-demanda-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--s-2) var(--s-4);
+      margin-bottom: var(--s-4);
+    }
+    .onde-demanda-hero b {
       font-family: var(--f-display);
-      font-size: clamp(2.3rem, 4.2vw, 3rem);
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
       font-weight: 700;
       line-height: 1;
-      color: var(--c-gold);
-      font-variant-numeric: tabular-nums;
+      color: var(--c-text);
     }
-    .onde-dado span { font-size: 15px; line-height: 1.5; color: var(--c-text); }
-    .onde-dado small {
-      grid-column: 1 / -1;
-      margin-top: var(--s-3);
-      font-size: 11.5px;
-      font-style: italic;
-      color: var(--c-text-4);
+    .onde-demanda-hero span { font-size: 15px; color: var(--c-text-2); }
+    .onde-demanda-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--s-3);
+      border-top: 1px solid var(--c-border);
     }
+    .onde-demanda-lista li {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--s-4);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--c-border);
+      font-size: 14px;
+      color: var(--c-text-2);
+    }
+    .onde-demanda-lista b { font-weight: 600; color: var(--c-text); font-variant-numeric: tabular-nums; }
+    .onde-demanda small { display: block; font-size: 11.5px; line-height: 1.5; font-style: italic; color: var(--c-text-4); }
+    .onde-copy .onde-demanda-nota { margin-top: var(--s-4); font-size: 14px; line-height: 1.6; color: var(--c-text); }
     @media (max-width: 900px) {
       .onde-grid { grid-template-columns: 1fr; }
     }
@@ -1670,10 +1701,10 @@
     .prova-num b {
       display: block;
       font-family: var(--f-display);
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-size: clamp(1.35rem, 3vw, 2.1rem);
       font-weight: 700;
-      font-variant-numeric: tabular-nums;
       color: var(--c-text);
+      white-space: nowrap;
       line-height: 1.1;
       margin-bottom: 4px;
     }
@@ -2342,19 +2373,19 @@
         <p class="hero-caption">Rodrigo Rocha, especialista em tráfego para clínicas de estética</p>
         <div class="hero-ledger">
           <div class="hero-ledger-item">
-            <span class="hero-ledger-value">269</span>
+            <span class="hero-ledger-value">408</span>
             <span class="hero-ledger-label">Cliques</span>
           </div>
           <div class="hero-ledger-item">
-            <span class="hero-ledger-value">16</span>
+            <span class="hero-ledger-value">11</span>
             <span class="hero-ledger-label">Conversões</span>
           </div>
           <div class="hero-ledger-item">
-            <span class="hero-ledger-value">R$57,56</span>
-            <span class="hero-ledger-label">Por conversão</span>
+            <span class="hero-ledger-value">1º</span>
+            <span class="hero-ledger-label">Mês de campanha</span>
           </div>
         </div>
-        <p style="font-size:10px;color:var(--c-text-4);font-style:italic;text-align:center;margin-top:var(--s-2);">Cliente real · Google Ads · junho de 2026</p>
+        <p style="font-size:10px;color:var(--c-text-4);font-style:italic;text-align:center;margin-top:var(--s-2);">Cliente real · Google Ads · agosto de 2026</p>
       </div>
     </div>
   </section>
@@ -2445,10 +2476,16 @@
             <strong>Já anuncia no Instagram?</strong>
             <p>Então o Google fica ainda mais importante. Parte de quem viu o seu anúncio, ou ouviu falar de você por indicação, vai pesquisar o procedimento antes de chamar. Se a sua clínica não aparece nessa hora, quem colhe o desejo que você plantou é a concorrente.</p>
           </div>
-          <div class="onde-dado">
-            <b>590</b>
-            <span>buscas por mês por “harmonização facial” no Google, só em Salvador.</span>
-            <small>Fonte: Planejador de Palavras-chave do Google, setembro de 2026</small>
+          <div class="onde-demanda">
+            <p class="onde-demanda-titulo">Buscas por mês no Google, no Brasil</p>
+            <p class="onde-demanda-hero"><b>49.500</b><span>por “harmonização facial”</span></p>
+            <ul class="onde-demanda-lista">
+              <li><span>Preenchimento labial</span><b>49.500</b></li>
+              <li><span>Implante capilar</span><b>27.100</b></li>
+              <li><span>Bioestimulador de colágeno</span><b>12.100</b></li>
+            </ul>
+            <small>Média de setembro de 2025 a agosto de 2026 · Planejador de Palavras-chave do Google</small>
+            <p class="onde-demanda-nota">Na análise gratuita, eu te mostro esse número pra sua cidade e pro seu procedimento.</p>
           </div>
         </div>
         <div class="fade-up" style="transition-delay:0.15s">
@@ -2696,12 +2733,12 @@
         <div class="plano-rodape"><span><b>Contrato de 3 meses</b>, com cobrança mensal</span><span><b>Verba de anúncio</b> separada, paga direto ao Google</span><span><b>Valores</b> depois da análise gratuita</span></div>
       </div>
       <div class="prova fade-up">
-        <div class="prova-cab"><span>Cliente real · Google Ads</span><span>1 a 30 de junho de 2026</span></div>
-        <div class="prova-num"><b>R$921</b><span>investidos em mídia</span></div>
-        <div class="prova-num"><b>269</b><span>cliques</span></div>
-        <div class="prova-num"><b>16</b><span>conversões no WhatsApp e ligação</span></div>
-        <div class="prova-num"><b>R$57,56</b><span>por conversão</span></div>
-        <p class="prova-leitura">Com R$921 no mês, a campanha gerou 16 conversões. Se 2 ou 3 delas virarem paciente de um procedimento de R$1.500 ou mais, a verba do mês já se paga. Os dados dos meus clientes ficam em sigilo. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
+        <div class="prova-cab"><span>Cliente real · Estética facial e corporal · Google Ads</span><span>Agosto de 2026 · primeiro mês de campanha</span></div>
+        <div class="prova-num"><b>R$2.112,08</b><span>investidos em mídia</span></div>
+        <div class="prova-num"><b>408</b><span>cliques</span></div>
+        <div class="prova-num"><b>11</b><span>conversões</span></div>
+        <div class="prova-num"><b>R$192,01</b><span>por conversão</span></div>
+        <p class="prova-leitura">Primeiro mês de campanha, ainda em calibração. Conversão é o contato que a campanha gerou: clique pra chamar no WhatsApp, ligação ou formulário. Se só 2 dessas 11 conversões virarem paciente de um procedimento de R$1.500 ou mais, a verba do mês já se paga. Os dados dos meus clientes ficam em sigilo, por isso não aparece nome. Se você quiser, eu te coloco em contato com um cliente atual que aceite conversar.</p>
       </div>
     </div>
   </section>
