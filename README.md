@@ -38,6 +38,10 @@ estrutura. Não esqueça de:
   digitaria no Google, com resposta direta de 2 a 4 frases tirada do próprio
   artigo. É o que o Google usa pra snippet e o que a IA cita. As perguntas do
   `FAQPage` têm que ser idênticas às visíveis, senão o Google ignora o schema.
+- **Bloco "fonte preferencial"** (`<aside class="fonte-preferida">`) logo depois
+  do FAQ, com o link direto `https://www.google.com/preferences/source?q=rodrigorochaads.com.br`.
+  Sem o script oficial do Google, de propósito: não pesa e não roda antes do
+  aceite de cookies. Copiar o bloco de qualquer post publicado.
 - **`llms.txt`** é regenerado sozinho na publicação (a partir do sitemap e da
   meta description). Não edite a lista de artigos à mão.
 - **Imagem OG própria** em `assets/og/{slug}.png` (1200x630). Nunca reaproveite
