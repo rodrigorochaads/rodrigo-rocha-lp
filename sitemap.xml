@@ -100,4 +100,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.rodrigorochaads.com.br/blog/como-funciona-um-mes-de-gestao-de-google-ads.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
