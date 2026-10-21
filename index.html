@@ -684,23 +684,7 @@
 
     @media (max-width: 900px) {
       .hero .container { grid-template-columns: 1fr; gap: var(--s-12); }
-      /* No celular a foto entra em versão compacta depois do conteúdo:
-         rosto na dobra seguinte, sem empurrar o CTA pra fora da primeira tela */
-      .hero-visual {
-        display: flex;
-        padding-top: var(--s-6);
-      }
-      .hero-image-wrap { max-width: 280px; }
-      .hero-seal {
-        width: 56px;
-        height: 56px;
-        top: -18px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .hero-caption { font-size: 13px; margin-top: var(--s-5); }
-      .hero-ledger,
-      .hero-visual > p:last-child { display: none; }
+      .hero-visual { display: none; }
       .hero-content { text-align: left; }
     }
     @media (max-width: 480px) {

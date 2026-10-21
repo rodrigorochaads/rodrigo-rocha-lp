@@ -190,9 +190,7 @@
     '.rr-consent-cat strong{color:#F0EDE8;font-weight:600}',
     '@media(min-width:769px){.rr-consent{left:24px;right:auto;bottom:24px;max-width:460px}',
     '.rr-consent-btn{flex:0 0 auto;padding:0 22px;min-width:0}}',
-    /* Enquanto o aviso está aberto no celular, o CTA fixo sai de cena em vez
-       de se empilhar com o banner (os dois juntos tomavam quase metade da tela). */
-    'html.rr-consent-open .sticky-cta{opacity:0;pointer-events:none;transform:translateY(16px)}',
+    'html.rr-consent-open .sticky-cta{bottom:calc(var(--rr-consent-h,0px) + 28px)}',
     '@media(max-width:768px){.rr-consent{gap:10px;padding:12px 14px}}',
     '@media(prefers-reduced-motion:reduce){.rr-consent{transition:none}}',
     '.rr-consent-link{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;',
