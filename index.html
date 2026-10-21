@@ -169,6 +169,7 @@
        RESET
     ================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: rgba(201,168,76,0.28); color: #F0EDE8; }
     html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body {
       font-family: var(--f-body);
@@ -683,7 +684,23 @@
 
     @media (max-width: 900px) {
       .hero .container { grid-template-columns: 1fr; gap: var(--s-12); }
-      .hero-visual { display: none; }
+      /* No celular a foto entra em versão compacta depois do conteúdo:
+         rosto na dobra seguinte, sem empurrar o CTA pra fora da primeira tela */
+      .hero-visual {
+        display: flex;
+        padding-top: var(--s-6);
+      }
+      .hero-image-wrap { max-width: 280px; }
+      .hero-seal {
+        width: 56px;
+        height: 56px;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .hero-caption { font-size: 13px; margin-top: var(--s-5); }
+      .hero-ledger,
+      .hero-visual > p:last-child { display: none; }
       .hero-content { text-align: left; }
     }
     @media (max-width: 480px) {
