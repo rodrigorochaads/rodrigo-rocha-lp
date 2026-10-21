@@ -1,9 +1,16 @@
 [
-  {
-    "date": "2026-10-24",
-    "file": "modo-ia-do-google-o-que-muda-pra-quem-procura-clinica.html",
-    "title": "Modo IA do Google: o que muda pra quem procura clínica",
-    "excerpt": "Perguntas mais longas e recomendações locais feitas pela IA. O que muda pra clínica de estética e o que preparar.",
-    "date_label": "24 de outubro de 2026"
-  }
+    {
+        "date":  "2026-10-24",
+        "file":  "modo-ia-do-google-o-que-muda-pra-quem-procura-clinica.html",
+        "title":  "Modo IA do Google: o que muda pra quem procura clínica",
+        "excerpt":  "Perguntas mais longas e recomendações locais feitas pela IA. O que muda pra clínica de estética e o que preparar.",
+        "date_label":  "24 de outubro de 2026"
+    },
+    {
+        "date":  "2026-10-28",
+        "file":  "cirurgia-plastica-no-google-ads-como-anunciar-lipo-sem-desperdicar-verba.html",
+        "title":  "Cirurgia plástica no Google Ads: como anunciar lipo sem desperdiçar verba",
+        "excerpt":  "Quem digita \"lipo\" pode estar procurando remédio, lipoma ou procedimento sem corte. Como anunciar lipoaspiração sem pagar clique de quem nunca seria paciente.",
+        "date_label":  "28 de outubro de 2026"
+    }
 ]
