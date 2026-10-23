@@ -2190,6 +2190,12 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Enquanto o aviso de cookies está aberto, o botão fixo sai de cena (volta depois da escolha) */
+    .rr-consent-open .sticky-cta.visible {
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+    }
     @media (max-width: 768px) {
       .sticky-cta { display: block; }
       .sticky-cta .btn {
@@ -2208,6 +2214,7 @@
         scroll-behavior: auto !important;
       }
     }
+      ::selection{background:#C9A84C;color:#0A0A0A}
   </style>
   <script type="application/ld+json">
   {

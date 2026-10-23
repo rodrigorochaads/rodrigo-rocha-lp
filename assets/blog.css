@@ -497,3 +497,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 480px) {
   .fonte-preferida-btn { white-space: normal; }
 }
+
+/* Seleção de texto na cor da marca */
+::selection{background:#C9A84C;color:#0A0A0A}
