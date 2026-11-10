@@ -500,3 +500,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Seleção de texto na cor da marca */
 ::selection{background:#C9A84C;color:#0A0A0A}
+
+/* Tabelas de dados nos artigos */
+.tabela-wrap{overflow-x:auto;margin:1.4rem 0;-webkit-overflow-scrolling:touch}
+.tabela-dados{width:100%;border-collapse:collapse;font-size:.85rem}
+.tabela-dados th{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c-gold);text-align:right;font-weight:600;padding:.6rem .45rem;border-bottom:1px solid var(--c-gold-line)}
+.tabela-dados td{text-align:right;padding:.7rem .45rem;border-bottom:1px solid var(--c-border);color:var(--c-text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabela-dados th:first-child,.tabela-dados td:first-child{text-align:left}
+.tabela-dados tbody tr:last-child td{border-bottom:0}
+.tabela-dados td strong{color:var(--c-gold-light)}
+
+@media (max-width:480px){.tabela-dados{font-size:.78rem}.tabela-dados th{font-size:.6rem;letter-spacing:.02em;padding:.5rem .3rem}.tabela-dados td{padding:.65rem .3rem}}
