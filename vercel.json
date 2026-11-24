@@ -4,6 +4,11 @@
       "source": "/ig",
       "destination": "/?utm_source=instagram&utm_medium=bio&utm_campaign=perfil",
       "permanent": false
+    },
+    {
+      "source": "/blog/caso-real-google-ads-cirurgiao-plastico-3-meses-numeros-mes-a-mes.html",
+      "destination": "/blog/caso-real-google-ads-cirurgiao-plastico-de-22-para-42-contatos.html",
+      "permanent": true
     }
   ]
 }
