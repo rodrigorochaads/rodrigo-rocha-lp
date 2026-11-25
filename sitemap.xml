@@ -165,4 +165,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.rodrigorochaads.com.br/blog/dezembro-e-janeiro-pausar-ou-manter-anuncios-da-clinica-de-estetica.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
